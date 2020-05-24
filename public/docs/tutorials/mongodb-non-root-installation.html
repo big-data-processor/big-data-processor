@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MongoDB Non-Root Installation &mdash; Bio-Data Processor  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guideline to plan tasks into packages on Bio-Data Processor" href="../pipieline-development/task-best-practice.html" />
+    <link rel="prev" title="An example to deploy tasks on Google Cloud Platform" href="tutorial-task-deploy-GCP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bio-Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Non-root MongoDB Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-pre-compiled-mongodb">1. Download Pre-compiled MongoDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#untar-the-tarball-file">2. Untar the tarball file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-username-and-password">3. Create username and password</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Package constructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipieline-development/task-best-practice.html">Best practice to plan your tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipieline-development/task-definition.html">Define Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipieline-development/bdp-package-container.html">Building package container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipieline-development/create-package-registry.html">Create your package list</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bio-Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>MongoDB Non-Root Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/mongodb-non-root-installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mongodb-non-root-installation">
+<h1>MongoDB Non-Root Installation<a class="headerlink" href="#mongodb-non-root-installation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<div class="line-block">
+<div class="line"><strong>Targeted readers</strong>: BDP users.</div>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This document shows how to install MongoDB without root privilege.</p>
+</div>
+<div class="section" id="download-pre-compiled-mongodb">
+<h2>1. Download Pre-compiled MongoDB<a class="headerlink" href="#download-pre-compiled-mongodb" title="Permalink to this headline">¶</a></h2>
+<p>Please download the <a class="reference external" href="https://www.mongodb.com/download-center#community">community version of MongoDB</a>.
+In this tutorial we used MongoDB 4.0.1 community version for RHEL 7 Linux 64-bit x64.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.0.1.tgz
+</pre></div>
+</div>
+</div>
+<div class="section" id="untar-the-tarball-file">
+<h2>2. Untar the tarball file<a class="headerlink" href="#untar-the-tarball-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar xvzf mongodb-linux-x86_64-rhel70-4.0.1.tgz
+<span class="nb">cd</span> mongodb-linux-x86_64-rhel70-4.0.1
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/mongodb-linux-x86_64-rhel70-4.0.1/bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-username-and-password">
+<h2>3. Create username and password<a class="headerlink" href="#create-username-and-password" title="Permalink to this headline">¶</a></h2>
+<p>The details of this session can be found in <a class="reference external" href="https://docs.mongodb.com/manual/tutorial/enable-authentication/">https://docs.mongodb.com/manual/tutorial/enable-authentication/</a></p>
+<p>Start MongoDB without access control</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir ~/mongodb-bdp
+mongod --port <span class="m">27017</span> --dbpath ~/mongodb-bdp/ <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>Connect to the instance</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mongo --port <span class="m">27017</span>
+</pre></div>
+</div>
+<p>Create the user administrator.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>use bdp
+db.createUser<span class="o">(</span>
+<span class="o">{</span>
+    user: <span class="s2">&quot;bdp&quot;</span>,
+    pwd: <span class="s2">&quot;bdp123&quot;</span>,
+    roles: <span class="o">[</span> <span class="o">{</span> role: <span class="s2">&quot;readWrite&quot;</span>, db: <span class="s2">&quot;bdp&quot;</span> <span class="o">}</span> <span class="o">]</span>
+<span class="o">}</span>
+<span class="o">)</span>
+<span class="nb">exit</span>
+</pre></div>
+</div>
+<p>Re-start the MongoDB instance with access control.¶</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ps auxwww <span class="p">|</span> grep mongod <span class="p">|</span> grep <span class="m">27017</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> xargs <span class="nb">kill</span>
+mongod --auth --port <span class="m">27017</span> --dbpath ~/mongodb-bdp <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>Test the connection and authentication as the user administrator.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mongo --port <span class="m">27017</span> -u <span class="s2">&quot;bdp&quot;</span> -p <span class="s2">&quot;bdp123&quot;</span> --authenticationDatabase <span class="s2">&quot;admin&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pipieline-development/task-best-practice.html" class="btn btn-neutral float-right" title="Guideline to plan tasks into packages on Bio-Data Processor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial-task-deploy-GCP.html" class="btn btn-neutral float-left" title="An example to deploy tasks on Google Cloud Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Chi Yang
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

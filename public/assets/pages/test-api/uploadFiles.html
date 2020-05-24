@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+  </head>
+  <body>
+    <h1>Upload file(s) API</h1>
+    <input type='file' id='multiFileInput' multiple /><button id='multiFileBtn'>Click to upload multiple files</button>
+    <hr>
+    <input type='file' id='singleFileInput' /><button id='singleFileBtn'>Click to upload one single file</button>
+    <hr>
+    <ol id='info'></ol>
+    <script>
+      const bdpAPI = new BDPClientAPI();
+      const mutiFileBtn = document.getElementById('multiFileBtn');
+      const singleFileBtn = document.getElementById('singleFileBtn');
+      (async () => {
+        const infoDiv = document.getElementById("info");
+        await bdpAPI.initialize();
+        infoDiv.innerHTML += "<li>API initialized via api.initialize()</li>";
+        await BDPClientUtils.sleep(1.5);
+        mutiFileBtn.onclick = async function() {
+            const files = document.getElementById('multiFileInput').files;
+            const uploadedFiles = await bdpAPI.uploadFiles(files, {tags: ['upload-api-rules']}, function(progressObj) {
+                infoDiv.innerHTML += `<li>Upload progress: ${JSON.stringify(progressObj)}</li>`;
+            });
+            infoDiv.innerHTML += `<li>Upload finished: ${JSON.stringify(uploadedFiles)}</li>`;
+
+        }
+        singleFileBtn.onclick = async function() {
+            const files = document.getElementById('singleFileInput').files;
+            const uploadedFiles = await bdpAPI.uploadFiles(files, {tags: ['upload-api-rules']}, function(progressObj) {
+                infoDiv.innerHTML += `<li>Upload progress: ${JSON.stringify(progressObj)}</li>`;
+            });
+            infoDiv.innerHTML += `<li>Upload finished: ${JSON.stringify(uploadedFiles)}</li>`;
+            // await bdpAPI.deleteFile(uploadedFiles[0].id);
+        }
+      })().catch((err) => {
+        console.log(err);
+        bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>

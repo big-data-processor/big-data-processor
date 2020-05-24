@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+  </head>
+  <body>
+    <h1>Globby expression for a folder.</h1>
+    <div id='info'></div>
+    <div id='data' style='border: thin solid black;'></div>
+    <script>
+      const bdpAPI = new BDPClientAPI();
+      (async () => {
+        const infoDiv = document.querySelector("#info");
+        await bdpAPI.initialize();
+        infoDiv.innerHTML += "API initialized.<br>";
+        const currentFile = await bdpAPI.getCurrentFileInfo();
+        infoDiv.innerHTML += `Get current datafile info: ${currentFile.id} via api.getCurrentFileId().<br>`;
+        infoDiv.innerHTML += `This datafile record is a folder.<br>`;
+        const validFiles = await bdpAPI.globFilesInFolder(currentFile.id, ['*']);
+        infoDiv.innerHTML += `Get desired file paths inside this folder.<br>`;
+        infoDiv.innerHTML += `The paths are ` + JSON.stringify(validFiles) + '<br>';
+        const downloadFirstBlob = await bdpAPI.getFileBlob(currentFile.id, validFiles[0]);
+        infoDiv.innerHTML += `The first file blob has been downloaded.<br>`;
+        const theContent = await BDPClientUtils.readFileBlob(downloadFirstBlob, 'text');
+        infoDiv.innerHTML += `The file blob has been resolved as string.<br>`;
+        const dataDiv = document.querySelector('#data');
+        dataDiv.innerText = theContent;
+        infoDiv.innerHTML += `↓↓↓ The file content has been displayed below ↓↓↓<br>`;
+      })().catch((err) => {
+        console.log(err);
+        bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>

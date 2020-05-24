@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <style>
+      .fileEle {
+        padding: 5px;
+        border: thin solid darkgray;
+        margin: 3px;
+        width: 150px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .select {
+        background-color: rgba(200, 200, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Result related APIs</h1>
+    <div id='info'></div>
+    <h3>Arguments</h3>
+    <table id='argTable' class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Name</th><th>Description</th><th>Type</th><th>Inputs</th>
+        </tr>
+        </thead>
+        <tbody>
+      </tbody>
+    </table>
+    <div id='errInfo'></div>
+    <button id='getInputBtn'>Get user inputs</button>
+    <button id='executeTaskBtn'>ExecuteTask</button>
+    <div id='inputInfoDiv'></div>
+    <hr>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="stdoutTab" aria-selected="true">Standard Output</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#stderrTab" role="tab" aria-controls="stderrTab" aria-selected="false">Standard Error</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="stdoutTab" role="tabpanel" aria-labelledby="home-tab">
+          <pre id="stdoutPre" style='width: 100%; font-size: 10pt; margin: 5px;'></pre>
+      </div>
+      <div class="tab-pane fade" id="stderrTab" role="tabpanel" aria-labelledby="profile-tab">
+          <pre id="stderrPre" style='width: 100%; font-size: 10pt; margin: 5px;'></pre>
+      </div>
+    </div>
+    <script>
+      const bdpAPI = new BDPClientAPI();
+      const theTBody = document.querySelector("#argTable > tbody");
+      const getInputBtn = document.getElementById('getInputBtn');
+      const inputInfoDiv = document.getElementById('inputInfoDiv');
+      const executeTaskBtn = document.getElementById('executeTaskBtn');
+      const errorInfoDiv = document.getElementById('errInfo');
+      const stdoutPre = document.getElementById('stdoutPre');
+      const stderrPre = document.getElementById('stderrPre');
+      (async () => {
+        const infoDiv = document.querySelector("#info");
+        await bdpAPI.initialize();
+        const allTasksInPkg = await bdpAPI.listTasks();
+        const theTaskInfo = await bdpAPI.getTaskInfo('new-task222');
+        infoDiv.innerHTML = `<h2>Task: ${theTaskInfo.name}</h2>(id: ${theTaskInfo.id})`;
+        const theArguments = await bdpAPI.getTaskArguments('new-task222');
+        const inputGuide = await bdpAPI.getTaskInputGuide('new-task222');
+        const validInputs = inputGuide.inputs;
+        theArguments.forEach((arg, index) => {
+          console.log(validInputs[index]);
+          const trEle = document.createElement('tr');
+          trEle.innerHTML = `<td>${arg.name}</td><td>${arg.desc}</td><td>${arg.type}</td>`;
+          const inputTdEle = document.createElement('td');
+          let inputEle;
+          switch(arg.type) {
+            case 'static':
+              inputEle = document.createElement('input');
+              inputEle.disabled = true;
+              inputEle.value = validInputs[index].default;
+              validInputs[index].input = inputEle.value;
+              inputTdEle.append(inputEle);
+            break;
+            case 'value':
+              inputEle = document.createElement('input');
+              inputEle.value = validInputs[index].default;
+              validInputs[index].input = inputEle.value;
+              inputEle.onkeyup = function(event) {
+                validInputs[index].input = inputEle.value;
+              }
+              inputTdEle.append(inputEle);
+            break;
+            case 'list':
+              inputEle = document.createElement('select');
+              inputEle.multiple = arg.multiple;
+              validInputs[index].input = arg.multiple ? [] : undefined;
+              for (let i = 0; i < arg.list.length; i ++) {
+                let option = document.createElement('option');
+                option.value = arg.list[i];
+                option.innerText = arg.list[i];
+                option.selected = arg.multiple ? arg.default.indexOf(arg.list[i]) >= 0 : arg.default === arg.list[i];
+                if (option.selected) {
+                  validInputs[index].input = arg.multiple ? validInputs[index].input.push(option.value) : option.value;
+                }
+                inputEle.append(option);
+              }
+              inputEle.onchange = function(event) {
+                validInputs[index].input = $(inputEle).val();
+              }
+              inputTdEle.append(inputEle);
+            break;
+            case 'inFile':
+              for (let i = 0; i < validInputs[index].candidates.length; i ++) {
+                const eachCandidate = validInputs[index].candidates[i];
+                let divEle = document.createElement('div');
+                divEle.className = 'fileEle';
+                divEle.innerHTML = `<h6>${eachCandidate.name}</h6>${eachCandidate.desc}`;
+                divEle.onclick = function() {
+                  const isSelected = $(divEle).hasClass('select');
+                  $(divEle).parent().children(".fileEle").removeClass('select');
+                  validInputs[index].input = null;
+                  if (!isSelected) {
+                    $(divEle).addClass('select');
+                    validInputs[index].input = eachCandidate.id;
+                  }
+                }
+                inputTdEle.append(divEle);
+              }
+            break;
+            default:
+              // trEle.innerHTML += `<td></td>`;
+            break;
+          }
+          trEle.appendChild(inputTdEle);
+          theTBody.appendChild(trEle);
+        });
+        getInputBtn.onclick = function() {
+          console.log(validInputs.map(inp => inp ? inp.input : null));
+          inputInfoDiv.innerHTML = JSON.stringify(validInputs.map(inp => inp ? inp.input : null));
+        }
+        executeTaskBtn.onclick = async function() {
+          inputInfoDiv.innerHTML = "<li>Executing a task.</li>";
+          const theNewResult = await bdpAPI.executeTask('new-task222'
+            , {name: 'A new result!', desc: 'XD'}
+            , validInputs.map(inp => inp ? inp.input : null)
+            , []
+            , function(errors) {
+              errorInfoDiv.innerHTML = '';
+              errors.forEach((err) => {
+                errorInfoDiv.innerHTML = `<li>At argument ${err.index}, there is an error: ${err.error}</li>`;
+              });
+            });
+          inputInfoDiv.innerHTML += "<li>Task submitted and got its Result.</li>";
+          const outputWatcher = bdpAPI.watchResultMsgChange(function(resultOutput) {
+            /**
+             * {type: string, target: 'ResultMsg', data: {resultId: string, content: string}}
+             */
+            if (resultOutput.data.resultId !== theNewResult.id) { return; }
+            console.log(resultOutput);
+            if (resultOutput.type === 'stdOut') {
+              stdoutPre.innerText = resultOutput.data.content;
+            } else if (resultOutput.type === 'stdErr') {
+              stderrPre.innerText = resultOutput.data.content;
+            }
+          });
+          const watcher = bdpAPI.watchResultChange(function(updatedResult) {
+            if (updatedResult.data.id !== theNewResult.id) { return; }
+            if (updatedResult.data.status === 2) {
+              // success;
+              inputInfoDiv.innerHTML += "<li>The task is finished and its Result is success.</li>";
+              const openResultBtn = document.createElement('u');
+              openResultBtn.onclick = async function() {
+                // bdpAPI.openResultLink(theNewResult.id);
+                await bdpAPI.navigateToResultPage(theNewResult.id);
+              };
+              openResultBtn.style.cursor = 'pointer';
+              openResultBtn.innerText = 'Open the Result page.'
+              inputInfoDiv.appendChild(openResultBtn);
+              console.log('Task success');
+              /**
+               * Navigate to the result page!!!!
+               */
+              outputWatcher.stop();
+              watcher.stop();
+            } else if (updatedResult.data.status === 3) {
+              // errors
+              inputInfoDiv.innerHTML += "<li>The task has error and its Result is errored.</li>";
+              console.log('Task error');
+              outputWatcher.stop();
+              watcher.stop();
+            }
+          });
+        }
+      })().catch((err) => {
+        console.log(err);
+        bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>

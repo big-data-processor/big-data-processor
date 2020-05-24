@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Start &mdash; Bio-Data Processor  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="Welcome to Big Data Processor’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Bio-Data Processor
+          
+
+          
+            
+            <img src="_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">2. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-bio-data-processor-server">4. Start Bio-Data Processor server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-the-first-account-as-the-system-administrator">5. Register the first account as the system administrator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package constructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-best-practice.html">Best practice to plan your tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-definition.html">Define Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/bdp-package-container.html">Building package container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/create-package-registry.html">Create your package list</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bio-Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Quick Start</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/quick-start.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>TL;DR</strong></p>
+<p>Use the following commands to start the server with default configurations.
+Then, open your browser and open <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> .</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/big-data-processor/big-data-processor.git
+<span class="nb">cd</span> big-data-processor
+npm install
+npm start
+</pre></div>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Big Data Processor (BDP) requires <a class="reference external" href="https://nodejs.org/en/">NodeJS</a> and <a class="reference external" href="https://www.docker.com/get-docker">Docker</a> to automate many chores.
+Please follow their guidelines to install these two prerequisites.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This platform also requires the <a class="reference external" href="https://www.mongodb.com/">MongoDB</a> database.
+To ease the setup process, the server can initiate one MongoDB instance via Docker automatically if you do not have one.
+You may skip the mongoDB installations and setups.</p>
+</div>
+<p>Please make sure that the <cite>PATH</cite> environmental variables have been set for <code class="docutils literal notranslate"><span class="pre">node</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span></code>, so you could use commands like <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">-v</span></code> to check versions.
+Please also make sure that the docker daemon process is running.</p>
+<p>Installing both NodeJS as well as Docker requires root privileges. But the remaining steps do NOT require the elevated privileges.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For Linux users, be sure to add your account into docker user group. So you can use the command <cite>docker run …</cite> without <cite>sudo</cite>.
+Due to <a class="reference external" href="https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface">security issues</a>,
+you might consider to create an account without the <cite>sudo</cite> prvilege that is specifically used to start the BDP server.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Download the compressed zip file from here and decompress it to a folder named <code class="docutils literal notranslate"><span class="pre">big-data-processor</span></code>. Or download the code via <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> such as.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/big-data-processor/big-data-processor.git
+</pre></div>
+</div>
+<p>In the following, we reference this folder as <cite>big-data-processor</cite>.
+The file contents should be seen as the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>big-data-processor
+├──configs
+|  ├──server-config-template.yaml
+├──public
+|  └──...
+├──big-data-processor.js
+├──big-data-processor.js.map
+├──paakage.json
+└──package-lock.json
+</pre></div>
+</div>
+<p>Use a command line terminal and change directory (cd) to this <code class="docutils literal notranslate"><span class="pre">big-data-processor</span></code> folder and type <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code>. The <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code> will install all the required dependent packages.
+This will take you a few minutes to install. After <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code>, you will see a <code class="docutils literal notranslate"><span class="pre">node_modules</span></code> folder created and all dependent</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./bio-data-processor <span class="c1"># Change directory path to this ``big-data-processor`` path.</span>
+npm install
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="configure-server"></span><h2>3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>For a quicker taste of Bio-Data Processor, proceed to the</strong> <a class="reference internal" href="#start-server"><span class="std std-ref">next step</span></a>.</p>
+<p>Copy or rename the file <code class="docutils literal notranslate"><span class="pre">./configs/server-config-template.yaml</span></code> to <code class="docutils literal notranslate"><span class="pre">./configs/server-config.yaml</span></code>.
+You can configure server settings in the file <code class="docutils literal notranslate"><span class="pre">./configs/server-config.yaml</span></code>.
+The most important configurations are the database settings <code class="docutils literal notranslate"><span class="pre">mongoDB</span></code>.</p>
+<p>BDP server will try to connect to the MongoDB based on the settings in that config file.
+Don’t worry, if you haven’t any MongoDB installed, BDP server will automatically set up one MongoDB through Docker.
+You can change the <code class="docutils literal notranslate"><span class="pre">mongoDB.db_name</span></code>, <code class="docutils literal notranslate"><span class="pre">mongoDB.mongoUser</span></code>, <code class="docutils literal notranslate"><span class="pre">mongoDB.mongoPwd</span></code> for your desired database name, username, and password, respectively.
+In addition, you need also the <code class="docutils literal notranslate"><span class="pre">containerName</span></code> and <code class="docutils literal notranslate"><span class="pre">dockerVolumeName</span></code> to set a Docker container name for MongoDB and a volume name for Docker to create storage Volume.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Some notes about Docker</strong>
+The Docker container name and the volume name should be unique, since you could have multiple Docker volumes and containers.
+If the database connection failed, BDP firstly tries to initiate the container name if it existed.
+If failed, it tries to create a volume with the specified <code class="docutils literal notranslate"><span class="pre">dockerVolumeName</span></code> and create the container for MongoDB.</p>
+<p>You could use the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span> <span class="pre">-a</span></code> to see the initiated containers that are running or non-running.
+As for the volume, use the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">volume</span> <span class="pre">ls</span></code> to view the created volumes.
+To further inspect Docker instances, please see <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/inspect/">docker inspect</a>.
+The default <code class="docutils literal notranslate"><span class="pre">containerName</span></code> is <code class="docutils literal notranslate"><span class="pre">bdp-mongo</span></code> and the default <code class="docutils literal notranslate"><span class="pre">dockerVolumeName</span></code> is <code class="docutils literal notranslate"><span class="pre">bdp-mongo-data</span></code>.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Please be careful if you want to remove the Docker volume, such as the commands <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">volume</span> <span class="pre">rm</span> <span class="pre">&lt;volume-name&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">volume</span> <span class="pre">prune</span></code>. You may remove the actual database storage. The default <code class="docutils literal notranslate"><span class="pre">&lt;volume-name&gt;</span></code> for this quick-start is <code class="docutils literal notranslate"><span class="pre">bdp-mongo-data</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Data backup and restore</strong>
+You can use <a class="reference external" href="https://github.com/blacklabelops/volumerize">volumerize</a>. or other software to backup your data in a Docker volume.
+Below is a quick way to get a tarball from your MongoDB files.</p>
+<p><strong>To backup database in the Docker volume</strong>
+In case you would like to backup the data in the Docker volume. The default volume name is <code class="docutils literal notranslate"><span class="pre">bdp-mongo-data</span></code> in the <code class="docutils literal notranslate"><span class="pre">./configs/server-config.yaml</span></code>.
+After <strong>stopping the container that uses the volume,</strong> The following commands can <code class="docutils literal notranslate"><span class="pre">tar</span></code> (compress) all the database files in your desired folder <code class="docutils literal notranslate"><span class="pre">&lt;your-host-folder&gt;</span></code> on your computer.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm -v bdp-mongo-data:/data -v &lt;your-host-folder&gt;:/backup busybox tar cvf /backup/backup.tar /data
+</pre></div>
+</div>
+<p><strong>To restore database files to the Docker volume</strong>
+You may use the following command to restore the tarball to a new and empty Docker volume.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker volume create bdp-mongo-data2
+docker run --rm -v &lt;your-host-folder&gt;:/backup -v bdp-mongo-data2:/data -w<span class="o">=</span><span class="s2">&quot;/data&quot;</span> busybox tar xvf /backup/backup.tar --strip <span class="m">1</span>
+</pre></div>
+</div>
+<p>We store the information of Bio-Data Processor in the mongoDB database while the actual data files store in your filesystem. They are separated but associated. Bio-Data Processor uses database id as the filename. Therefore, we need the database to manage all data files.</p>
+</div>
+<p>If you already had a mongoDB instance, you firstly configure your MongoDB with proper privileges. Secondly, you specify the <code class="docutils literal notranslate"><span class="pre">db_name</span></code>, <code class="docutils literal notranslate"><span class="pre">mongoUser</span></code>, <code class="docutils literal notranslate"><span class="pre">mongoPwd</span></code>, <code class="docutils literal notranslate"><span class="pre">mongoHost</span></code> and these indicate database name, the username, password and the mongoDB location, respectively. The <code class="docutils literal notranslate"><span class="pre">containerName</span></code> and <code class="docutils literal notranslate"><span class="pre">dockerVolumeName</span></code> will be ignored.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The server configureations</p>
+</div>
+</div>
+<div class="section" id="start-bio-data-processor-server">
+<span id="start-server"></span><h2>4. Start Bio-Data Processor server<a class="headerlink" href="#start-bio-data-processor-server" title="Permalink to this headline">¶</a></h2>
+<p>Use the the following command in the <code class="docutils literal notranslate"><span class="pre">bio-data-processor</span></code> folder.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>node bioData-processor
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You do NOT need root privileges to start the Bio-Data Processor. We do NOT recommend to run with root privileges. If you need to use port number smaller than 1024 in linux operation system, you could allow <code class="docutils literal notranslate"><span class="pre">node</span></code> to use smaller port number by <code class="docutils literal notranslate"><span class="pre">setcap</span></code>. The <code class="docutils literal notranslate"><span class="pre">setcap</span></code> command may look like this (in CentOS7):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>setcap <span class="s1">&#39;cap_net_bind_service=+ep&#39;</span> <span class="sb">`</span>which node<span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="register-the-first-account-as-the-system-administrator">
+<h2>5. Register the first account as the system administrator<a class="headerlink" href="#register-the-first-account-as-the-system-administrator" title="Permalink to this headline">¶</a></h2>
+<p>Open your web browser and goto the <a class="reference external" href="http://localhost:8080">http://localhost:8080</a>.</p>
+<p>This is the default settings. You can change the domain name and the server port by modifying the <code class="docutils literal notranslate"><span class="pre">serverConfig.site_domain</span></code> and <code class="docutils literal notranslate"><span class="pre">serverConfig.port</span></code> values in the <code class="docutils literal notranslate"><span class="pre">./configs/server-config.yaml</span></code> file.</p>
+<p>Register the first account and this is the only account that can manage other users. All additional users require administrator’s approval.
+Remember to change your role (auth for Bio-Data Processor) to <code class="docutils literal notranslate"><span class="pre">9.</span> <span class="pre">Bio-Data</span> <span class="pre">Prcoessor</span> <span class="pre">admin</span></code> so that you can have additional privileges to install packages, manage tasks, view the result histories and see the system error logs.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The user guide for Bio-Data Processor</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Big Data Processor’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Chi Yang
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

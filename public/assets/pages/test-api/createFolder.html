@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+  </head>
+  <body>
+    <h1>Initialize the API</h1>
+    <ol id='info'></ol>
+    <script>
+      const bdpAPI = new BDPClientAPI();
+      (async () => {
+        const infoDiv = document.querySelector("#info");
+        await bdpAPI.initialize();
+        infoDiv.innerHTML += "<li>API initialized via api.initialize()</li>";
+        const createdFolder = await bdpAPI.createFolder('A folder', 'some description');
+        infoDiv.innerHTML += `<li>Folder created:<br>${JSON.stringify(createdFolder)}<br></li>`;
+        await BDPClientUtils.sleep(1.5);
+        const updatedFolder = await bdpAPI.updataFileInfo(createdFolder.id, {
+          name: 'A new foldername', desc: 'some new description', tags: ['a-new-tag']});
+        infoDiv.innerHTML += `<li>Folder updated:<br>${JSON.stringify(updatedFolder)}<br></li>`;
+        await BDPClientUtils.sleep(1.5);
+        const deletingFolder = await bdpAPI.deleteFile(createdFolder.id);
+        infoDiv.innerHTML += `<li>The folder has been scheduled to be deleted.
+          The deleting file record: ${JSON.stringify(deletingFolder)}</li>`;
+        await BDPClientUtils.sleep(1.5);
+        infoDiv.innerHTML += `<li>Demo finished</li>`;
+      })().catch((err) => {
+        console.log(err);
+        bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>

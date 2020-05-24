@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+  </head>
+  <body>
+    <h1>Initialize the API</h1>
+    <div id='info'></div>
+    <script>
+      const bdpAPI = new BDPClientAPI();
+      (async () => {
+        const infoDiv = document.querySelector("#info");
+        await bdpAPI.initialize();
+        infoDiv.innerHTML += "API initialized via api.initialize()";
+        /**
+         *   objectStoreSettings: {[key: string]: {keyPath: string, autoIncrement: boolean}}
+         *   , creatingIndexes: {[key: string]: {indexName: string, keyPath: string
+         *   , objectParameters?: {unique: boolean, multiEntry: boolean, locale: string}}}
+         *
+        */
+        await bdpAPI.requestDatabase(1, {
+          'someObjectStoreName': {keyPath: 'key'}
+        }, {
+          'someObjectStoreName': {
+            indexName: 'keyIndex', keyPath: 'key2', objectParameters: {unique: false}
+          }
+        });
+
+        let hasData = false;
+        await bdpAPI.dataStoreQuery('someObjectStoreName', null, null, function(eachItem) {
+          console.log(eachItem)
+          hasData = true;
+        });
+        const data = await bdpAPI.dataStoreGet('someObjectStoreName', null, 'keyIndex');
+        console.log(data);
+        if (!hasData) {
+          await bdpAPI.dataStorePut('someObjectStoreName', [{
+            key: 'test', data: '123', key2: 'value2'
+          }]);
+          await bdpAPI.dataStorePut('someObjectStoreName', [{
+            key: 'test2', data: '123', key2: 'value2'
+          }]);
+          await bdpAPI.dataStorePut('someObjectStoreName', [{
+            key: 'test3', data: '123', key2: 'value3'
+          }]);
+          await bdpAPI.dataStorePut('someObjectStoreName', [{
+            key: 'test4', data: '123'
+          }]);
+        }
+        // await bdpAPI.emptyDataStore('someObjectStoreName');
+        // await bdpAPI.removeDataStore('someObjectStoreName');
+        // await bdpAPI.requestDatabaseRemove();
+      })().catch((err) => {
+        console.log(err);
+        bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>

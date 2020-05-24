@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+  </head>
+  <body>
+    <h1>Get FileBlob API</h1>
+    <h3>The download progress</h3>
+    <div id="progressContainer">
+    </div>
+    <h3>The downloaded content resolved as text:</h3>
+    <div style='border: thin solid black; width: 100%; overflow: auto;'>
+        <pre id='resolvedText'></pre>
+    </div>
+    <script>
+      const bdpAPI = new BDPClientAPI();
+      (async () => {
+        await bdpAPI.initialize();
+        const progressDiv = document.querySelector('#progressContainer');
+        const fileObj = await bdpAPI.getCurrentFileInfo();
+        const fileBlob = await bdpAPI.getFileBlob(fileObj.id, null, function(progressObj){
+          const newProgressItem = document.createElement('p');
+          console.log(progressObj);
+          newProgressItem.innerText = `[Type = ${progressObj.type}] Loading progress: ${progressObj.loaded} / ${progressObj.total} (${progressObj.progress}%)`;
+          progressDiv.append(newProgressItem);
+        });
+        const resolvedText = await BDPClientUtils.readFileBlob(fileBlob, 'text');
+        const theTargetDOM = document.querySelector('#resolvedText');
+        theTargetDOM.innerText = resolvedText;
+      })().catch((err) => {
+        console.log(err);
+        // bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>

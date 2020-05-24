@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to Big Data Processor’s documentation! &mdash; Bio-Data Processor  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Start" href="quick-start.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Bio-Data Processor
+          
+
+          
+            
+            <img src="_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package constructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-best-practice.html">Best practice to plan your tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-definition.html">Define Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/bdp-package-container.html">Building package container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/create-package-registry.html">Create your package list</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Bio-Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to Big Data Processor’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-big-data-processor-s-documentation">
+<h1>Welcome to Big Data Processor’s documentation!<a class="headerlink" href="#welcome-to-big-data-processor-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Big Data Processor (BDP) is a light-weight, yet complete and scalable workflow platform.
+This web workbench not only focus on <strong>workflow portability</strong>, <strong>reproducibility</strong> and <strong>reusiblity</strong> but also <strong>portable data visualizations</strong>.
+Most workflow management systems can only help us to execute and monitor workflows. Users have to find their way to explore the results.
+Here, with our Page system, users can visualize results interactively right after workflow executions, since package developers can freely develop web interfaces for their specific workflows.</p>
+<p><strong>All on web pages!</strong></p>
+<p>This web workbench provides web interfaces that covers project management, workflow executions, task monitoring, and even portable package building.
+Packages of BDP are in a portable format that can be installed on every BDP hosts by just mouse clicks.
+Then, these workflows in the packages are ready to run with near-zero configurations!</p>
+<p>The coolest part is that we also provides the web proxy functionality. Our Page system can serve containerized web services or even desktop applications such as R/Shiny apps, RStudio, Jupyter Notebookor Matlab IDE and many more!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#download-pre-compiled-mongodb">1. Download Pre-compiled MongoDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#untar-the-tarball-file">2. Untar the tarball file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#create-username-and-password">3. Create username and password</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Package constructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-best-practice.html">Best practice to plan your tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-best-practice.html#four-mandatory-points">Four mandatory points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#do-expose-all-output-paths-as-input-arguments">1. Do expose all output paths as input arguments.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#for-input-output-files-accepts-the-absolute-full-path-s-as-arguments">2. For input/output files, accepts the absolute full path(s) as arguments.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#make-sure-to-follow-symbolic-link-of-a-folder">3. Make sure to follow symbolic link of a folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#receive-sigterm-or-sigint-signal-for-gracefully-stop-processes">4. Receive SIGTERM or SIGINT signal for gracefully stop processes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-best-practice.html#three-suggested-points">Three suggested points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#wrap-your-tasks-running-inside-a-docker-container">1. Wrap your tasks running inside a docker container.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#do-not-handle-batch-tasks-by-yourself">2. Do NOT handle batch tasks by yourself</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#be-careful-when-outputting-files-in-input-folders">3. Be careful when outputting files in input folders</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-definition.html">Define Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-definition.html#step-1-create-a-task-on-the-bio-data-processor-web-platform">Step 1. Create a task on the Bio-Data Processor web platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-definition.html#step-2-task-definitions-for-the-task-adapter">Step 2. Task definitions for the task adapter.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#the-basic-settings-for-a-task-template">2.1. The basic settings for a task template</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-is-the-argv">What is the <cite>argv</cite>?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#the-program-was-containerized-by-3rd-party-e-g-biocontainers">2.2. The program was containerized by 3rd-party (e.g. biocontainers)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-does-the-pipe-mean">What does the pipe (|) mean?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-is-the-filter-function">What is the filter function?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#the-program-script-was-containerized-inside-a-package-container-of-bio-data-processor">2.3. The program/script was containerized inside a package container of Bio-Data Processor.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-are-the-available-variables-in-the-task-template">What are the available variables in the <cite>task-template</cite>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-does-the-mean">What does the <cite>{% … %}</cite> mean?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#empty-strings-are-ignored">Empty strings are ignored.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#no-rich-features-for-argument-validations">No rich features for argument validations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#handling-batch-tasks">2.4. Handling batch tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-definition.html#step-3-move-task-definition-files-into-bdp-package-container">Step 3. Move task definition files into BDP package container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/bdp-package-container.html">Building package container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#bring-your-development-environment-close-to-the-production-environment">Bring your development environment close to the production environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#base-image">1. Base Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#metadata">2. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#install-required-packages-libraries-that-needs-root-privileges">3. Install required packages/libraries that needs root privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#install-required-packages-libraries-that-need-not-root-privileges">4. Install required packages/libraries that need NOT root privileges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#when-the-tools-are-already-in-conda">When the tools are already in <cite>conda</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#when-the-tools-need-to-be-downloaded-from-internet">When the tools need to be downloaded from internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#build-from-the-source-code">Build from the source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#copy-the-scripts-or-files-from-other-third-party-library">Copy the scripts or files from other third party library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#install-packages-via-package-manager-s-that-do-not-need-the-root-privilege">Install packages via package manager(s) that do not need the root privilege</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#the-bdp-package-folder-is-required-and-contains-the-following-folders">5. The <cite>bdp-package</cite> folder is required and contains the following folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#the-docker-wrapper">6. The docker-wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#switch-back-to-root-user">7. Switch back to root user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#setting-the-entrypoint">8. Setting the ENTRYPOINT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#building-from-dockerfile">9. Building from Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#testing-your-script">10. Testing your script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#volume-mapping-from-host-folders-to-docker-containers">Volume mapping from host folders to docker containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipieline-development/create-package-registry.html">Create your package list</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quick-start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Chi Yang
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

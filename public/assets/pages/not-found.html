@@ -1,0 +1,26 @@
+<script src="/assets/pages/client-api.js"></script>
+<div style='position: absolute; top: 0; bottom: 0px; left: 0px; right: 0px;width: 100%; height: 50%;margin: auto; text-align: center;'>
+  <br>
+  <img src='/assets/img/broken-processor.svg' style='width: 80px; height: 80px;' />
+  <h2>Sorry, we cannot find the Page for you.</h2>
+  <br>
+  <h3>You are viewing this page because ...</h3>
+  <div style='font-size: 20px;'>
+    <li>Package developers did not make the customized Page.</li>
+    <li>Or, they made some mistakes setting the Page configs.</li>
+  </div>
+  <br>
+  <button id='gotoProject'>Go to project list</button>
+  <br><br>
+  <small>The above icon made by <a href="https://www.flaticon.com/free-icon/processor_812883" target=_blank title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" target=_blank title="Flaticon">www.flaticon.com</a></small>
+</div>
+<script>
+  const bdpAPI = new BDPClientAPI();
+  (async () => {
+    await bdpAPI.initialize();
+    const gotoProjectBtn = document.querySelector('#gotoProject');
+    gotoProjectBtn.addEventListener('click', async () => {
+      await bdpAPI.navigateToProjectList();
+    });
+  })().catch(console.log);
+</script>

@@ -1,0 +1,84 @@
+---
+serverConfig:
+  title: Big Data Processor
+  site_domain: http://localhost
+  port: 8080
+  sessionSecret: BigDataProcessorIsGood # It's used to encode the cookies. Change to your prefered string
+  admin_email: chiyang1118@gmail.com
+  accessLog: "./logs/access.log"
+  cookieMaxAge: 86400000
+  development: false # If you are using this server to develop the front-ends of BDP
+  devPort: 4200
+  devSite: http://localhost
+mongoDB:
+  db_name: bdpDB # remember to change to a preferred database name
+  mongoUser: bdpDBuser # remember to change to a preferred username
+  mongoPwd: your_bdp_db_password # remember to change to a preferred password
+  mongoHost: localhost
+  mongoPort: 27017
+  containerName: bdp-mongo # If the above db connection failed, the server tries to initiate a mongoDB instance through docker
+  dockerVolumeName: bdp-mongo-data # the docker volume name for the MongoDB container instance storages
+home:  # The information is displayed on the home page. (In a future updates, we will enable customized home page.)
+  maintainer: your@email.com
+  hostedAt: # Change to your organizations.
+    - name: Molecular Medicine Research Center
+      href: http://cgmmrc.cgu.edu.tw/bin/home.php
+      icon: /assets/img/cgmmrc_logo.png
+    - name: Chang Gung University
+      href: http://cgu.edu.tw
+      icon: /assets/img/cgu_logo.png
+  address:
+    - Molecular Medicine Research Center
+    - Chang Gung University
+    - No. 259, Wen-Hwa 1st Road, Kwei-Shan Dist., Tao-Yuan City 33302,Taiwan
+system:
+  docker_path: docker
+  dataFilePath: ./datasets # This is where we store all user files.
+  scriptFolder: ./scripts # a quick folder to test your script. You put scripts in this folder and then use '$ScriptFolder' to specify this folder. (Deprecating)
+  uploadFolder: ./uploads # the temporary folder for uploading file(s)
+  packageFolder: ./packages # We store package information here, such as task definitions including adapters locate here.
+  taskLogFolder: ./taskLogs # this is where we store the tasklogs (stdout and stderr)
+  fileLimits: 1073741824 # the file size allowed to upload ONE file.
+  concurrentProcNumber: 3 # the allowed concurrent number of submit task(s) (to task adapters).
+
+# To enable the secure HTTP, use either the http certificate or let us automatically configure with the letsencrypt.
+# Remember the site_domain needs to begin with 'https://'.
+
+#https:
+#  credentialKey: ''
+#  credentialCertificate: ''
+
+#certbot:
+#  certbot_production: true
+#  certbotStore: "./letsencrypt"
+#  debug: false
+
+
+
+#If set the email, users registered a pair of email and password will be asked to verify their email account first.
+
+#email:  
+#  smtpConfig:
+#    host: your.mail.server
+#    port: 25
+#    secure: false
+#    auth:
+#      user: username
+#      pass: your-pop3-mail-account-password
+#    tls:
+#      rejectUnauthorized: false
+#    debug: false
+#  verificationContent: Hello,<br> Please click the verification link below.
+
+# To enable the googel recaptcha for users to login, you will need to apply from Google first and configure the followings.
+
+#reCaptcha:
+#  reCaptchaSecret: Google reCaptcha secret (you need to apply from Google reCaptcha)
+#  reCaptchaSiteKey: your reCaptcha sitekey
+
+#To enable Google 3rd-party login, you have to apply from Google first and configure the followings.
+
+#GoogleAuth: 
+#  clientID: your-google-client-id
+#  clientSecret: your-google-client-secrete
+

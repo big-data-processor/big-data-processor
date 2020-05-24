@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <script src="/assets/pages/client-api.js"></script>
+    <script src="https://unpkg.com/xlsx@0.14.2/dist/xlsx.full.min.js"></script>
+    <script src="//unpkg.com/canvas-datagrid/dist/canvas-datagrid.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.1/dist/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body style='padding: 5px;'>
+
+    <h1>A Page to manipulate the Excel file.</h1>
+    <div class="progress">
+      <div id='progressBar' class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
+    <button type="button" id='downloadBtn' class="btn btn-primary" disabled>Export</button>
+    <button type="button" id='uploadBtn' class="btn btn-secondary" disabled>Upload</button>
+    <hr>
+    <div id='newFileDiv'></div>
+    <hr>
+    File: <span id='workbookInfo'></span>
+    <hr>
+    <ul id='sheetList' class="list-group list-group-horizontal"></ul>
+    <div id="grid"></div>
+    <script>
+      let previousIndex = undefined;
+      const bdpAPI = new BDPClientAPI();
+      const _grid = document.getElementById('grid');
+      const workbookInfo = document.getElementById('workbookInfo');
+      const sheetListEle = document.getElementById('sheetList');
+      const newFileDiv = document.getElementById('newFileDiv');
+      const cdg = canvasDatagrid({
+        parentNode: _grid
+      });
+      cdg.style.height = (window.innerHeight - 200) + "px";;
+      cdg.style.width = (window.innerWidth - 30) + "px";
+
+      const process_wb = function(wb, sheetIndex) {
+        sheetIndex = sheetIndex || 0;
+        const sheetName = wb.SheetNames[sheetIndex];
+        const json = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], {raw:false, header:1});
+        $(sheetListEle).children('li').removeClass('active');
+        $($(sheetListEle).children('li')[sheetIndex]).addClass('active');
+        displaySheet(json);
+        previousIndex = sheetIndex;
+      }
+      const saveSheet = function(wb, sheetIndex) {
+        const sheetName = wb.SheetNames[sheetIndex];
+        wb.Sheets[sheetName] = XLSX.utils.aoa_to_sheet(cdg.data);
+      }
+      const displaySheet = function(json) {
+        var L = 0;
+        json.forEach(function(r) { if(L < r.length) L = r.length; });
+        for(var i = json[0].length; i < L; ++i) {
+          json[0][i] = "";
+        }
+        cdg.data = json;
+      };
+
+      function _resize() {
+        _grid.style.height = (window.innerHeight - 200) + "px";
+        _grid.style.width = (window.innerWidth - 30) + "px";
+        cdg.style.height = (window.innerHeight - 200) + "px";;
+        cdg.style.width = (window.innerWidth - 30) + "px";
+      }
+      window.addEventListener('resize', _resize);
+      (async () => {
+        let selectedSheetIndex = 0;
+        let newFileIndex = 0;
+        await bdpAPI.initialize();
+        const theCurrentFile = await bdpAPI.getCurrentFileInfo();
+        workbookInfo.innerText = theCurrentFile.name;
+        const progressBar = document.getElementById('progressBar')
+        const fileBlob = await bdpAPI.getFileBlob(theCurrentFile.id, null, function(progressObj) {
+          progressBar.style.width = progressObj.progress + '%';
+        });
+        const dataBuffer =  await BDPClientUtils.readFileBlob(fileBlob, 'binaryString');
+        const workbook = XLSX.read(dataBuffer, {type: 'binary'});
+        workbook.SheetNames.forEach((sheetName, index) => {
+          const link = document.createElement('li');
+          // link.href="#";
+          link.className = "list-group-item list-group-item-action";
+          link.style.cursor = 'pointer';
+          link.innerText = sheetName;
+          link.onclick = function() {
+            if (previousIndex !== undefined) {
+              saveSheet(workbook, previousIndex);
+            }
+            process_wb(workbook, index);
+          };
+          sheetListEle.appendChild(link);
+        });
+        process_wb(workbook, selectedSheetIndex);
+        downloadBtn.disabled = false;
+        downloadBtn.onclick = function() {
+          downloadBtn.disabled = true;
+          if (previousIndex !== undefined) {
+            saveSheet(workbook, previousIndex);
+          }
+          var wbout = XLSX.write(workbook, { bookType:'xlsx', bookSST:false, type:'array' });
+          saveAs(new Blob([wbout], {type:"application/octet-stream"}), theCurrentFile.name + ".xlsx");
+          downloadBtn.disabled = false;
+        }
+        uploadBtn.disabled = false;
+        uploadBtn.onclick = async function() {
+          uploadBtn.disabled = true;
+          if (previousIndex !== undefined) {
+            saveSheet(workbook, previousIndex);
+          }
+          var wbout = XLSX.write(workbook, { bookType:'xlsx', bookSST:false, type:'array' });
+          progressBar.style.width = '0%';
+          $(progressBar).parent().fadeIn(300);
+          const theUpdatedExcel = await bdpAPI.uploadFileBlob(new Blob([wbout]), theCurrentFile.name + ` (new ${newFileIndex})`,{
+            desc: 'This is an updated excel file!',
+            tags: ['new-excel', 'modified'],
+            format: 'xlsx'
+          }, function(progressObj) {
+            progressBar.style.width = progressObj.progress + '%';
+          });
+          newFileIndex ++;
+          await BDPClientUtils.sleep(1.5);
+          $(progressBar).parent().fadeOut(300);
+          const newFileBtn = document.createElement('button');
+          newFileBtn.className = "btn btn-info";
+          newFileBtn.style.margin = '0 5px';
+          newFileBtn.innerText = theUpdatedExcel.name;
+          newFileBtn.onclick = async function() {
+            await bdpAPI.navigateToFilePage(theUpdatedExcel.id, 0);
+          };
+          newFileDiv.appendChild(newFileBtn);
+          uploadBtn.disabled = false;
+        }
+        await BDPClientUtils.sleep(1.5);
+        $(progressBar).parent().fadeOut(300);
+        _resize()
+      })().catch((err) => {
+        console.log(err);
+        bdpAPI.log(err);
+      });
+    </script>
+  </body>
+</html>
