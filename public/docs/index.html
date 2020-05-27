@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quick Start" href="quick-start.html" /> 
+    <link rel="next" title="Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,24 +87,22 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorials</span></p>
+<p class="caption"><span class="caption-text">Concept</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Package constructions</span></p>
+<p class="caption"><span class="caption-text">Quick Start</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-best-practice.html">Best practice to plan your tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-definition.html">Define Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/bdp-package-container.html">Building package container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/create-package-registry.html">Create your package list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Administrations</span></p>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
 </ul>
@@ -184,13 +182,26 @@ Then, these workflows in the packages are ready to run with near-zero configurat
 <p>The coolest part is that we also provides the web proxy functionality. Our Page system can serve containerized web services or even desktop applications such as R/Shiny apps, RStudio, Jupyter Notebookor Matlab IDE and many more!</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Tutorials</span></p>
+<p class="caption"><span class="caption-text">Concept</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#download-pre-compiled-mongodb">1. Download Pre-compiled MongoDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#untar-the-tarball-file">2. Untar the tarball file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#create-username-and-password">3. Create username and password</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Quick Start</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
@@ -206,81 +217,9 @@ Then, these workflows in the packages are ready to run with near-zero configurat
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Package constructions</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-best-practice.html">Best practice to plan your tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-best-practice.html#four-mandatory-points">Four mandatory points</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#do-expose-all-output-paths-as-input-arguments">1. Do expose all output paths as input arguments.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#for-input-output-files-accepts-the-absolute-full-path-s-as-arguments">2. For input/output files, accepts the absolute full path(s) as arguments.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#make-sure-to-follow-symbolic-link-of-a-folder">3. Make sure to follow symbolic link of a folder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#receive-sigterm-or-sigint-signal-for-gracefully-stop-processes">4. Receive SIGTERM or SIGINT signal for gracefully stop processes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-best-practice.html#three-suggested-points">Three suggested points</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#wrap-your-tasks-running-inside-a-docker-container">1. Wrap your tasks running inside a docker container.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#do-not-handle-batch-tasks-by-yourself">2. Do NOT handle batch tasks by yourself</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-best-practice.html#be-careful-when-outputting-files-in-input-folders">3. Be careful when outputting files in input folders</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/task-definition.html">Define Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-definition.html#step-1-create-a-task-on-the-bio-data-processor-web-platform">Step 1. Create a task on the Bio-Data Processor web platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-definition.html#step-2-task-definitions-for-the-task-adapter">Step 2. Task definitions for the task adapter.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#the-basic-settings-for-a-task-template">2.1. The basic settings for a task template</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-is-the-argv">What is the <cite>argv</cite>?</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#the-program-was-containerized-by-3rd-party-e-g-biocontainers">2.2. The program was containerized by 3rd-party (e.g. biocontainers)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-does-the-pipe-mean">What does the pipe (|) mean?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-is-the-filter-function">What is the filter function?</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#the-program-script-was-containerized-inside-a-package-container-of-bio-data-processor">2.3. The program/script was containerized inside a package container of Bio-Data Processor.</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-are-the-available-variables-in-the-task-template">What are the available variables in the <cite>task-template</cite>?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#what-does-the-mean">What does the <cite>{% … %}</cite> mean?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#empty-strings-are-ignored">Empty strings are ignored.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pipieline-development/task-definition.html#no-rich-features-for-argument-validations">No rich features for argument validations</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/task-definition.html#handling-batch-tasks">2.4. Handling batch tasks</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/task-definition.html#step-3-move-task-definition-files-into-bdp-package-container">Step 3. Move task definition files into BDP package container</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/bdp-package-container.html">Building package container</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#introduction">Introduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#bring-your-development-environment-close-to-the-production-environment">Bring your development environment close to the production environment</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#base-image">1. Base Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#metadata">2. Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#install-required-packages-libraries-that-needs-root-privileges">3. Install required packages/libraries that needs root privileges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#install-required-packages-libraries-that-need-not-root-privileges">4. Install required packages/libraries that need NOT root privileges</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#when-the-tools-are-already-in-conda">When the tools are already in <cite>conda</cite></a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#when-the-tools-need-to-be-downloaded-from-internet">When the tools need to be downloaded from internet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#build-from-the-source-code">Build from the source code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#copy-the-scripts-or-files-from-other-third-party-library">Copy the scripts or files from other third party library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#install-packages-via-package-manager-s-that-do-not-need-the-root-privilege">Install packages via package manager(s) that do not need the root privilege</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#the-bdp-package-folder-is-required-and-contains-the-following-folders">5. The <cite>bdp-package</cite> folder is required and contains the following folders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#the-docker-wrapper">6. The docker-wrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#switch-back-to-root-user">7. Switch back to root user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#setting-the-entrypoint">8. Setting the ENTRYPOINT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#building-from-dockerfile">9. Building from Dockerfile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pipieline-development/bdp-package-container.html#testing-your-script">10. Testing your script</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipieline-development/bdp-package-container.html#volume-mapping-from-host-folders-to-docker-containers">Volume mapping from host folders to docker containers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pipieline-development/create-package-registry.html">Create your package list</a></li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Administrations</span></p>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
 </ul>
@@ -303,7 +242,7 @@ Then, these workflows in the packages are ready to run with near-zero configurat
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quick-start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

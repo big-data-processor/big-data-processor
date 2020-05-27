@@ -21,13 +21,20 @@ The coolest part is that we also provides the web proxy functionality. Our Page 
 .. toctree::
     :maxdepth: 1
 
-    Quick start<quick-start>
     Introduction<introduction>
     Installation<installation>
 
 .. toctree::
     :maxdepth: 4
-    :caption: Tutorials
+    :caption: Concept
+
+    Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
+    Task deployment on Google Cloud Platform<tutorials/tutorial-task-deploy-GCP>
+    Non-root MongoDB Installation<tutorials/mongodb-non-root-installation>
+
+.. toctree::
+    :maxdepth: 4
+    :caption: Quick Start
 
     Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
     Task deployment on Google Cloud Platform<tutorials/tutorial-task-deploy-GCP>
@@ -35,7 +42,7 @@ The coolest part is that we also provides the web proxy functionality. Our Page 
     
 .. toctree::
     :maxdepth: 4
-    :caption: Basic usage
+    :caption: Basic usages
 
     Manage projects
     Import files
@@ -47,10 +54,9 @@ The coolest part is that we also provides the web proxy functionality. Our Page 
 
 .. toctree::
     :maxdepth: 4
-    :caption: Package constructions
+    :caption: Package Constructions
 
-
-    Best practice to plan your tasks<pipieline-development/task-best-practice>
+.. Best practice to plan your tasks<pipieline-development/task-best-practice>
     Manage Packages
     Define Tasks<pipieline-development/task-definition>
     Pipe your Tasks into workflows
@@ -60,7 +66,7 @@ The coolest part is that we also provides the web proxy functionality. Our Page 
 
 .. toctree::
     :maxdepth: 4
-    :caption: Administrations
+    :caption: System Administrations
 
     User managment
     Package settings
