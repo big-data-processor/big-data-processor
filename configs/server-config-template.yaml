@@ -31,6 +31,7 @@ home:  # The information is displayed on the home page. (In a future updates, we
     - Molecular Medicine Research Center
     - Chang Gung University
     - No. 259, Wen-Hwa 1st Road, Kwei-Shan Dist., Tao-Yuan City 33302,Taiwan
+# Be sure to share the following folder paths to Docker, especially you host the server on MacOS or Windows
 system:
   docker_path: docker
   dataFilePath: ./datasets # This is where we store all user files.
@@ -38,8 +39,8 @@ system:
   uploadFolder: ./uploads # the temporary folder for uploading file(s)
   packageFolder: ./packages # We store package information here, such as task definitions including adapters locate here.
   taskLogFolder: ./taskLogs # this is where we store the tasklogs (stdout and stderr)
-  fileLimits: 1073741824 # the file size allowed to upload ONE file.
-  concurrentProcNumber: 3 # the allowed concurrent number of submit task(s) (to task adapters).
+  fileLimits: 1073741824 # the allowed file size (in bytes) to upload. Use 'Infinity' to disable this limit.
+  concurrentProcNumber: 3 # the allowed max concurrent number of submited tasks. Use 'Infinity' to disable this limit.
 
 # To enable the secure HTTP, use either the http certificate or let us automatically configure with the letsencrypt.
 # Remember the site_domain needs to begin with 'https://'.
