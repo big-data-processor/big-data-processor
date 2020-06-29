@@ -174,8 +174,8 @@ class BDPClientAPI {
   async navigateToFilePage(fileID, pageKey, packageID) {
     await this._callBdpApi('navigateToFilePage', {fileID: fileID, pageKey: pageKey, packageID: packageID});
   }
-  async navigateToBdpDataFile(fileID, pageKey, packageID) {
-    await this._callBdpApi('navigateToBdpDataFile', {fileID: fileID, pageKey: pageKey, packageID: packageID});
+  async navigateToBdpDataFile(fileID) {
+    await this._callBdpApi('navigateToBdpDataFile', {fileID: fileID});
   }
   async navigateToResultPage(resultID, pageKey, packageID) {
     await this._callBdpApi('navigateToResultPage', {resultID: resultID, pageKey: pageKey, packageID: packageID});
