@@ -124,6 +124,9 @@ class BDPClientAPI {
   async getDownloadLink(fileID, subPath, authToken) {
     return await this._callBdpApi('getDownloadLink', {fileID: fileID, subPath: subPath || null, authToken: authToken || ''});
   }
+  async getCurrentUserInfo() {
+    return this._callBdpApi('getCurrentUserInfo');
+  }
   async getCurrentFileInfo() {
     return this._callBdpApi('getCurrentFileInfo');
   }
@@ -139,11 +142,35 @@ class BDPClientAPI {
   async globFilesInFolder(fileID, globbyExprs) {
     return this._callBdpApi('globFilesInFolder', {fileID: fileID, globbyExprs: globbyExprs});
   }
+  async importFileFromPath(path, makeSymbolicLink, options) {
+    return this._callBdpApi('importFileFromPath', {
+      path: path,
+      makeSymbolicLink: makeSymbolicLink ? true : false,
+      options: {
+        name: options.name,
+        prefix: options.prefix,
+        suffix: options.suffix,
+        desc: options.desc,
+        tags: options.tags,
+        folder: options.folder,
+        keepFileName: options.keepFileName ? true : false
+      }
+    });
+  }
   async uploadFiles(files, options, listenerFn, errorListenerFn) {
     const theID = this._newID();
     if (listenerFn) { this._registerEventListener(theID, listenerFn); }
     if (errorListenerFn) { this._registerErrorListener(theID, errorListenerFn); }
-    const returnData = await this._callBdpApi('uploadFiles', {files: files, options: options}, theID);
+    const returnData = await this._callBdpApi('uploadFiles', {files: files, options: {
+      name: options.name,
+      prefix: options.prefix,
+      suffix: options.suffix,
+      desc: options.desc,
+      format: options.format,
+      tags: options.tags,
+      folderID: options.folderID,
+      keepFileName: options.keepFileName
+    }}, theID);
     if (listenerFn) { this._removeEventListener(theID, listenerFn)};
     if (errorListenerFn) { this._removeErrorListener(theID, errorListenerFn)};
     return returnData;
@@ -155,11 +182,13 @@ class BDPClientAPI {
     const returnFileInfo =  await this._callBdpApi('uploadFileBlob', {
       fileBlob: fileBlob,
       name: name,
+      prefix: options.prefix,
+      suffix: options.suffix,
       desc: options.desc,
       tags: options.tags,
+      format: options.format,
       folderID: options.folderID,
-      keepFileName: options.keepFileName ? true : false,
-      format: options.format
+      keepFileName: options.keepFileName ? true : false
     }, theID);
     if (listenerFn) { this._removeEventListener(theID, listenerFn)};
     if (errorListener) { this._removeErrorListener(theID, errorListener)};
@@ -185,14 +214,27 @@ class BDPClientAPI {
   }
   async openResultLink(resultID) {
     return await this._callBdpApi('openResultLink', {resultID: resultID});
-    // window.open('/result/' + resultID + '/info', "", "width=800,height=600");
   }
-  async createFolder(name, desc) {
-    return await this._callBdpApi('createFolder', {name: name, desc: desc});
+  async createFolder(name, desc, prefix, suffix, tags, folderId, keepFileName) {
+    return await this._callBdpApi('createFolder', {
+      name: name,
+      desc: desc,
+      prefix: prefix,
+      suffix: suffix,
+      tags: Array.isArray(tags) ? tags : [],
+      folderId, folderId,
+      keepFileName: keepFileName
+    });
   }
-  async updataFileInfo(fileID, update) {
-    return await this._callBdpApi('updataFileInfo', {fileID: fileID, newInfo: {
-      name: update.name || undefined, desc: update.desc || undefined, tags: update.tags || undefined
+  async updateFileInfo(fileID, updateOptions) {
+    return await this._callBdpApi('updateFileInfo', {
+      fileID: fileID,
+      newInfo: {
+        name: updateOptions.name || undefined,
+        desc: updateOptions.desc || undefined,
+        tags: updateOptions.tags || undefined,
+        prefix: updateOptions.prefix || undefined,
+        suffix: updateOptions.suffix
     }});
   }
   async deleteFile(fileID) {
@@ -227,9 +269,6 @@ class BDPClientAPI {
     // mode == 'list' or 'page' or undefined for toggling
     return await this._callBdpApi('togglePageList', {mode: mode});
   }
-  /**
-   * TODO: Start here!
-   */
   async getTaskInputGuide(taskIdentifier) {
     return await this._callBdpApi('getTaskInputGuide', {identifier: taskIdentifier})
   }
@@ -237,11 +276,16 @@ class BDPClientAPI {
     const theID = this._newID();
     if (errorListenerFn) { this._registerErrorListener(theID, errorListenerFn); }
     const returnResult = await this._callBdpApi('executeTask', {
-      identifier: taskIdentifier
-      , packageID: packageID
-      , resultInfo: resultInfo
-      , inputs: argInputs
-      , outputs: outputs
+      identifier: taskIdentifier,
+      packageID: packageID,
+      resultInfo: {
+        name: resultInfo.name,
+        desc: resultInfo.desc,
+        prefix: resultInfo.prefix,
+        suffix: resultInfo.suffix
+      },
+      inputs: argInputs,
+      outputs: outputs
     }, theID);
     if (errorListenerFn) { this._removeErrorListener(theID, errorListenerFn); }
     return returnResult;
