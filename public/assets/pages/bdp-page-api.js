@@ -1238,14 +1238,14 @@ class BdpPageAPI {
 };
 
 /**
- * @typedef BDPPageUtils
+ * @typedef BdpPageUtils
  * @type {object}
  * @property {function} sleep an async function to sleep `n` seconds if you call `await BDPPageUtils.sleep(n);`
  * @property {function} readFileBlob an async function to parse the blob object. The first argument is the Blob object and the second is one of `'arrayBuffer' | 'binaryString' | 'text'`.
  * The results are the parsed blob content.
  */
 
-const BDPPageUtils = {
+const BdpPageUtils = {
   sleep: (sec) => new Promise((resolve) => setTimeout(() => resolve(), 1000*sec)),
   readFileBlob: (blob, type) => {
     return new Promise((resolve, reject) => {
@@ -1268,3 +1268,4 @@ const BDPPageUtils = {
 }
 
 window.BdpPageAPI = BdpPageAPI;
+window.BdpPageUtils = BdpPageUtils;
