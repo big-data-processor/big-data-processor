@@ -116,9 +116,6 @@ MIT
 @angular/router
 MIT
 
-@angular/service-worker
-MIT
-
 ang-jsoneditor
 MIT
 
