@@ -13,7 +13,7 @@
   "dependencies": {
     "@big-data-processor/example-filters": "^0.8.1",
     "@big-data-processor/task-adapter-docker": "^0.8.9",
-    "@big-data-processor/task-reader": "^0.8.6",
+    "@big-data-processor/task-reader": "^0.8.7",
     "@big-data-processor/utilities": "^0.8.6",
     "@hapi/iron": "^6.0.0",
     "archiver": "^3.1.1",
