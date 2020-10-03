@@ -948,7 +948,18 @@ class BdpPageAPI {
         suffix: updateOptions.suffix
     }});
   }
-  
+
+  /**
+   * @async
+   * @function BdpPageAPI#stopResult
+   * @param {string} resultID The ID of the Result to be stopped.
+   * @return {Result} The Result record to be stopped.
+   * @description The Result may not be stopped rightway. The running task will be stopped gracefully and the status of the Result is then changed.
+   */
+  async stopResult(resultID) {
+    return await this._callBdpApi('stopResult', {resultID: resultID});
+  }
+
   /**
    * @async
    * @function BdpPageAPI#deleteResult
