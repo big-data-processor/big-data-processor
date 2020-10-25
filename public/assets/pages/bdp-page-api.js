@@ -550,6 +550,16 @@ class BdpPageAPI {
 
   /**
    * @async
+   * @function BdpPageAPI#openStaticLink
+   * @param {string} fileID the DataFile ID to view the static Page. The DataFile must be a Folder.
+   * @param {string} subPath The sub-path under the Folder to display. Must start with '/'
+   */
+  async openStaticLink(fileID, option) {
+    return await this._callBdpApi('openStaticLink', {fileID: fileID, subPath: subPath || '/'});
+  }
+
+  /**
+   * @async
    * @function BdpPageAPI#navigateToProjectList
    * @param {'myProjects' | 'sharedProjects' | 'publicProjects'} listType The allowed type of the Project list
    * @param {number} pageSize (Optional) setting the number of Project records per page (default: 30)
@@ -721,14 +731,13 @@ class BdpPageAPI {
    * @async
    * @function BdpPageAPI#uploadFiles
    * @param {FileList | Blob[]} files The FileList object or an array of Blob objects.
-   * @param {boolean} makeSymbolicLink true, if creating a symbolic links instead of copying files.
    * @param {object} options Additional import options
    * @param {string} options.name The name for the newly created DataFile. Leave it undefined if you want to use the original file/folder name.
    * @param {string} options.prefix The name prefix for the newly created DataFile
    * @param {string} options.suffix The name suffix for the newly created DataFile
    * @param {string} options.desc The description for the newly created DataFile
    * @param {string} options.tags The tags for the newly created DataFile
-   * @param {string} options.folder (Optional) The parent DataFile id that corresponds to a folder. Imported file/folder will be inside this folder.
+   * @param {string} options.folderID (Optional) The parent DataFile id that corresponds to a folder. Imported file/folder will be inside this folder.
    * @param {boolean} options.keepFileName (Optional) Works when `options.folder` is set. This `options.keepFileName` indicates whether to preserve the original file/folder name. If false, BDP system will use the `DataFile id`.`DataFile.format` as its filename.
    * @param {function} listenerFn (optional) A callback function will be called everytime the downloading progress updates. You can use this function to update the downloading progress.
    * @param {function} errorListener (optional) A callback function will be called when there are errors. You may write error handler to notify users about the downloading errors.
