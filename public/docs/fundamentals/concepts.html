@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Concepts &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Terminology" href="terms.html" />
+    <link rel="prev" title="Getting Started" href="../getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#user-roles">User Roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-operation-scheme">User Operation Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-definition-language">Task Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#portable-workflow-execution">Portable workflow execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Concepts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/concepts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we introduce several basic concepts and terms in the Big Data Processor (BDP) system.</p>
+<div class="section" id="user-roles">
+<h2>User Roles<a class="headerlink" href="#user-roles" title="Permalink to this headline">¶</a></h2>
+<p>We categorized user roles into 1) users, 2) developers, and 3) administrators.</p>
+<ul class="simple">
+<li><p><strong>Plain users</strong>, including normal users and power users, can create Project, execute Tasks, and manage DataFile and Result records.</p></li>
+<li><p><strong>Developers</strong>, including task builders and task managers, can operate what a plain user can do. Additionally, a developer can construct Packages by defining Tasks and workflows.</p></li>
+<li><p><strong>Administrators</strong> can manage user privileges and do all the above mentioned actions. An administrator can see and edit all projects and packages with full privileges.</p></li>
+</ul>
+<p>BDP provides basic user privileges for the above user roles. Please see the administration sections.</p>
+</div>
+<div class="section" id="user-operation-scheme">
+<h2>User Operation Scheme<a class="headerlink" href="#user-operation-scheme" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/BDP_system_operation_scheme.png"><img alt="../_images/BDP_system_operation_scheme.png" src="../_images/BDP_system_operation_scheme.png" style="width: 600px;" /></a>
+<p>As shown in the above figure of operating scheme, a Project contains DataFiles and Results,
+while Task definitions and customized Pages are stored in a Package.
+Projects are created by plain users and Packages are created by developers.</p>
+<p>A basic data cycle (highlighted in the blue color) may start by creating a project with selected packages.
+Users can then upload files to this project and these files become DataFile records.
+After tagging appropriate file tags to DataFile records, users can execute tasks that belong to the selected packages.
+Once after task parameters are set, the task is executing and all the provenance of a task is stored as a Result record.</p>
+<p>Almost everything related to a task execution is recorded in a Result.
+You may see the Result records as histories.
+A Result records task status, parameters including input/output files,
+the runtime configurations, standard output/error, the task commands, the running time and all related information.
+After task executions, new DataFile records may be created in the Project and these DataFiles may be used as inputs of another task.
+In this way, a workflow can be executed manually or automatically.</p>
+<p>In fact, a workflow-typed Task can be easily constructed by piping Tasks.
+We provide web interfaces that allow developers to construct workflows from Tasks by just mouse clicks and drag-and-drops.
+If users execute the workflow-typed Task, the Result records the progress and all sub-Tasks of the workflow as children Results.</p>
+</div>
+<div class="section" id="task-definition-language">
+<h2>Task Definition Language<a class="headerlink" href="#task-definition-language" title="Permalink to this headline">¶</a></h2>
+<p>To further ease the task definitions on web, we developed a new task definition language, the Workflow Playbook.
+The workflow playbook is a concise task configuration format for fast and portable workflow constructions.
+It is written in the <a class="reference external" href="http://yaml.org/">YAML</a> format and is inspired by the <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks.html">Ansible Playbook</a>.
+With the templating concept, we can simplify the workflow definitions. It is desinged to be human-readable format.</p>
+<p>Compared to the <a class="reference external" href="https://www.commonwl.org/">Common Workflow Language (CWL)</a>, workflow playbook is more concise and easy to write.
+The CWL is also written in the YAML format and provides detailed configurations to define tasks and workflows.
+We believe that the workflow definitions can be more concise through templating, instead of verbose configurations.
+Besides, we can easily write for-loops or do if-else conditions via templating while the CWL currently hasn’t supprted them.</p>
+<p>We expect this concise format is easy enough for non-expert people to understand and write without learning additional domain-specific languages.
+In addition, this workflow playbook is seamlessly integrated on the Big Data Processor so that we can write the worklfow playbook directly on the web page.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For further information of task definition language, please see the <a class="reference internal" href="../workflow-playbook/introduction.html"><span class="doc">the introduction of Workflow Playbook</span></a>.</p>
+</div>
+</div>
+<div class="section" id="portable-workflow-execution">
+<h2>Portable workflow execution<a class="headerlink" href="#portable-workflow-execution" title="Permalink to this headline">¶</a></h2>
+<p>We recommended that developers apply the container techniques to make workflow protable.
+Each task in a workflow is encouraged to be executed through a container, such as Docker or Singularity container.
+A container carries its good runtime environemnts.
+The dependent libraries or the required tools can be pre-installed inside the container image,
+so that tasks are guaranteed to be executed successfully inside the well-defined container environment.
+This makes tasks portable.</p>
+<p>When executing the containerized tasks, the defualt behaviors of BDP will mount two folders to the container.
+The Project and Package folders on the host will be mounted to <code class="docutils literal notranslate"><span class="pre">/project</span></code> and <code class="docutils literal notranslate"><span class="pre">/package</span></code> inside the container.
+With our Workflow Playbook, developers will NOT worry about the actural file locations, since these loactions are specified by users at the moment of task execution.</p>
+<p>We also recommended that containers contain only the required environments such as libraries or tools,
+and the Package folder which contains task scripts are mounted right before task executions.
+BDP provides web interface to allow developers to edit task script files. In this way,
+developers can edit their scripts and execute them directly without updating container images.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="terms.html" class="btn btn-neutral float-right" title="Terminology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting-started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

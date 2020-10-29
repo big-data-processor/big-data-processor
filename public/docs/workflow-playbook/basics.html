@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Creating your own package registry &mdash; Big Data Processor  documentation</title>
+  <title>The basic structure of the workflow playbook &mdash; Big Data Processor  documentation</title>
   
 
   
@@ -35,7 +35,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Filter Functions" href="filter-functions.html" />
+    <link rel="prev" title="A quick start of Workflow Playbook" href="quick-start.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,12 +103,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Workflow Playbook</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-text-structure-in-yaml">The text structure in YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-nunjucks-templates">The Nunjucks templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-basic-concept-of-filter-functions">The basic concept of filter functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">An Example on BDP</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
@@ -163,13 +172,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Creating your own package registry</li>
+      <li>The basic structure of the workflow playbook</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/pipieline-development/create-package-registry.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/workflow-playbook/basics.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,8 +191,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="creating-your-own-package-registry">
-<h1>Creating your own package registry<a class="headerlink" href="#creating-your-own-package-registry" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-basic-structure-of-the-workflow-playbook">
+<h1>The basic structure of the workflow playbook<a class="headerlink" href="#the-basic-structure-of-the-workflow-playbook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-text-structure-in-yaml">
+<h2>The text structure in YAML<a class="headerlink" href="#the-text-structure-in-yaml" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="the-nunjucks-templates">
+<h2>The Nunjucks templates<a class="headerlink" href="#the-nunjucks-templates" title="Permalink to this headline">¶</a></h2>
+<p>To define a task in Workflow Playbook, the filter functions are one of the three most important components.</p>
+<p>The filter functions are kind of the most complex among the three.
+They are mainly used to define task arguments and batch items for a batch task.
+However, you’ll find out that it’s a very intuitive way to define tasks once you got the basic concept.</p>
+<div class="section" id="the-basic-concept-of-filter-functions">
+<h3>The basic concept of filter functions<a class="headerlink" href="#the-basic-concept-of-filter-functions" title="Permalink to this headline">¶</a></h3>
+<p>A filter function can help to transform data to another, or it can do something special but not transforming data.
+It is used as instructions to process the information that requires by the tool.</p>
+<p>Filter functions are mainly used in two places to define a task: <strong>batch-items</strong> and <strong>task arguments</strong>.</p>
+<p>We need to generate a list for the <strong>batch-items</strong>. The length of this list is the number of jobs for this batch task.
+For each element of a list, the element becomes the <code class="docutils literal notranslate"><span class="pre">item</span></code> variable in the <code class="docutils literal notranslate"><span class="pre">task-template</span></code>.
+Therefore, for a n-length list, there will be n tasks with the <code class="docutils literal notranslate"><span class="pre">item</span></code> variable of different values.</p>
+<ul class="simple">
+<li><p>A fixed-content list can be directly specified like <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">['value1',</span> <span class="pre">'value2',</span> <span class="pre">'value3']</span> <span class="pre">}}&quot;</span></code>.</p></li>
+<li><p>However, in most cases, you need to get the list items from a file or a folder.
+You can use filter functions like <code class="docutils literal notranslate"><span class="pre">listFromExcel</span></code> or <code class="docutils literal notranslate"><span class="pre">listFromFileGlob</span></code> to get the list, respectively.
+It is worth noting that elements of a list can be a sub-list or a dictionary (aka. objects, hashes, key-value pairs).
+You can access data in the <code class="docutils literal notranslate"><span class="pre">item</span></code> via <code class="docutils literal notranslate"><span class="pre">item[0]</span></code> or <code class="docutils literal notranslate"><span class="pre">item['property1']</span> <span class="pre">item.property1</span></code> if it is a sublist or dictionaries.
+In addition, you can define an item in combinations of values (string or number), lists, or dictionaries.</p></li>
+</ul>
+<p>You can also use filter functions to set <strong>task arguments</strong> for the <code class="docutils literal notranslate"><span class="pre">task-template.args</span></code>.</p>
+</div>
+</div>
 </div>
 
 
@@ -191,6 +228,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="filter-functions.html" class="btn btn-neutral float-right" title="Filter Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quick-start.html" class="btn btn-neutral float-left" title="A quick start of Workflow Playbook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -1,0 +1,563 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Filter Functions &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="An Example on BDP" href="example.html" />
+    <link rel="prev" title="The basic structure of the workflow playbook" href="basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Filter Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#filter-functions-in-workflow-playbook">Filter functions in Workflow Playbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-system-related">File system related</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pathmapping">pathMapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ensuredir">ensureDir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emptydir">emptyDir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listfromfileglob">listFromFileGlob</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listfromexcel">listFromExcel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listfromcsv">listFromCSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listfromtext">listFromText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#httpget">httpGET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filestats">fileStats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#string-processing-related">String processing related</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#built-in-filter-functions-in-nunjucks-template-engines">Built-in filter functions in Nunjucks template engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ported-filter-functions-from-the-lodash-library">Ported filter functions from the lodash library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-customize-filter-functions">How to customize filter functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Filter Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/workflow-playbook/filter-functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filter-functions">
+<h1>Filter Functions<a class="headerlink" href="#filter-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="filter-functions-in-workflow-playbook">
+<h2>Filter functions in Workflow Playbook<a class="headerlink" href="#filter-functions-in-workflow-playbook" title="Permalink to this headline">¶</a></h2>
+<p>A filter function transforms value(s) into another. The values from a filter function can be piped into another function.
+Each value that is left-hand side of the pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> is considered as the first argument of the filter function.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;{{ firstArg | filterFunc(sencondArg, thirdArg) | anotherFilterFunc(...) }}&quot;
+</pre></div>
+</div>
+<p>By piping with these filter functions, we can perform multiple value transformations as well as special functions in one single line.
+This is originally designed for web templates (<a class="reference external" href="https://mozilla.github.io/nunjucks/templating.html">the Nunjucks template</a>). We adopted it here to describe a task.
+So, the built-in filter functions are all available.
+In addition, we also provide many special filter functions that are commonly used to define tasks in a workflow.</p>
+<div class="section" id="file-system-related">
+<h3>File system related<a class="headerlink" href="#file-system-related" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pathmapping">
+<h4>pathMapping<a class="headerlink" href="#pathmapping" title="Permalink to this headline">¶</a></h4>
+<p>This is the most used filter function when defining file/folder paths. It specifies that the argument value is a file path.
+Under the hood, this filter function converts your host file path(s) into the in-container path(s).</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: A host file/folder path or an array (list) of host paths.</p></li>
+<li><p><strong>Options</strong>: The reference folder path, if missing, the project folder would be used.</p></li>
+<li><p><strong>Output</strong>: The in-container file/folder path or an array (list) of the in-container paths.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var.hostPath</span> <span class="pre">|</span> <span class="pre">pathMapping</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">hostPath</span><span class="p">:</span> <span class="s">&quot;argv[0]&quot;</span> <span class="c1"># The first argument, argv[0], is a host path</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;list-files&#39;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;ubuntu:latest&#39;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&#39;ls&#39;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.hostPath</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span> <span class="c1"># &lt;-- This converts a host path into an in-container path.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Other workflow management systems handle the file paths for you. This prevents the multiple writing events of a file.
+Usually, a file being writing is locked. Additional writing access by other process will be blocked. This is the so-called writing conflicts.
+This is an important feature but adding additional complexity to handle file structure.</p>
+<p>We use the concept of the in-place file system. Developers should avoid the file writing conflicts, for example, by outputing different file names, or by using the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> or other paths that is inside a container and separated from host paths. Basically, we only mount a project folder, and all content inside this folder can be accessed.</p>
+</div>
+</div>
+<div class="section" id="ensuredir">
+<h4>ensureDir<a class="headerlink" href="#ensuredir" title="Permalink to this headline">¶</a></h4>
+<p>This filter function creates a folder on the host if the folder is not existed. It’s like <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span></code>.
+Some tools require pre-existed folder as outputs. You need to create the folder before running the tool.
+Usaully, you may use a command like: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/some/folder/path</span></code>. But, this either adds another step to create folder or force the command to be <code class="docutils literal notranslate"><span class="pre">/bin/bash</span> <span class="pre">-c</span> <span class="pre">&quot;mkdir</span> <span class="pre">-p</span> <span class="pre">/some/folder/path</span> <span class="pre">&amp;&amp;</span> <span class="pre">...&quot;</span></code>.</p>
+<p>If the folder path is already existed on the file system, this filter function does nothing and return exactly the same path.</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: A host folder path</p></li>
+<li><p><strong>Option</strong>: None</p></li>
+<li><p><strong>Output</strong>: The same host folder path.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var.hostPath</span> <span class="pre">|</span> <span class="pre">ensureDir</span> <span class="pre">|</span> <span class="pre">pathMapping</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">hostPath</span><span class="p">:</span> <span class="s">&quot;argv[0]&quot;</span> <span class="c1"># The first argument, argv[0], is a host path</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;list-files&#39;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;ubuntu:latest&#39;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&#39;ls&#39;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.hostPath</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ensureDir</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ensureDir</span></code> creates the host folder if not existed and return the same path for the next filter function, <code class="docutils literal notranslate"><span class="pre">pathMapping</span></code>.
+So the final result is the in-container path that is created.</p>
+</div>
+<div class="section" id="emptydir">
+<h4>emptyDir<a class="headerlink" href="#emptydir" title="Permalink to this headline">¶</a></h4>
+<p>Sometimes you need to empty a folder for later use. Use this <code class="docutils literal notranslate"><span class="pre">emptyDir</span></code>. It returns exactly the same path you provided, just like the above <code class="docutils literal notranslate"><span class="pre">ensureDir</span></code> filter function.</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: A host folder path</p></li>
+<li><p><strong>Options</strong>: None</p></li>
+<li><p><strong>Output</strong>: The same host folder path.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var.hostPath</span> <span class="pre">|</span> <span class="pre">ensureDir</span> <span class="pre">|</span> <span class="pre">emptyDir</span> <span class="pre">|</span> <span class="pre">pathMapping</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">hostPath</span><span class="p">:</span> <span class="s">&quot;argv[0]&quot;</span> <span class="c1"># The first argument, argv[0], is a host folder path</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;list-no-files&#39;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;ubuntu:latest&#39;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&#39;ls&#39;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.hostPath</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ensureDir</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">emptyDir</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+<p>You might want to ensure that the folder is existed and then empty it. At the last, you can use <code class="docutils literal notranslate"><span class="pre">pathMapping</span></code> to get the in-container path.</p>
+</div>
+<div class="section" id="listfromfileglob">
+<h4>listFromFileGlob<a class="headerlink" href="#listfromfileglob" title="Permalink to this headline">¶</a></h4>
+<p>A commonly used filter function is to get a list of matched files using globbing expression.
+This filter function takes an array of globbing expressions. That is, you can use multiple match rules to select the desired paths.</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: A host folder path</p></li>
+<li><dl class="simple">
+<dt><strong>Options</strong>:</dt><dd><ul>
+<li><p>A list of globbing expressions to specify desired path pattern.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A list of valid paths.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var.hostPath</span> <span class="pre">|</span> <span class="pre">listFromFileGlob(['*.fastq.gz',</span> <span class="pre">'*.fq.gz',</span> <span class="pre">'!*_R1.fastq.gz'])</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">fastqFolder</span><span class="p">:</span> <span class="s">&quot;argv[0]&quot;</span> <span class="c1"># The first argument, argv[0], is a host folder path that containing fastq.gz files</span>
+  <span class="nt">batch-items</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.fastqFolder</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromFileGlob([&#39;*.fastq.gz&#39;,</span><span class="nv"> </span><span class="s">&#39;*.fq.gz&#39;,</span><span class="nv"> </span><span class="s">&#39;!*_R1.fastq.gz&#39;])</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;unzip-sequence&#39;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;ubuntu:latest&#39;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&#39;gunzip&#39;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span> <span class="c1"># The item here represents each of the wanted gz file paths.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listfromexcel">
+<h4>listFromExcel<a class="headerlink" href="#listfromexcel" title="Permalink to this headline">¶</a></h4>
+<p>This function retrieves a list/table from a specific sheet of an Excel file.
+The tabular data can be organized as a list of objects or a list of sublists (aka. array of array).</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: An Excel file (xlsx) path on the host</p></li>
+<li><dl class="simple">
+<dt><strong>Options</strong>:</dt><dd><ul>
+<li><p>sheet name</p></li>
+<li><p>a boolean value indicates the first row is a header</p></li>
+<li><p>return type: ‘array’ or ‘object’; the ‘object’ type only effective when there is a header.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A list of objects or arrays from the tabular dataset.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var['excel']</span> <span class="pre">|</span> <span class="pre">listFromExcel('sheetname',</span> <span class="pre">true,</span> <span class="pre">'object')</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<p>Assume we have an Excel file with a sheet and the sheet named <code class="docutils literal notranslate"><span class="pre">sheetname</span></code>.
+Here is an example of the tabular table of this sheet.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File Path A</p></th>
+<th class="head"><p>File Path B</p></th>
+<th class="head"><p>Merged File Path</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/path/A/fastq1.gz</p></td>
+<td><p>/path/B/fastq1.gz</p></td>
+<td><p>/path/merged/fastq1.gz</p></td>
+</tr>
+<tr class="row-odd"><td><p>/path/A/fastq2.gz</p></td>
+<td><p>/path/B/fastq2.gz</p></td>
+<td><p>/path/merged/fastq2.gz</p></td>
+</tr>
+</tbody>
+</table>
+<p>Then, we can use the <code class="docutils literal notranslate"><span class="pre">listFromExcel</span></code> filter function to transform a given excel file path into its content.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">excelFilePath</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">argv[0]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">batch-items</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var[&#39;excelFilePath&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromExcel(&#39;sheetname&#39;,</span><span class="nv"> </span><span class="s">true,</span><span class="nv"> </span><span class="s">&#39;object&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;list-from-excel&quot;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;ubuntu:latest&quot;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&quot;/bin/sh&quot;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-c&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;cat</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;File</span><span class="nv"> </span><span class="s">Path</span><span class="nv"> </span><span class="s">A&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;File</span><span class="nv"> </span><span class="s">Path</span><span class="nv"> </span><span class="s">B&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;Merged</span><span class="nv"> </span><span class="s">File</span><span class="nv"> </span><span class="s">Path&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping}}&quot;</span>
+    <span class="nt">option</span><span class="p">:</span>
+      <span class="nt">setUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>In the above example, the table data have a header and we parsed the data into a list of objects (see below). For each row, the two fastq.gz files of <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">Path</span> <span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">Path</span> <span class="pre">B</span></code> will be merged into one fastq.gz file of <code class="docutils literal notranslate"><span class="pre">Merged</span> <span class="pre">File</span> <span class="pre">Path</span></code>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;File Path A&quot;</span><span class="p">:</span>      <span class="s2">&quot;/path/A/fastq1.gz&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;File Path B&quot;</span><span class="p">:</span>      <span class="s2">&quot;/path/B/fastq1.gz&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Merged File Path&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/merged/fastq1.gz&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;File Path A&quot;</span><span class="p">:</span>      <span class="s2">&quot;/path/A/fastq2.gz&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;File Path B&quot;</span><span class="p">:</span>      <span class="s2">&quot;/path/B/fastq2.gz&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Merged File Path&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/merged/fastq2.gz&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The above <code class="docutils literal notranslate"><span class="pre">batch-items</span></code> triggers an iteration over each object of the list. For each of the object, we can access it as the preserved variable: <code class="docutils literal notranslate"><span class="pre">item</span></code>.
+Therefore, we can use <code class="docutils literal notranslate"><span class="pre">item['File</span> <span class="pre">Path</span> <span class="pre">A']</span></code> to retrieve the actual value: <code class="docutils literal notranslate"><span class="pre">/path/A/fastq1.gz</span></code>. Note that because the key <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">Path</span> <span class="pre">A</span></code> of the object contains blanks (or dashes), we cannot use <code class="docutils literal notranslate"><span class="pre">item.File</span> <span class="pre">Path</span> <span class="pre">A</span></code> to retrive the value.</p>
+</div>
+<div class="section" id="listfromcsv">
+<h4>listFromCSV<a class="headerlink" href="#listfromcsv" title="Permalink to this headline">¶</a></h4>
+<p>This function applies the same library of the above <code class="docutils literal notranslate"><span class="pre">listFromExcel</span></code> to parse the Excel file but it accpets a csv (comma-separated values) file.
+This function retrieves a list/table from a specific sheet of an Excel file.
+The tabular data can be organized as a list of objects or a list of sublists (aka. array of array).</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: An Excel file (xlsx) path on the host</p></li>
+<li><dl class="simple">
+<dt><strong>Options</strong>:</dt><dd><ul>
+<li><p>a boolean indicator to specify whether the first row is a header</p></li>
+<li><p>return type: ‘array’ or ‘object’; the ‘object’ type only effective when there is a header.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A list of objects or arrays from the tabular dataset.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var['excel']</span> <span class="pre">|</span> <span class="pre">listFromCSV(</span> <span class="pre">true,</span> <span class="pre">'object')</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<p>Assume we have a csv file with the following content:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>File Path A,File PathB, Merged File Path
+/path/A/fastq1.gz,/path/B/fastq1.gz,/path/merged/fastq1.gz
+/path/A/fastq2.gz,/path/B/fastq2.gz,/path/merged/fastq2.gz
+</pre></div>
+</div>
+<p>Then, we can use the <code class="docutils literal notranslate"><span class="pre">listFromCSV</span></code> filter function to transform a given excel file path into its content.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">csvFilePath</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">argv[0]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">batch-items</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.csvFilePath</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromCSV(</span><span class="nv"> </span><span class="s">true,</span><span class="nv"> </span><span class="s">&#39;object&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;list-from-csv&quot;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;ubuntu:latest&quot;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&quot;/bin/sh&quot;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-c&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;cat</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;File</span><span class="nv"> </span><span class="s">Path</span><span class="nv"> </span><span class="s">A&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;File</span><span class="nv"> </span><span class="s">Path</span><span class="nv"> </span><span class="s">B&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;Merged</span><span class="nv"> </span><span class="s">File</span><span class="nv"> </span><span class="s">Path&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping}}&quot;</span>
+    <span class="nt">option</span><span class="p">:</span>
+      <span class="nt">setUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listfromtext">
+<h4>listFromText<a class="headerlink" href="#listfromtext" title="Permalink to this headline">¶</a></h4>
+<p>This is a more generalized version of listFromCSV. You can specify the separator to parse a plain-text file.</p>
+<ul class="simple">
+<li><p><strong>Input</strong>: The file path of a plain-text with multiple lines</p></li>
+<li><dl class="simple">
+<dt><strong>Options</strong>:</dt><dd><ul>
+<li><p>the separater character</p></li>
+<li><p>a boolean indicator to specify whether the first row is a header</p></li>
+<li><p>return type: ‘array’ or ‘object’; the ‘object’ type only effective when there is a header.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A list of objects or arrays from the tabular dataset.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;{{</span> <span class="pre">var['excel']</span> <span class="pre">|</span> <span class="pre">listFromText(</span> <span class="pre">true,</span> <span class="pre">'object')</span> <span class="pre">}}&quot;</span></code></p></li>
+</ul>
+<p>Assume we have a tab-delimited file with the following content:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>File Path A\tFile PathB\tMerged File Path
+/path/A/fastq1.gz\t/path/B/fastq1.gz\t/path/merged/fastq1.gz
+/path/A/fastq2.gz\t/path/B/fastq2.gz\t/path/merged/fastq2.gz
+</pre></div>
+</div>
+<p>Then, we can use the <code class="docutils literal notranslate"><span class="pre">listFromText</span></code> filter function to transform a given text file path into its content.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span>
+    <span class="nt">txtFilePath</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">argv[0]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">batch-items</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.txtFilePath</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromText(&#39;\t&#39;,</span><span class="nv"> </span><span class="s">true,</span><span class="nv"> </span><span class="s">&#39;object&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;list-from-csv&quot;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;ubuntu:latest&quot;</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="s">&quot;/bin/sh&quot;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-c&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;cat</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;File</span><span class="nv"> </span><span class="s">Path</span><span class="nv"> </span><span class="s">A&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;File</span><span class="nv"> </span><span class="s">Path</span><span class="nv"> </span><span class="s">B&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item[&#39;Merged</span><span class="nv"> </span><span class="s">File</span><span class="nv"> </span><span class="s">Path&#39;]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping}}&quot;</span>
+    <span class="nt">option</span><span class="p">:</span>
+      <span class="nt">setUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="httpget">
+<h4>httpGET<a class="headerlink" href="#httpget" title="Permalink to this headline">¶</a></h4>
+<p>It fetches remote file via http or https.</p>
+</div>
+<div class="section" id="filestats">
+<h4>fileStats<a class="headerlink" href="#filestats" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="string-processing-related">
+<h3>String processing related<a class="headerlink" href="#string-processing-related" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="built-in-filter-functions-in-nunjucks-template-engines">
+<h2>Built-in filter functions in Nunjucks template engines<a class="headerlink" href="#built-in-filter-functions-in-nunjucks-template-engines" title="Permalink to this headline">¶</a></h2>
+<p>The Nunjucks template engine has defined a set of built-in filter functions.</p>
+</div>
+<div class="section" id="ported-filter-functions-from-the-lodash-library">
+<h2>Ported filter functions from the lodash library<a class="headerlink" href="#ported-filter-functions-from-the-lodash-library" title="Permalink to this headline">¶</a></h2>
+<p>The original built-in filter functions in the Nunjucks template engines may not be enough to specify task arguments.
+Hence, we ported the whole lodash library into the default filter functions of Workflow Playbook.
+With the lodash library,</p>
+</div>
+<div class="section" id="how-to-customize-filter-functions">
+<h2>How to customize filter functions<a class="headerlink" href="#how-to-customize-filter-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="example.html" class="btn btn-neutral float-right" title="An Example on BDP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basics.html" class="btn btn-neutral float-left" title="The basic structure of the workflow playbook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

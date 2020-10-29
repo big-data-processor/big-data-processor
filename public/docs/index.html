@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Big Data Processor’s documentation! &mdash; Bio-Data Processor  documentation</title>
+  <title>Welcome to Big Data Processor’s documentation! &mdash; Big Data Processor  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> Bio-Data Processor
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Big Data Processor
           
 
           
@@ -91,14 +91,25 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Concept</span></p>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/task-adapter.html">Task Adapter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Quick Start</span></p>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
@@ -122,7 +133,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Bio-Data Processor</a>
+          <a href="#">Big Data Processor</a>
         
       </nav>
 
@@ -174,23 +185,129 @@
             
   <div class="section" id="welcome-to-big-data-processor-s-documentation">
 <h1>Welcome to Big Data Processor’s documentation!<a class="headerlink" href="#welcome-to-big-data-processor-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Big Data Processor (BDP) is a light-weight, yet complete and scalable workflow platform.
-This web workbench not only focus on <strong>workflow portability</strong>, <strong>reproducibility</strong> and <strong>reusiblity</strong> but also <strong>portable data visualizations</strong>.
-Most workflow management systems can only help us to execute and monitor workflows. Users have to find their way to explore the results.
-Here, with our Page system, users can visualize results interactively right after workflow executions, since package developers can freely develop web interfaces for their specific workflows.</p>
-<p><strong>All on web pages!</strong></p>
-<p>This web workbench provides web interfaces that covers project management, workflow executions, task monitoring, and even portable package building.
-Packages of BDP are in a portable format that can be installed on every BDP hosts by just mouse clicks.
-Then, these workflows in the packages are ready to run with near-zero configurations!</p>
-<p>The coolest part is that we also provides the web proxy functionality. Our Page system can serve containerized web services or even desktop applications such as R/Shiny apps, RStudio, Jupyter Notebookor Matlab IDE and many more!</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Concept</span></p>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/concepts.html#user-roles">User Roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/concepts.html#user-operation-scheme">User Operation Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/concepts.html#task-definition-language">Task Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/concepts.html#portable-workflow-execution">Portable workflow execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/terms.html">Terminology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/terms.html#project">Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/terms.html#datafile">DataFile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#file-tags">File Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/terms.html#result">Result</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#task-log">Task Log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/terms.html#package">Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/terms.html#task">Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#tag-match-rules">Tag Match Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#workflow-playbook">Workflow Playbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#workflow-typed-task">Workflow-typed Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#runtime-configuration">Runtime Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/terms.html#task-adapter">Task Adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/terms.html#page">Page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/privilege.html">Privilege</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/privilege.html#project-privilege">Project Privilege</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/privilege.html#project-wide-privileges">Project-wide privileges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/privilege.html#datafile-related-privileges-in-a-project">DataFile-related privileges in a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/privilege.html#result-related-privileges-in-a-project">Result-related privileges in a Project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/privilege.html#package-privilege">Package Privilege</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/privilege.html#user-privileges">User privileges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/system-architecture.html">System Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/system-architecture.html#task-deployment">Task Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/task-adapter.html">Task Adapter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals/task-adapter.html#flowchart-of-an-adapter-process">Flowchart of an Adapter process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fundamentals/task-adapter.html#interface-functions-to-implement-for-various-computing-resources">Interface functions to implement for various computing resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/introduction.html#essential-minimal-elements-to-define-a-task">Essential/minimal elements to define a task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/introduction.html#tool-library-dependencies-within-the-container">Tool/Library Dependencies within the container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/introduction.html#runtime-environment-parallel-or-sequential-task-execution">Runtime environment: parallel or sequential task execution?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/introduction.html#expose-output-files-folders-as-arguments">Expose output files/folders as arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/introduction.html#in-place-file-structure">In-place file structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/quick-start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/quick-start.html#a-quick-demo">A quick demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/quick-start.html#define-tasks-by-templating">Define tasks by templating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/quick-start.html#a-full-examplary-workflow-template">A full examplary workflow template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/basics.html">Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/basics.html#the-text-structure-in-yaml">The text structure in YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/basics.html#the-nunjucks-templates">The Nunjucks templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workflow-playbook/basics.html#the-basic-concept-of-filter-functions">The basic concept of filter functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/filter-functions.html">Filter Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/filter-functions.html#filter-functions-in-workflow-playbook">Filter functions in Workflow Playbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workflow-playbook/filter-functions.html#file-system-related">File system related</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#pathmapping">pathMapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#ensuredir">ensureDir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#emptydir">emptyDir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#listfromfileglob">listFromFileGlob</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#listfromexcel">listFromExcel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#listfromcsv">listFromCSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#listfromtext">listFromText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#httpget">httpGET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflow-playbook/filter-functions.html#filestats">fileStats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflow-playbook/filter-functions.html#string-processing-related">String processing related</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/filter-functions.html#built-in-filter-functions-in-nunjucks-template-engines">Built-in filter functions in Nunjucks template engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/filter-functions.html#ported-filter-functions-from-the-lodash-library">Ported filter functions from the lodash library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow-playbook/filter-functions.html#how-to-customize-filter-functions">How to customize filter functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
@@ -202,24 +319,6 @@ Then, these workflows in the packages are ready to run with near-zero configurat
 </ul>
 </li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Quick Start</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#download-pre-compiled-mongodb">1. Download Pre-compiled MongoDB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#untar-the-tarball-file">2. Untar the tarball file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html#create-username-and-password">3. Create username and password</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">System Administrations</span></p>
@@ -256,7 +355,7 @@ Then, these workflows in the packages are ready to run with near-zero configurat
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2018, Chi Yang
+        &copy; Copyright 2020, Chi Yang
 
     </p>
   </div>

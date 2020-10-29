@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction of Workflow Playbook &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A quick start of Workflow Playbook" href="quick-start.html" />
+    <link rel="prev" title="Task Adapter" href="../fundamentals/task-adapter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#essential-minimal-elements-to-define-a-task">Essential/minimal elements to define a task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tool-library-dependencies-within-the-container">Tool/Library Dependencies within the container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runtime-environment-parallel-or-sequential-task-execution">Runtime environment: parallel or sequential task execution?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expose-output-files-folders-as-arguments">Expose output files/folders as arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-place-file-structure">In-place file structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction of Workflow Playbook</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/workflow-playbook/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-of-workflow-playbook">
+<h1>Introduction of Workflow Playbook<a class="headerlink" href="#introduction-of-workflow-playbook" title="Permalink to this headline">¶</a></h1>
+<p>Originally, we developed the Workflow Playbook for bioinforamticians. The goal is to simplify task definitions and make the definitions concise and intuitive.
+This task definition language can be used for general purposes and is not limited to the field of bioinformatics.</p>
+<div class="section" id="essential-minimal-elements-to-define-a-task">
+<h2>Essential/minimal elements to define a task<a class="headerlink" href="#essential-minimal-elements-to-define-a-task" title="Permalink to this headline">¶</a></h2>
+<p>Most bioinformatics tools were executed via command line interface. Bioinformatics pipelines/workflows can be constructed by specifying these commands in desired orders.
+In addition, certain steps may contain batch tasks that take different sets of arguments to run the same tool. A batch task contains multiple jobs to execute. For example, we may have a task that maps sequencing data to a refernece genome. Say, ten input sequencing files are needed to map a reference genome. Then, there will be ten jobs for this task. For each job, it is a single command to execute.</p>
+<p>To simplify the definition, we consider only essential elements that form a command. A typical command contains 1) <strong>executable</strong>; 2) <strong>arguments</strong>; and 3) <strong>container image</strong>;
+We will focus on the first 2 elements first, for example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>perl -Mbigum<span class="o">=</span>bpi -wle print <span class="s1">&#39;bpi(2000)&#39;</span>
+</pre></div>
+</div>
+<p>The above command calculates pi to the 2000 digit accuracy. Here, the <strong>executable</strong> is the <code class="docutils literal notranslate"><span class="pre">perl</span></code> and the <strong>arguments</strong> contain four values in order: <code class="docutils literal notranslate"><span class="pre">-Mbigum=bpi</span></code>, <code class="docutils literal notranslate"><span class="pre">-wle</span></code>, <code class="docutils literal notranslate"><span class="pre">print</span></code> and <code class="docutils literal notranslate"><span class="pre">'bpi(2000)'</span></code>.</p>
+<p>Some other workflow languages may consider the <code class="docutils literal notranslate"><span class="pre">-Mbigum=</span></code> as a prefix or an option. The <code class="docutils literal notranslate"><span class="pre">bpi</span></code> is then considered as the actural argument value.
+In this way, multiple argument patterns may be formed. This is a nice feature, but we want to keep it simple and trying to reduce the complexity to learn.
+Here, in Workflow Playbook, even if there is a leading option such as <code class="docutils literal notranslate"><span class="pre">--output</span></code>, or <code class="docutils literal notranslate"><span class="pre">-o</span></code> for the following output path, it is just another argument. In this example, since the <code class="docutils literal notranslate"><span class="pre">-Mbigum=</span></code> and <code class="docutils literal notranslate"><span class="pre">bgi</span></code> do not have space to separate them, it is considered as one argument.</p>
+<p>But how do we separate them especially when the <code class="docutils literal notranslate"><span class="pre">bpi</span></code> is the actural input value? We do not want the <code class="docutils literal notranslate"><span class="pre">-Mbigum=</span></code> as part of the input.
+We got our solution: using template to define a task. The core of writing Workflow Playbook is to define task templates and executing it by resolving these templates.
+In this case, we can set something like <code class="docutils literal notranslate"><span class="pre">-Mbigum={{</span> <span class="pre">argv[0]</span> <span class="pre">}}</span></code> and the <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> specifies that the <code class="docutils literal notranslate"><span class="pre">bpi</span></code> comes from the first argument of the whole workflow.</p>
+<p>What about the runtime environments? cpu, memory, job scheduler, etc. They are important too. But a portable pipeline should be made platform-agnostic.
+It is the users’ effort to specify these runtime parameters. Here, we consider it as inputs to run the Workflow Playbook.</p>
+<p>Before we go into details about the template and the runtime environments, there is an additional essential element of a task: the <strong>container image</strong> path.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>environment variables</strong> can also be set in workflow playbook. But it is relatively less used in bioinforamtics tools.
+The environment variables can be defined in a task template and expose them as normal input variables for users to input.</p>
+</div>
+</div>
+<div class="section" id="tool-library-dependencies-within-the-container">
+<h2>Tool/Library Dependencies within the container<a class="headerlink" href="#tool-library-dependencies-within-the-container" title="Permalink to this headline">¶</a></h2>
+<p>Container technologies, such as Docker or Singularity, are now getting popular. A containerized tool carries its own good runtime environments.
+We need not worry about instaling the dependencies to use these containerized tool. Biocontainers produces many containerized bioinformatics tools/libraries.
+In addition, multi-package biocontainers can also be built using a <a class="reference external" href="http://biocontainers.pro/multi-package-containers/">web tool</a>, Not mentioning that wrapping tools inside containers is kinda easy.</p>
+<p>With the container technology, bioinformatists can build portable tools more easily than before, This is why we consider the container image name as an additional element but it is optional. It is strongly adviced to use containerized tools for a portable pipeline.</p>
+</div>
+<div class="section" id="runtime-environment-parallel-or-sequential-task-execution">
+<h2>Runtime environment: parallel or sequential task execution?<a class="headerlink" href="#runtime-environment-parallel-or-sequential-task-execution" title="Permalink to this headline">¶</a></h2>
+<p>Developers won’t be able to know the end users’ runtime environments. If developers simply write a for-loop in scripts, it will be executed one by one.
+This is fine on a single PC. When execute the task on the cloud or on a high-performance computing clusters, execute task in sequential becomes inefficient.
+In another scenario, if workflow developers uses pbs/sge job scripts to define their workflows, it forces users to run on the HPC environments. This isn’t a good portable workflow.
+Therefore, workflow developers should focus only on the task essentials without worrying about the runtime environments. Runtime should be taken care by the workflow runner, here, in our solution, Workflow Player. We used task-adapters to handle this for you. The most important part is that the adapter can be easily customized to fit many kinds of runtime environments. A base adapter factory class can be extended to different use cases. In fact, we see the adapters as part of portable workflows. namely, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">protable</span> <span class="pre">workflow</span> <span class="pre">=</span> <span class="pre">Workflow</span> <span class="pre">Playbook</span> <span class="pre">+</span> <span class="pre">(customized)</span> <span class="pre">Task</span> <span class="pre">Adapters</span> <span class="pre">+</span> <span class="pre">(custom</span> <span class="pre">filter</span> <span class="pre">functions)</span></code>. Don’t worry, we are planning to implement many generalized adapters for everyone to use.</p>
+</div>
+<div class="section" id="expose-output-files-folders-as-arguments">
+<h2>Expose output files/folders as arguments<a class="headerlink" href="#expose-output-files-folders-as-arguments" title="Permalink to this headline">¶</a></h2>
+<p>To further simplify the task configurations, workflow developers need not define inputs/outputs in workflow playbook.
+Only the three elements should be focused: <code class="docutils literal notranslate"><span class="pre">executable</span></code>, <code class="docutils literal notranslate"><span class="pre">arguments</span></code>, and <code class="docutils literal notranslate"><span class="pre">container</span> <span class="pre">image</span></code>.
+The information of inputs/outputs can be specified via the arguments.
+The Workflow Playbook sees the output and input paths as file paths and is not aware of their differences.
+They are only arguments.</p>
+</div>
+<div class="section" id="in-place-file-structure">
+<h2>In-place file structure<a class="headerlink" href="#in-place-file-structure" title="Permalink to this headline">¶</a></h2>
+<p>A task may take one input folder as an arguments and output files in this input folder.
+Namely, the task outputs files into its input folders.
+Some workflow systems consider input data to be read-only. Therefore, to achieve this output-to-input-folder behavior, staging inputs to outputs may be required to prevent writing conflicts.</p>
+<p>The writing conflicts occur which multiple processes write to the same file at the same time.
+Usually, the first process will have privilege to write and lock the file. Other process cannot write the files and this causes the writing conflicts.
+Since our Workflow Playbook does not aware of inputs/outputs, we didn’t avoid the writing conflicts through playbook.
+We consider that, for most cases, the writing conflicts can be avoid by giving different output file names if output files are in the same folder.
+In addition, if a job is running inside a container, paths such as <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> and <code class="docutils literal notranslate"><span class="pre">/home/biodocker</span></code> are independent among multiple jobs. Given the same tmp file name inside <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> won’t cause the write conflict.</p>
+<p>This is a trade-off here. Workflow systems handle the inputs/outputs to prevent the writing conflicts but might require additional step to copy/move files.
+This may take additional time especially when the file sizes are large.
+In addition, bioinformatics pipelines may keep one single folder and all files are organized in a specific order.
+By repetively using this folder as an input argument, output files are generated somewhere inside this folder.
+In this case that the output folder is the input folder, we leave the issue of the write-conflict prevention to developers.
+If avoiding the writing conflicts in development stage, workflow system won’t need this staging file procedure.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quick-start.html" class="btn btn-neutral float-right" title="A quick start of Workflow Playbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../fundamentals/task-adapter.html" class="btn btn-neutral float-left" title="Task Adapter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -5,41 +5,24 @@
 
 Welcome to Big Data Processor's documentation!
 ==============================================
-Big Data Processor (BDP) is a light-weight, yet complete and scalable workflow platform.
-This web workbench not only focus on **workflow portability**, **reproducibility** and **reusiblity** but also **portable data visualizations**.
-Most workflow management systems can only help us to execute and monitor workflows. Users have to find their way to explore the results.
-Here, with our Page system, users can visualize results interactively right after workflow executions, since package developers can freely develop web interfaces for their specific workflows.
-
-**All on web pages!**
-
-This web workbench provides web interfaces that covers project management, workflow executions, task monitoring, and even portable package building.
-Packages of BDP are in a portable format that can be installed on every BDP hosts by just mouse clicks.
-Then, these workflows in the packages are ready to run with near-zero configurations!
-
-The coolest part is that we also provides the web proxy functionality. Our Page system can serve containerized web services or even desktop applications such as R/Shiny apps, RStudio, Jupyter Notebookor Matlab IDE and many more!
 
 .. toctree::
     :maxdepth: 1
 
     Introduction<introduction>
     Installation<installation>
+    Getting Started<getting-started>
 
 .. toctree::
     :maxdepth: 4
-    :caption: Concept
+    :caption: Fundamentals
 
-    Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
-    Task deployment on Google Cloud Platform<tutorials/tutorial-task-deploy-GCP>
-    Non-root MongoDB Installation<tutorials/mongodb-non-root-installation>
+    Concepts<fundamentals/concepts>
+    Terminology<fundamentals/terms>
+    Privilege<fundamentals/privilege>
+    System Architecture<fundamentals/system-architecture>
+    Task Adapter<fundamentals/task-adapter>
 
-.. toctree::
-    :maxdepth: 4
-    :caption: Quick Start
-
-    Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
-    Task deployment on Google Cloud Platform<tutorials/tutorial-task-deploy-GCP>
-    Non-root MongoDB Installation<tutorials/mongodb-non-root-installation>
-    
 .. toctree::
     :maxdepth: 4
     :caption: Basic usages
@@ -48,13 +31,51 @@ The coolest part is that we also provides the web proxy functionality. Our Page 
     Import files
     Execute tasks
     Collect results
+
+.. toctree::
+    :maxdepth: 4
+    :caption: Package management
+
+    Install packages
+    Configure runtime configurations
+    Task definitions
+    Workflow Constructions
+    
+.. toctree::
+    :maxdepth: 4
+    :caption: Workflow Playbook
+
+    Introduction<workflow-playbook/introduction>
+    Quick Start<workflow-playbook/quick-start>
+    Basics<workflow-playbook/basics>
+    Filter Functions<workflow-playbook/filter-functions>
+    An Example on BDP<workflow-playbook/example>
+
+.. toctree::
+    :maxdepth: 4
+    :caption: Customized Page
+
+
+
+.. toctree::
+    :maxdepth: 4
+    :caption: Task Adapter
+
+.. toctree::
+    :maxdepth: 4
+    :caption: Tutorial
+
+    Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
+    Task deployment on Google Cloud Platform<tutorials/tutorial-task-deploy-GCP>
+    Non-root MongoDB Installation<tutorials/mongodb-non-root-installation>
+
+
+
 .. For users<web-interface/the-web-interface-user>
     For administrators<web-interface/the-web-interface-admin>
     For pipeline developers<web-interface/the-web-interface-pipeline-dev>
 
-.. toctree::
-    :maxdepth: 4
-    :caption: Package Constructions
+
 
 .. Best practice to plan your tasks<pipieline-development/task-best-practice>
     Manage Packages
@@ -69,14 +90,13 @@ The coolest part is that we also provides the web proxy functionality. Our Page 
     :caption: System Administrations
 
     User managment
-    Package settings
+    Package Installations
+    Handling Adapters
     Enable Google 3rd party sign-in<administration/allow-google-sign-in>
     Enable Google reCAPTCHA
+    Enable Email Verifications
 
 
-.. toctree::
-    :maxdepth: 4
-    :caption: 
 
 Indices and tables
 ==================

@@ -1,0 +1,134 @@
+==========
+Privileges
+==========
+
+To provide multi-user working environments, we provide basic privilege settings for Projects and Packages.
+In addition, we also provide users of different levels and these privileged are interrelated.
+Interaction results of these privileges produce the actual privileges and define valid user actions.  
+
+
+Project Privilege
+=================
+There are four positions for each Project: the owner, project managers, task runners and project viewers.
+
+A user who created the project becomes the project owner.
+Project owner can assign other users for the four positions, and these positions can have more than one user.
+
+It is worth noting that the project owner can give away the position to others or even to no one.
+Projects of no owners can still be used by users of other positions.
+As the following privilege table shows, projects of no owners won't be able to be deleted unless the administrators delete them.  
+
+It is important to note that a Project can be set public, so that every registered user can view the project (read-only).
+That is, every registered user is a project viewer for public projects.
+
+Project-wide privileges
+------------------------
+
++------------+--------------+-------------------+----------------+------------------------+
+| Position   | View Project | Edit Project Info | Delete Project | Manage Project members |
++============+==============+===================+================+========================+
+| Owner      |     YES      | YES               | YES            |  YES\ :sup:`1`         |
++------------+--------------+-------------------+----------------+------------------------+
+| Managers   |     YES      | YES               | no             |  YES\ :sup:`2`         |
++------------+--------------+-------------------+----------------+------------------------+
+| Runners    |     YES      | no                | no             |  no                    |
++------------+--------------+-------------------+----------------+------------------------+
+| Viewers    |     YES      | no                | no             |  no                    |
++------------+--------------+-------------------+----------------+------------------------+
+
+\ :sup:`1` A project owner can change the project ownership to another user.
+
+\ :sup:`2` Project managers can neither change the project owner nor manage project managers. That is, a Project manager cannot assign
+
+
+DataFile-related privileges in a Project
+----------------------------------------
+
++------------+---------------+-----------------+--------------------+-----------------+
+| Position   | View DataFile | Create DataFile | Edit DataFile Info | Delete DataFile |
++============+===============+=================+====================+=================+
+| Owner      | YES           | YES             | YES                | YES             |
++------------+---------------+-----------------+--------------------+-----------------+
+| Managers   | YES           | YES             | YES                | YES             |
++------------+---------------+-----------------+--------------------+-----------------+
+| Runners    | YES           | YES             | YES\ :sup:`1`      | YES\ :sup:`1`   |
++------------+---------------+-----------------+--------------------+-----------------+
+| Viewers    | YES           | no              | no                 | no              |
++------------+---------------+-----------------+--------------------+-----------------+
+
+\ :sup:`1`\ The task Runner can only edit and delete DataFiles of his/her own. 
+
+
+Result-related privileges in a Project
+-----------------------------------------------------
+
++------------+--------------+-----------------+------------------+----------------+
+| Position   | View Result  | Execute Task    | Edit Result Info | Delete Results |
+|            |              | (Create Result) |                  |                |
++============+==============+=================+==================+================+
+| Owner      | YES          | YES             | YES              | YES            |
++------------+--------------+-----------------+------------------+----------------+
+| Managers   | YES          | YES             | YES              | YES            |
++------------+--------------+-----------------+------------------+----------------+
+| Runners    | YES          | YES             | YES\ :sup:`1`    | YES\ :sup:`1`  |
++------------+--------------+-----------------+------------------+----------------+
+| Viewers    | YES          | no              | no               | no             |
++------------+--------------+-----------------+------------------+----------------+
+
+\ :sup:`1`\ The task Runner can only edit and delete Result records of his/her own. 
+
+Package Privilege
+=================
+
+Just like the Project privileges, there are four similar positions of the same names for each Package.
+
++------------+--------------+-----------------+------------------+----------------+------------------------+
+| Position   | View Package | Edit Package    | Execute Task     | Delete Package | Manage Package members |
++============+==============+=================+==================+================+========================+
+| Owner      | YES          | YES             | YES              | YES            |  YES                   |
++------------+--------------+-----------------+------------------+----------------+------------------------+
+| Managers   | YES          | YES             | YES              | no             |  YES\ :sup:`2`         |
++------------+--------------+-----------------+------------------+----------------+------------------------+
+| Runners    | no\ :sup:`1` | no              | YES              | no             |  no                    |
++------------+--------------+-----------------+------------------+----------------+------------------------+
+| Viewers    | YES          | no              | no               | no             |  no                    |
++------------+--------------+-----------------+------------------+----------------+------------------------+
+
+\ :sup:`1`\ Task Runner can only use the Tasks in the Package but not view the task settings.
+
+\ :sup:`2`\ Just like the project managers, managers of a Package can neither change the owner nor manage managers.
+
+As the above table, we separate the privileges to view and to use the Package,
+Because sometimes package authors may want to keep their source codes or workflows privately before releasing or publishing,
+
+Setting a Package to be public means privileged users can view the Package contents and execute tasks in the package.
+Here, privileged users mean that users may require some user privilege levels. Please see the next sections.
+
+User privileges
+===============
+
+In addition to the privileges of Project and Package, Big Data Processor also comes with basic user privilege settings.
+The user privileges must be satisfied first and the granted Package or Project privileges are thus valid.
+For example, to be able to view Package contents, users need to be ``Task Builders`` or higher.
+Even if a normal user is chosen as a ``Package Viewers``, that user is not able to see the Package contents.
+The following table lists the user positions and their privileges.
+
+
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+| Position          | View Project | Create Project  | Manage Project | View Package   | Create Package | Manage Package |
++===================+==============+=================+================+================+================+================+
+| 1. Guest (Locked) | no           | no              | no             | no             | no             | no             |
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+| 2. Normal User    | YES          | YES             | YES            | no             | no             | no             |
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+| 3. Power User     | YES          | YES             | YES            | no             | no             | no             |
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+| 7. Task Builder   | YES          | YES             | YES            | YES            | no             | YES            |
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+| 8. Task Manager   | YES          | YES             | YES            | YES            | YES            | YES            |
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+| 9. Administrators | YES          | YES             | YES            | YES            | YES            | YES            |
++-------------------+--------------+-----------------+----------------+----------------+----------------+----------------+
+
+``Power User`` has advanced operations to import files from host paths and to execute Tasks in the Packages which is ``experimenting`` or ``under development``.
+``Normal User`` can only execute Tasks of Packages that are marked ``Stable``.

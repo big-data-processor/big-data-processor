@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Privileges &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="System Architecture" href="system-architecture.html" />
+    <link rel="prev" title="Terminology" href="terms.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terms.html">Terminology</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Privilege</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-privilege">Project Privilege</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-wide-privileges">Project-wide privileges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datafile-related-privileges-in-a-project">DataFile-related privileges in a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#result-related-privileges-in-a-project">Result-related privileges in a Project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#package-privilege">Package Privilege</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-privileges">User privileges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Privileges</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/privilege.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="privileges">
+<h1>Privileges<a class="headerlink" href="#privileges" title="Permalink to this headline">¶</a></h1>
+<p>To provide multi-user working environments, we provide basic privilege settings for Projects and Packages.
+In addition, we also provide users of different levels and these privileged are interrelated.
+Interaction results of these privileges produce the actual privileges and define valid user actions.</p>
+<div class="section" id="project-privilege">
+<h2>Project Privilege<a class="headerlink" href="#project-privilege" title="Permalink to this headline">¶</a></h2>
+<p>There are four positions for each Project: the owner, project managers, task runners and project viewers.</p>
+<p>A user who created the project becomes the project owner.
+Project owner can assign other users for the four positions, and these positions can have more than one user.</p>
+<p>It is worth noting that the project owner can give away the position to others or even to no one.
+Projects of no owners can still be used by users of other positions.
+As the following privilege table shows, projects of no owners won’t be able to be deleted unless the administrators delete them.</p>
+<p>It is important to note that a Project can be set public, so that every registered user can view the project (read-only).
+That is, every registered user is a project viewer for public projects.</p>
+<div class="section" id="project-wide-privileges">
+<h3>Project-wide privileges<a class="headerlink" href="#project-wide-privileges" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 19%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>View Project</p></th>
+<th class="head"><p>Edit Project Info</p></th>
+<th class="head"><p>Delete Project</p></th>
+<th class="head"><p>Manage Project members</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Owner</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Managers</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>YES<sup>2</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>Runners</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>Viewers</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p><sup>1</sup> A project owner can change the project ownership to another user.</p>
+<p><sup>2</sup> Project managers can neither change the project owner nor manage project managers. That is, a Project manager cannot assign</p>
+</div>
+<div class="section" id="datafile-related-privileges-in-a-project">
+<h3>DataFile-related privileges in a Project<a class="headerlink" href="#datafile-related-privileges-in-a-project" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 25%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>View DataFile</p></th>
+<th class="head"><p>Create DataFile</p></th>
+<th class="head"><p>Edit DataFile Info</p></th>
+<th class="head"><p>Delete DataFile</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Owner</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>Managers</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>Runners</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES<sup>1</sup></p></td>
+<td><p>YES<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Viewers</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p><sup>1</sup>The task Runner can only edit and delete DataFiles of his/her own.</p>
+</div>
+<div class="section" id="result-related-privileges-in-a-project">
+<h3>Result-related privileges in a Project<a class="headerlink" href="#result-related-privileges-in-a-project" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>View Result</p></th>
+<th class="head"><p>Execute Task
+(Create Result)</p></th>
+<th class="head"><p>Edit Result Info</p></th>
+<th class="head"><p>Delete Results</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Owner</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>Managers</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>Runners</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES<sup>1</sup></p></td>
+<td><p>YES<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Viewers</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p><sup>1</sup>The task Runner can only edit and delete Result records of his/her own.</p>
+</div>
+</div>
+<div class="section" id="package-privilege">
+<h2>Package Privilege<a class="headerlink" href="#package-privilege" title="Permalink to this headline">¶</a></h2>
+<p>Just like the Project privileges, there are four similar positions of the same names for each Package.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>View Package</p></th>
+<th class="head"><p>Edit Package</p></th>
+<th class="head"><p>Execute Task</p></th>
+<th class="head"><p>Delete Package</p></th>
+<th class="head"><p>Manage Package members</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Owner</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>Managers</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>YES<sup>2</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>Runners</p></td>
+<td><p>no<sup>1</sup></p></td>
+<td><p>no</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>Viewers</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p><sup>1</sup>Task Runner can only use the Tasks in the Package but not view the task settings.</p>
+<p><sup>2</sup>Just like the project managers, managers of a Package can neither change the owner nor manage managers.</p>
+<p>As the above table, we separate the privileges to view and to use the Package,
+Because sometimes package authors may want to keep their source codes or workflows privately before releasing or publishing,</p>
+<p>Setting a Package to be public means privileged users can view the Package contents and execute tasks in the package.
+Here, privileged users mean that users may require some user privilege levels. Please see the next sections.</p>
+</div>
+<div class="section" id="user-privileges">
+<h2>User privileges<a class="headerlink" href="#user-privileges" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the privileges of Project and Package, Big Data Processor also comes with basic user privilege settings.
+The user privileges must be satisfied first and the granted Package or Project privileges are thus valid.
+For example, to be able to view Package contents, users need to be <code class="docutils literal notranslate"><span class="pre">Task</span> <span class="pre">Builders</span></code> or higher.
+Even if a normal user is chosen as a <code class="docutils literal notranslate"><span class="pre">Package</span> <span class="pre">Viewers</span></code>, that user is not able to see the Package contents.
+The following table lists the user positions and their privileges.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>View Project</p></th>
+<th class="head"><p>Create Project</p></th>
+<th class="head"><p>Manage Project</p></th>
+<th class="head"><p>View Package</p></th>
+<th class="head"><p>Create Package</p></th>
+<th class="head"><p>Manage Package</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Guest (Locked)</p></li>
+</ol>
+</td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Normal User</p></li>
+</ol>
+</td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Power User</p></li>
+</ol>
+</td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="7">
+<li><p>Task Builder</p></li>
+</ol>
+</td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>no</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="8">
+<li><p>Task Manager</p></li>
+</ol>
+</td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="9">
+<li><p>Administrators</p></li>
+</ol>
+</td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+<td><p>YES</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">Power</span> <span class="pre">User</span></code> has advanced operations to import files from host paths and to execute Tasks in the Packages which is <code class="docutils literal notranslate"><span class="pre">experimenting</span></code> or <code class="docutils literal notranslate"><span class="pre">under</span> <span class="pre">development</span></code>.
+<code class="docutils literal notranslate"><span class="pre">Normal</span> <span class="pre">User</span></code> can only execute Tasks of Packages that are marked <code class="docutils literal notranslate"><span class="pre">Stable</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="system-architecture.html" class="btn btn-neutral float-right" title="System Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="terms.html" class="btn btn-neutral float-left" title="Terminology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

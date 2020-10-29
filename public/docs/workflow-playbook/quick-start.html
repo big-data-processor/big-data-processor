@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A quick start of Workflow Playbook &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The basic structure of the workflow playbook" href="basics.html" />
+    <link rel="prev" title="Introduction of Workflow Playbook" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-quick-demo">A quick demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-tasks-by-templating">Define tasks by templating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-full-examplary-workflow-template">A full examplary workflow template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>A quick start of Workflow Playbook</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/workflow-playbook/quick-start.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a-quick-start-of-workflow-playbook">
+<h1>A quick start of Workflow Playbook<a class="headerlink" href="#a-quick-start-of-workflow-playbook" title="Permalink to this headline">¶</a></h1>
+<p>The Workflow Playbook is written in the YAML format. It is a human-readable format,
+so you may proceed to read this page to get a quick understand of Workflow Playbook.</p>
+<p>The only things to learn are <strong>1) the YAML format</strong>, <strong>2) the Nunjucks template expression</strong>, and <strong>3) the filter functions</strong>.
+You don’t need all the above knowledge to start. They are intuitive to learn. Proceed first!</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>If you are not familiar with the YAML format, you may see the <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">YAML syntax page</a> and its see also section at the bottom of that page.
+For the Nunjucks template, please see <a class="reference external" href="https://mozilla.github.io/nunjucks/templating.html">the Nunjucks templating</a>.</p>
+</div>
+<div class="section" id="a-quick-demo">
+<h2>A quick demo<a class="headerlink" href="#a-quick-demo" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say we want to execute a task command like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>perl -Mbigum<span class="o">=</span>bpi -wle print <span class="s1">&#39;bpi(2000)&#39;</span>
+</pre></div>
+</div>
+<p>This command print the <code class="docutils literal notranslate"><span class="pre">pi</span></code> to the 2000 digit accuracy as described in the <a class="reference external" href="concept.html">concept</a> section.
+We can use the following definition for such command.
+The command will be executed in a perl container.</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">calculate-pi</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-Mbignum=bpi&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-wle&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;print</span><span class="nv"> </span><span class="s">bpi(2000)&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The above example does not allow any user input. Let’s modify the template to accept user input for the digit accuracy.</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">task-tempalte</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">calculate-pi</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-Mbignum=bpi&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;-wle&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;print</span><span class="nv"> </span><span class="s">bpi({{</span><span class="nv"> </span><span class="s">argv[0]</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">argv[0]</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">2000</span><span class="nv"> </span><span class="s">}})&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>By replacing <code class="docutils literal notranslate"><span class="pre">bpi(2000)</span></code> with <code class="docutils literal notranslate"><span class="pre">bpi({{</span> <span class="pre">argv[0]</span> <span class="pre">if</span> <span class="pre">argv[0]</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">2000</span> <span class="pre">}})</span></code>, we can specify the accuracy as the first argument.
+Here, any ouptut results after resolving the expression in between the <code class="docutils literal notranslate"><span class="pre">{{</span></code> and <code class="docutils literal notranslate"><span class="pre">}}</span></code> will replace the template text <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">...</span> <span class="pre">}}</span></code>. This is templating and we can do loops and conditions using templates.
+In this example, the <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">argv[0]</span> <span class="pre">if</span> <span class="pre">argv[0]</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">2000</span> <span class="pre">}}</span></code> is an inline expression. You may expand it to a complete structure in a single line: <code class="docutils literal notranslate"><span class="pre">{%-</span> <span class="pre">if</span> <span class="pre">argv[0]</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">-%}{{</span> <span class="pre">argv[0]</span> <span class="pre">}}{%-</span> <span class="pre">else</span> <span class="pre">-%}2000{%-</span> <span class="pre">endif</span> <span class="pre">-%}</span></code>, but it’s more verbose and may be not easy to read.
+The <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">...</span> <span class="pre">%}</span></code> is called a <strong>block</strong>. It does not produce any text to the final arguments but it allows you to define variables, do a <code class="docutils literal notranslate"><span class="pre">if-elif-else-endif</span></code> conditional expression, or do a <code class="docutils literal notranslate"><span class="pre">for-loop</span></code> expression.
+The <cite>{%-</cite> and <cite>-%}</cite> tells the template engine not inserting blanks before and after this <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">...</span> <span class="pre">%}</span></code> expression, respectively.</p>
+<p>Here, to make this complete structure easier to read. You may need the multi-line mode for the <code class="docutils literal notranslate"><span class="pre">args</span></code> arguments.</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">calculate-pi</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">perl</span>
+    <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">- &quot;-Mbignum=bpi&quot;</span>
+      <span class="no">- &quot;-wle&quot;</span>
+      <span class="no">{% if argv[0] %}</span>
+      <span class="no">- &quot;print bpi({{ argv[0] }})&quot;</span>
+      <span class="no">{% else %}</span>
+      <span class="no">- &quot;print bpi(2000)&quot;</span>
+      <span class="no">{% endif %}</span>
+</pre></div>
+</td></tr></table></div>
+<p>At line 5, we added a <code class="docutils literal notranslate"><span class="pre">|</span></code> after the <code class="docutils literal notranslate"><span class="pre">args:</span></code>. This specify the <code class="docutils literal notranslate"><span class="pre">args</span></code> via a multi-line mode instead of a list.
+Under the hood, the <code class="docutils literal notranslate"><span class="pre">args</span></code> is firstly defined as a multiline string of YAML template. Then, we parse this string again and expect that the resolved result is a list.
+This is useful especially when the argument length is not fixed. Developers may use the <code class="docutils literal notranslate"><span class="pre">for-loop</span></code> to define argument lists of non-fixed lengths.</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+  <span class="no">{% for element in collection %}</span>
+  <span class="no">- &quot;{{element}}&quot;</span>
+  <span class="no">{% endfor %}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>There are many kinds of multi-line syntaxes, such as <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;+</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">|+</span></code>, <code class="docutils literal notranslate"><span class="pre">|-</span></code> and others. They all have different meanings.
+For a more detailed multiline mode, please see <a class="reference external" href="https://yaml-multiline.info/">Multiline syntax in the YAML format</a></p>
+<p>For most of the time, you only use <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;-</span></code>. You use <code class="docutils literal notranslate"><span class="pre">|</span></code> after <code class="docutils literal notranslate"><span class="pre">args:</span></code> to specify arguments like the above example, and you use <code class="docutils literal notranslate"><span class="pre">&gt;-</span></code> to specify a one liner argument, such as the command argument of <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">-c</span></code>.</p>
+</div>
+</div>
+<div class="section" id="define-tasks-by-templating">
+<h2>Define tasks by templating<a class="headerlink" href="#define-tasks-by-templating" title="Permalink to this headline">¶</a></h2>
+<p>The above example shows you to define a task by templating.
+This is greatly inspired from the <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks.html">Ansible Playbook</a> and how the Ansible team uses a template engine, jinja2, to resolve the playbook. Ansible is an automation system in IT industry. It can deploy app and manage machine configurations automatically. The Ansible Playbook is also written in the YAML format, but it is generalized in the IT world.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The inspiring part acturally comes from how Ansible Playbook resolves a configuration template using a web template engine, jinja2.
+The original purpose of this template engine is to generate web pages by giving data and a web page template. It’s smart to apply the template engine here.
+With a (web) template engine, we can specify loops and conditions in a straightforward basic text.
+Since i built the <code class="docutils literal notranslate"><span class="pre">workflow-player</span></code> in Pure JavaScript, i found an equivalent template engine: Nunjucks. If you would like to implement your playbook runner in python, you can directly apply jinja2 as part of your template engine.</p>
+</div>
+<p>These templating systems have a special feature, <strong>filter function</strong>, that makes them really suitable for task definitions.
+The <strong>filter function</strong> allows us to transform from one value to another by using the pipe character, <code class="docutils literal notranslate"><span class="pre">|</span></code>, followed by filter function name.
+You can consider the filter function as a value-transform function.
+For example, we can use a filter function like <code class="docutils literal notranslate"><span class="pre">capitalize</span></code> to transform a string to be capitalized.</p>
+<p>Several specialized filter functions that commonly used when defining tasks. For example,</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">batch-items</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.mergedSeqFolder</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromFileGlob([&#39;*.fastq.gz&#39;,</span><span class="nv"> </span><span class="s">&#39;*.fq.gz&#39;])</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;some-batch-task&#39;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;some-image&#39;</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+<p>First of all, the template engine resolves strings that wrapped between <code class="docutils literal notranslate"><span class="pre">{{</span></code> and <code class="docutils literal notranslate"><span class="pre">}}</span></code>.
+You may consider the content of the <code class="docutils literal notranslate"><span class="pre">batch-items</span></code> as giving a folder path (left-hand side of the <code class="docutils literal notranslate"><span class="pre">|</span></code>) to the filter function, <code class="docutils literal notranslate"><span class="pre">listFromFileGlob</span></code>.
+Then, this filter function transforms the given folder path
+The above example uses the <code class="docutils literal notranslate"><span class="pre">listFromFileGlob</span></code> filter function, so that we can use globbing expressions to get a list of matched file paths that inside the <code class="docutils literal notranslate"><span class="pre">mergedSeqFolder</span></code> folder.
+The resulting list is used as batch-items that will be iterated to execute the batch tasks. In this one-line definition, you already declare a batch task for all the matched files. As for the parallelism, it depends on the concurrency parameter. When the concurrency equals to 1, these jobs are executed sequentially. But the concurrency setting is controlled by the end users instead of developers. So, the task parallelism is not handled by developers. It’s not part of the playbook.</p>
+<p>All other value transforming is in this writing style, just the pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> followed by filter functions. That’s all.</p>
+<p>Let’s use a more advanced example to define real workflow.</p>
+</div>
+<div class="section" id="a-full-examplary-workflow-template">
+<h2>A full examplary workflow template<a class="headerlink" href="#a-full-examplary-workflow-template" title="Permalink to this headline">¶</a></h2>
+<p>The following defines an examplary workflow.</p>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">var</span><span class="p">:</span> <span class="c1"># This is a step 1 task</span>
+    <span class="c1"># This trimmedSeqFolder folder contains all the trimmed sequence files.</span>
+    <span class="nt">trimmedSeqFolder</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">argv[0]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="c1"># A folder that contains one reference genome file: refgenome.fa (other files in this folder are bwa indexed files)</span>
+    <span class="c1"># a refgenome folder expects only one *.fa file.</span>
+    <span class="nt">refGenomeFolder</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">argv[1]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="c1"># This is a batch task containing multiple jobs.</span>
+  <span class="nt">batch-items</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.trimmedSeqFolder</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromFileGlob([&#39;*_trimmed.fq&#39;])</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">sort</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="nt">task-template</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">run-bwa</span>
+    <span class="nt">condition</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">true</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">item}}&quot;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">quay.io/biocontainers/bwa:0.7.17--ha92aebf_3</span>
+    <span class="nt">exec</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bwa</span>
+    <span class="nt">args</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">aln</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">-t</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">option.cpus</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">-f</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.trimmedSeqFolder</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">suffix(&#39;/&#39;</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">path.basename(item,</span><span class="nv"> </span><span class="s">&#39;_trimmed.fq&#39;)</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&#39;.sai&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var.refGenomeFolder</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">listFromFileGlob([&#39;*.fa&#39;])</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">sort</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">pathMapping}}&quot;</span> <span class="c1"># The trimmed fastq file.</span>
+    <span class="nt">option</span><span class="p">:</span>
+      <span class="nt">setUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">task-template</span><span class="p">:</span> <span class="s">&#39;another-template&#39;</span> <span class="c1"># This is a task of step 2.</span>
+  <span class="nt">args</span><span class="p">:</span>
+<span class="nn">...</span>
+</pre></div>
+</td></tr></table></div>
+<p>The above example uses the bwa to map sequencing data to a reference genome.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>No need to use another file to pipe these tasks.</strong> Constructing workflow is just like stacking building blocks.
+You can concatenate the blocks (here, a block begins with <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">var:</span></code>) to form a pipeline. Just making sure that your <code class="docutils literal notranslate"><span class="pre">var.name</span></code> is valid and compatible.</p>
+</div>
+<ol class="arabic">
+<li><p><strong>Line 1</strong> declares a YAML document start. And you may noticed that the lines 2 and 21 start with a <code class="docutils literal notranslate"><span class="pre">-</span></code>. In the YAML format, they are list (array) elements. Workflow runner can parse this array structure to execute each of these tasks in order.</p></li>
+<li><p><strong>lines 2-7</strong> declared the variables for template to use. The values for these variables are from the global arguments. You can see this as setting alias. With the alias, you won’t change the content of <code class="docutils literal notranslate"><span class="pre">task-template</span></code> whenever the argument orders are changed. These variables will be existed until overwrite. Namely, the step 2 can directly use declared <code class="docutils literal notranslate"><span class="pre">var.trimmedSeqFolder</span></code> without specifying again.</p></li>
+<li><p><strong>Line 9</strong> declares an item list and each item will be used to resolved the <code class="docutils literal notranslate"><span class="pre">task-template</span></code> to produce a job in this batch task. Therefore, if we got 10 items in the <code class="docutils literal notranslate"><span class="pre">batch-items</span></code> and all of their <code class="docutils literal notranslate"><span class="pre">task-template.condition</span></code> is true, there will 10 jobs in this batch task. The workflow runner will wait all the 10 jobs to finish. Then, the workflow proceeds to the next step.</p></li>
+<li><p><strong>Line 10-24</strong> is the task template. It contains properties of <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">image</span></code>, <code class="docutils literal notranslate"><span class="pre">exec</span></code>, <code class="docutils literal notranslate"><span class="pre">condition</span></code>, <code class="docutils literal notranslate"><span class="pre">args</span></code>, and <code class="docutils literal notranslate"><span class="pre">option</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> is used as a key and is defined by developers. This is mainly used to identify the task.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">image</span></code> is the full container path.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">exec</span></code> is the executable. For a common use case, you can use <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> or <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code> here and use <code class="docutils literal notranslate"><span class="pre">-c</span></code> to formulate your commands.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">condition</span></code> tells if this task will be executed or not. If undefined, the <code class="docutils literal notranslate"><span class="pre">condition</span></code> is true. If set to any string other than ‘true’ or ‘TRUE’, this task will be ignored.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">option</span></code> can set additional settings for workflow runner. Here, this option will be sent to our <code class="docutils literal notranslate"><span class="pre">task-adapter</span></code>.
+The content of this <code class="docutils literal notranslate"><span class="pre">option</span></code> depends on the <code class="docutils literal notranslate"><span class="pre">adapters</span></code>. You can set some runtime resources as default values, such as <code class="docutils literal notranslate"><span class="pre">cpus</span></code> or <code class="docutils literal notranslate"><span class="pre">mem</span></code>.
+In this example, we can use <code class="docutils literal notranslate"><span class="pre">setUser:</span> <span class="pre">true</span></code> to notify the adapter that <code class="docutils literal notranslate"><span class="pre">--user</span></code> must be set when running the docker image.
+This prevents outputing files with root privileges.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">args</span></code> can have two types: array or string. In this example, we can use the array type and you can see lines 12-18 begins with <code class="docutils literal notranslate"><span class="pre">-</span></code> .
+Values leading with the <code class="docutils literal notranslate"><span class="pre">-</span></code> will be resolved as argument values in order. This is used when there is a fixed number of known arguments. For a non-fixed number of arguments, use the string type. The string type is a more advanced usage and allows you to fully customized your arguments. Basically, the multi-line mode of the YAML will be used by using <code class="docutils literal notranslate"><span class="pre">args:</span> <span class="pre">|</span></code> or <code class="docutils literal notranslate"><span class="pre">args:</span> <span class="pre">&gt;</span></code>.  Under the hood, this string is expected as in YAML format and will be resolved as an array. So you can use <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">for</span> <span class="pre">...</span> <span class="pre">%}</span> <span class="pre">...</span> <span class="pre">{%</span> <span class="pre">endfor</span> <span class="pre">%}</span></code> to produce arguments of uncertain number.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pathMapping</span></code> filter function transforms your host path to a path inside the container. The Workflow runner will do the volume mapping for you. This is probably the most frequently used filter function.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>The key orders are not important. That is, the order of <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">condition</span></code>, <code class="docutils literal notranslate"><span class="pre">exec</span></code>, etc. can be exchange.</p></li>
+<li><p>The list elmenets inside <code class="docutils literal notranslate"><span class="pre">args</span></code> may be important. It is the order of the input argument for the <code class="docutils literal notranslate"><span class="pre">exec</span></code>.</p></li>
+<li><p>We allow array of array here to define your tasks, so that your workflow can have multiple (batch) tasks executed concurrently in one step. If a step contains multiple tasks, you can start the line with <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">-</span> <span class="pre">task-template:</span></code> to declare array of array using the YAML format. The workflow runner will wait for all the tasks in a step to finish.</p></li>
+<li><p>Because indentation is important in the YAML format, using text editors like <a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a>, <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, or <a class="reference external" href="https://notepad-plus-plus.org/en">Notepad++</a> is recommended. They can help you to collapse items for a clear view.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basics.html" class="btn btn-neutral float-right" title="The basic structure of the workflow playbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction of Workflow Playbook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

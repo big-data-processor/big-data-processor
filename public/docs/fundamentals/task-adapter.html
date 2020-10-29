@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Task Adapter &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction of Workflow Playbook" href="../workflow-playbook/introduction.html" />
+    <link rel="prev" title="System Architecture" href="system-architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Task Adapter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#flowchart-of-an-adapter-process">Flowchart of an Adapter process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interface-functions-to-implement-for-various-computing-resources">Interface functions to implement for various computing resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Task Adapter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/task-adapter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="task-adapter">
+<h1>Task Adapter<a class="headerlink" href="#task-adapter" title="Permalink to this headline">¶</a></h1>
+<p>Task Adapter helps to deploy, execute, and monitor tasks on various computing environments.</p>
+<p>To execute a Task, the BDP system spawns an Adapter process that handles the user-specified arguments,
+reads the runtime configurations and parse the <a class="reference external" href="./terms.html#workflow-playbook">Workflow Playbook</a>.
+Both runtime configuration and Workflow Playbook can be directly defined on the web pages provided by BDP,
+so the Task can be executed on the fly right after the Task is configured.</p>
+<p>The above pre-process is done by the Task Reader of the Adapter process. After the Task Reader,
+the process knows the correct Adapter and computing resources from the runtime configurations.
+The process also get the task specifications from the Workflow Playbook.
+Then, these tasks are ready to deploy.</p>
+<p>We provided a base class of the Adapter. To support various computing resources,
+different Adapters can be implemented from this base class.
+That is, depending on the used Adapter, jobs are deployed on various computing resources locally or remotely.</p>
+<div class="section" id="flowchart-of-an-adapter-process">
+<h2>Flowchart of an Adapter process<a class="headerlink" href="#flowchart-of-an-adapter-process" title="Permalink to this headline">¶</a></h2>
+<p>The following figure depicts the flow chart of an Adapter.</p>
+<a class="reference internal image-reference" href="../_images/Adapter-Flowchart.png"><img alt="../_images/Adapter-Flowchart.png" src="../_images/Adapter-Flowchart.png" style="width: 600px;" /></a>
+<p>After getting the task specifications which are parsed by the Task Reader from the Workflow Playbook,
+the Adapter formulates these specifications into job objects by the <code class="docutils literal notranslate"><span class="pre">taskOverrides</span></code> functions.
+Adapter developers can write the command argument recipe in a YAML format, so that the <code class="docutils literal notranslate"><span class="pre">_parseRecipe</span></code> function can be used to parse the recipe to formulate job commands and the <code class="docutils literal notranslate"><span class="pre">taskOverrides</span></code> function organizes the task spec including job commands into job objects.</p>
+<p>The number of jobs is the number of job objects and the Adapter has a built-in queue to schedule these jobs. There is a <code class="docutils literal notranslate"><span class="pre">concurrency</span></code> option to control the number of concurrent jobs and the <code class="docutils literal notranslate"><span class="pre">retry</span></code> option to re-execute those failed jobs.
+The Adapter process keeps alive to monitor jobs until all jobs have been successfully finished or a retry limit has been hit.</p>
+<div class="section" id="interface-functions-to-implement-for-various-computing-resources">
+<h3>Interface functions to implement for various computing resources<a class="headerlink" href="#interface-functions-to-implement-for-various-computing-resources" title="Permalink to this headline">¶</a></h3>
+<p>There are 6 interface functions to implement, <code class="docutils literal notranslate"><span class="pre">taskOverrides</span></code>, <code class="docutils literal notranslate"><span class="pre">beforeStart</span></code>, <code class="docutils literal notranslate"><span class="pre">processSpawn</span></code>, <code class="docutils literal notranslate"><span class="pre">detectJobStatus</span></code>, <code class="docutils literal notranslate"><span class="pre">processExitCallback</span></code>, and <code class="docutils literal notranslate"><span class="pre">beforeExit</span></code>.</p>
+<p>As mentioned above, we provided a base class of Adapter to extend and implement for all kinds of computing resources. There are several interface functions that need to be implemented.
+The above <code class="docutils literal notranslate"><span class="pre">taskOverrides</span></code> is the first interface function that <em>translates</em> the job objects into the platform specific commands by the customized <code class="docutils literal notranslate"><span class="pre">argument</span> <span class="pre">recipe</span></code> that is parsed by the function <code class="docutils literal notranslate"><span class="pre">_parseRecipe</span></code>.</p>
+<p>Before scheduling these job objects, the <code class="docutils literal notranslate"><span class="pre">beforeStart</span></code> interface function can be implemented to do the preparations, such as synchronizing files or logging into the computing resources.</p>
+<p>Next, the <code class="docutils literal notranslate"><span class="pre">processSpawn</span></code> and <code class="docutils literal notranslate"><span class="pre">detectJobStatus</span></code> are the two main interface functions that can be implemented to submit the command and monitor job status, respectively.</p>
+<p>After each job is existed successfully or failed, the <code class="docutils literal notranslate"><span class="pre">processExitCallback</span></code> is called. This function may be implemented to download job logs or update all information for the job.</p>
+<p>Lastly, when all jobs are executed either successfully or failed, the interface function <code class="docutils literal notranslate"><span class="pre">beforeExit</span></code> is called. Adapter developers may implement this function to clear the resources or synchronizing files.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information about the Adapter, please see <a class="reference external" href="https://big-data-processor.github.io/task-adapter-base/">the code document on Github</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../workflow-playbook/introduction.html" class="btn btn-neutral float-right" title="Introduction of Workflow Playbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="system-architecture.html" class="btn btn-neutral float-left" title="System Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

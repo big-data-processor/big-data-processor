@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; Bio-Data Processor  documentation</title>
+  <title>Introduction &mdash; Big Data Processor  documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Bio-Data Processor
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
           
 
           
@@ -90,16 +90,32 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#towards-the-next-generation-of-the-web-workbench-for-data-scientists">Towards the next generation of the web workbench for data scientists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#portable-and-customizable-web-interface-for-workflows">Portable and customizable web interface for workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#our-goal-is-to-make-all-on-web-pages">Our goal is to make <strong>all on web pages!</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Concept</span></p>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals/task-adapter.html">Task Adapter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Quick Start</span></p>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
@@ -123,7 +139,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Bio-Data Processor</a>
+          <a href="index.html">Big Data Processor</a>
         
       </nav>
 
@@ -175,22 +191,35 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<ol class="arabic simple">
-<li><p>BDP configurations</p></li>
-<li><p>Documentations for the UI.</p></li>
-<li><p>Documentations to define tasks on the BDP platform</p></li>
-</ol>
+<div class="section" id="towards-the-next-generation-of-the-web-workbench-for-data-scientists">
+<h2>Towards the next generation of the web workbench for data scientists<a class="headerlink" href="#towards-the-next-generation-of-the-web-workbench-for-data-scientists" title="Permalink to this headline">¶</a></h2>
+<p>Big Data Processor (BDP) is a light-weight, yet complete and scalable workflow platform.
+This web workbench mainly focuses on the workflow <strong>portability</strong>, <strong>reproducibility</strong> and <strong>reusiblity</strong>.
+It is generic so that workflow builders can freely design their workflows into portable packages.</p>
 </div>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>The categories for documentations:
-0. Quick Start
-1. Basic Usages
-2. Package development
-3. Administration
-4. System archeticture</p>
+<div class="section" id="portable-and-customizable-web-interface-for-workflows">
+<h2>Portable and customizable web interface for workflows<a class="headerlink" href="#portable-and-customizable-web-interface-for-workflows" title="Permalink to this headline">¶</a></h2>
+<p>Most workflow management systems mainly help us to execute and monitor workflows.
+After that, users offten have to find their way to explore results.
+Here, with BDP, workflow builders are allowed to freely develop web pages for their workflows
+both to provide guidances for workflow executions and to provide interactive data visualizations.
+With these customized web pages,
+users can therefore visualize results interactively right after workflow executions.</p>
+<p>Sometimes, a workflow may not be fully automated.
+Some steps may require additional checks to decide parameters for the following analysis.
+For this kind of semi-automatic workflows, a traditional solution is to construct a web services for each workflow.
+Now, developers can have another choise.
+With BDP, developers need NOT build another web application.
+Instead, developers can freely develop web pages to communicate to BDP server without worrying about the backend server scripts.
+We provide a javascript library so that developers do not have to handle HTTP request and response events by themselves.</p>
+</div>
+<div class="section" id="our-goal-is-to-make-all-on-web-pages">
+<h2>Our goal is to make <strong>all on web pages!</strong><a class="headerlink" href="#our-goal-is-to-make-all-on-web-pages" title="Permalink to this headline">¶</a></h2>
+<p>This web workbench provides web interfaces that covers project management, workflow executions, task monitoring, and package building.
+Packages of BDP are in a portable format that can be installed on every BDP hosts by just mouse clicks.
+Then, these workflows in the packages are ready to run with near-zero configurations!</p>
+<p>The coolest part is that our Page system also provides the web proxy functionality.
+Our Page system can not only serve the above mentioned customized web pages, but can also serve containerized web services or even desktop applications, such as R/Shiny apps, RStudio, Jupyter Notebook or Matlab IDE and many more!</p>
 </div>
 </div>
 
@@ -215,7 +244,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2018, Chi Yang
+        &copy; Copyright 2020, Chi Yang
 
     </p>
   </div>

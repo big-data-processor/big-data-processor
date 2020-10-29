@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Terminology &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Privileges" href="privilege.html" />
+    <link rel="prev" title="Concepts" href="concepts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terminology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project">Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#datafile">DataFile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-tags">File Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#result">Result</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#task-log">Task Log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#package">Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task">Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tag-match-rules">Tag Match Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-playbook">Workflow Playbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-typed-task">Workflow-typed Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#runtime-configuration">Runtime Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-adapter">Task Adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#page">Page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">System Administrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Terminology</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fundamentals/terms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="terminology">
+<h1>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we explain several terms that used in the Big Data Processor.
+These terms include <strong>Project</strong>, <strong>DataFile</strong>, <strong>Result</strong>, <strong>Package</strong>, <strong>Task</strong>, and <strong>Page</strong>.
+These terms are shown in the following figure which is also displayed in the system operation scheme of the previous section, <a class="reference internal" href="concepts.html"><span class="doc">the concepts</span></a>.
+The details and the relationships of these terms are listed below.</p>
+<a class="reference internal image-reference" href="../_images/BDP_system_operation_scheme.png" id="system-operation-figure"><img alt="../_images/BDP_system_operation_scheme.png" id="system-operation-figure" src="../_images/BDP_system_operation_scheme.png" style="width: 600px;" /></a>
+<div class="section" id="project">
+<h2>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h2>
+<p>A Project is a collection of <a class="reference internal" href="#datafile"><span class="std std-ref">DataFiles</span></a> and <a class="reference internal" href="#result"><span class="std std-ref">Results</span></a>.
+A project is created with a name and an optional description. Several <a class="reference internal" href="#package"><span class="std std-ref">Packages</span></a> can also be selected to use in the project.
+A project can also be shared among users. Please see the <a class="reference internal" href="privilege.html"><span class="doc">Privilege</span></a> for more information.
+The Project-related information can be changed after creation.</p>
+<p>Under the hood, each Project has a corresponding folder to store all the files or folders which correspond to DataFile records.
+Different Projects are organized into separated folders and are consider as independent, although DataFiles can be copied and linked among Projects.</p>
+<p>As for the Result, A Result can be seen as a history of a task execution. All the provenance of each task run is recorded in a Result.
+A Result records the task execution time, running parameters, input and output files, standard output and standard error messages, and others.
+After task execution, the generated output files are new DataFiles that can be used as another task inputs.</p>
+</div>
+<div class="section" id="datafile">
+<h2>DataFile<a class="headerlink" href="#datafile" title="Permalink to this headline">¶</a></h2>
+<p>A DataFile record can be generated by importing files or folders.
+Executing <a class="reference internal" href="#task"><span class="std std-ref">Tasks</span></a> may also generate output files as DataFile records, if the task has defined output files/folders as arguments.
+The files and folders of DataFile records are located directly inside the Project folder. For simplicity, we use the in-place folder structure without adding additional nested folders.
+The filenames and foldernames are the database ids of their corresponding DataFile records.
+For non-folder files, the filename also preserves its extension, and the extension is also stored as the format property of a DataFile record.
+The Big Data Processor controls the direct children of the Project folder. Therefore, the system does not aware of file contents inside a folder-typed DataFile.</p>
+<div class="section" id="file-tags">
+<h3>File Tags<a class="headerlink" href="#file-tags" title="Permalink to this headline">¶</a></h3>
+<p>Every DataFile record can have its own tags. Valid characters of a tag include numbers <code class="docutils literal notranslate"><span class="pre">[0-9]</span></code>, lower cases of alphabatics <code class="docutils literal notranslate"><span class="pre">[a-z]</span></code>, underlines <code class="docutils literal notranslate"><span class="pre">_</span></code> and dashes <code class="docutils literal notranslate"><span class="pre">-</span></code>. These file tags are mainly used to tell whether a DataFile record is valid to be an input argument of a <a class="reference internal" href="#task"><span class="std std-ref">Task</span></a>.
+That is, these Fle Tags can be used as guards to prevent users to select invalid DataFile records and can be ssen as filters to narrow down the number of DataFile records to select.</p>
+<p>When configuring a Task, file tags need to be set in task arguments of input or output DataFile. File tags of input file argument let users to select only valid DataFile records. The file tags of output file argument are tagged for the output files of the task.
+It is important for task developers to design their tags for a task’s input and output file arguments, since constructions of workflows rely on these tags to pipe output files of one task into input files of another.</p>
+<p>Users can also specify their desired tags to recognize their DataFile records.</p>
+</div>
+</div>
+<div class="section" id="result">
+<h2>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
+<p>In a Project, a Result can be generated by executing one Task in the selected Packages. You may see a Resord as a history record of task executions. A result record contains the input parameters of the corresponding task, the start time, execution time, standard outputs, standard errors. All the provenance of each task run is stored in a Result record.</p>
+<p>If the corresponding task is a workflow, tasks of each steps in the workflow are organized on the web pages. users can clearly view the progress of the workflow executions. Details of each task are recorded in the Result record.</p>
+<div class="section" id="task-log">
+<h3>Task Log<a class="headerlink" href="#task-log" title="Permalink to this headline">¶</a></h3>
+<p>A task may contain multiple sub-tasks. For example, a batch task may contain 10 sub-tasks to process the 10 raw input files. The execution details related to the 10 sub-tasks are all organized in the Task Log section of the Result record. The details include execution start and end time, the computing resources such as cpu cores, memory size, the standard output and standard errors.</p>
+</div>
+</div>
+<div class="section" id="package">
+<h2>Package<a class="headerlink" href="#package" title="Permalink to this headline">¶</a></h2>
+<p>As shown in <a class="reference internal" href="#system-operation-figure"><span class="std std-ref">the above figure</span></a>, a Package contains <code class="docutils literal notranslate"><span class="pre">task</span> <span class="pre">settings</span></code>, <code class="docutils literal notranslate"><span class="pre">Workflow</span> <span class="pre">Playbooks</span></code>, <code class="docutils literal notranslate"><span class="pre">task</span> <span class="pre">execution</span> <span class="pre">files</span></code>, and <code class="docutils literal notranslate"><span class="pre">customized</span> <span class="pre">Web</span> <span class="pre">Pages</span></code>. A Package can be created by task managers or system administrators. Under the hood, a package is a folder containing the above mentioned files. Task settings and workflow playbooks are edited on the web pages of the BDP system and the system take cares of these files. The customized web pages and task execution files are uploaded/edited by Package developers.</p>
+<ul class="simple">
+<li><p><strong>Task Settings</strong> are configured via the web pages and are stored in the BDP databases. The task settings include task name, description, type, runtime configurations, and task arguments.</p></li>
+<li><p><strong>Workflow Playbooks</strong> are the detailed task definition. It is designed for fast and concise task configurations in the YAML format. Task developers can write the workflow playbook on web pages.</p></li>
+<li><p><strong>Task execution files</strong> may be the tool binaries or scripts. These files can be uploaded on the web pages and mounted to the container during task executions. For scripts, we provide an online editor to allow editiing scripts on web pages. So that developers can edit their script files and test them immediately.</p></li>
+<li><p><strong>Customized Web Pages</strong> are stored inside the <code class="docutils literal notranslate"><span class="pre">client</span></code> folder of the package folder. Developers can write or upload html, css, and javascript to write Pages.</p></li>
+</ul>
+<p>A package of the Big Data Processor is designed to be portable. Once a package is constructed, it can be exported as one zip file (currently) and can be installed on another BDP hosts with near zero configurations!</p>
+<p>To use a Package, a user must create a Project first and then select Packages for the Project.
+Then, the defined Tasks and the customized pages can be executed and viewed in the Project.</p>
+</div>
+<div class="section" id="task">
+<h2>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h2>
+<p>A Task is an execution unit on the Big Data Processor. A Task is categorized into four types: 1) Standard; 2) Workflow; 3) Child; and 4) System.</p>
+<ol class="arabic simple">
+<li><p>The standard Task can be executed alone or specified as a task in a workflow-typed Task.</p></li>
+<li><p><a class="reference internal" href="#workflow-playbook"><span class="std std-ref">A workflow-typed Task</span></a>, as the name suggests, defines a workflow of many steps and each step can specify one or more standard- or child-typed Task(s). You may see the standard- or child-typed Tasks as building blocks for workflow constructions.</p></li>
+<li><p>A child Task is like the standard task except that it must be included inside a workflow. A child-typed Task is hidden from user selection so that it cannot be executed directly.</p></li>
+<li><p>A system Task can only be executed by system administrators. it is hidden from non-privileged users.</p></li>
+</ol>
+<p>As mentioned in <a class="reference internal" href="#file-tags"><span class="std std-ref">the File Tag section</span></a>, we can set valid rules for file tags of input/output file arguments of a Task. The input file tags are filters to prevent users to select invalid DataFile records.
+As for the output file tags, the output DataFile records will carry the tags after task executions.</p>
+<div class="section" id="tag-match-rules">
+<h3>Tag Match Rules<a class="headerlink" href="#tag-match-rules" title="Permalink to this headline">¶</a></h3>
+<p>Developers can set the Tag Match Rules for arguments of input DataFile records. The rules can be</p>
+<ol class="arabic simple">
+<li><p>Or: The DataFile records that have at least one of the file tags matched are consider valid. Users can thus select those valid DataFile records as input arguments.</p></li>
+<li><p>And: The DataFile records that have all the file tags of the task argument can be selected as input DataFile records. The DataFile records can have extra tags.</p></li>
+<li><p>All: The DataFile records should have exactly the same tags of the task argument. No extra tags are allowed.</p></li>
+</ol>
+</div>
+<div class="section" id="workflow-playbook">
+<h3>Workflow Playbook<a class="headerlink" href="#workflow-playbook" title="Permalink to this headline">¶</a></h3>
+<p>Workflow Playbook is a concise YAML format to configure a Task. A Task on BDP contains one Workflow Playbook.
+The Workflow Playbook can be edited on web pages and is automatically organized into the <code class="docutils literal notranslate"><span class="pre">tasks</span></code> folder inside the package folder. You can see the web page when you are setting the Task. As the name suggested, we can define a workflow as a standard or child Task. Then, we build a mega-workflow as a workflow-typed Task from these Tasks.</p>
+<p>For further information, please see the <a class="reference internal" href="../workflow-playbook/introduction.html"><span class="doc">the introduction of Workflow Playbook</span></a>.</p>
+</div>
+<div class="section" id="workflow-typed-task">
+<h3>Workflow-typed Task<a class="headerlink" href="#workflow-typed-task" title="Permalink to this headline">¶</a></h3>
+<p>There is a hierarchical structure to build a workflow.
+A workflow-typed Task can be constructed by piping from output files to input files of standard-typed or child-typed Tasks. Then, each standard-typed or child-typed Task itself could be a small workflow and has its own Workflow Playbook.</p>
+<p>With Big Data Processor, workflow developers can use the web pages to directly piping Tasks into a workflow-typed Task by just mouse drags-and-drops. Once a workflow-typed Task is constructed, it can be executed.</p>
+</div>
+<div class="section" id="runtime-configuration">
+<h3>Runtime Configuration<a class="headerlink" href="#runtime-configuration" title="Permalink to this headline">¶</a></h3>
+<p>To make the task portable, the runtime configurations need be separated from taskworkflow definitions, since task developers do not know the runtime environments of the end users. Here, on the Big Data Processor, the administrators can set a global runtime configs for all Tasks in a Package, or set task-specific runtime configs for each Task. The task-specific runtime configs override the configs that defined in the Package. The runtime settings take effect right after changing the configurations on web pages.
+The runtime settings contain the Task Adapter, adapter-specific options, CPU cores, memory size, the execution concurrency, etc.</p>
+</div>
+<div class="section" id="task-adapter">
+<h3>Task Adapter<a class="headerlink" href="#task-adapter" title="Permalink to this headline">¶</a></h3>
+<p>The BDP system deploy tasks on various computing resources through Task Adapters. For each of different computing environments, a corresponding Task Adapter can be implemented and extended from a base class.
+An adapter provides a queue to schedule job executions, monitor job status, and record job messeages such as standard outputs and errors. An adpater may need to synchronize files if jobs are executed remotely.</p>
+<p>For more information, please see the <span class="xref std std-ref">Task Adapter section</span>.</p>
+</div>
+</div>
+<div class="section" id="page">
+<h2>Page<a class="headerlink" href="#page" title="Permalink to this headline">¶</a></h2>
+<p>The Page system is one of the game-changing features of Big Data Processor.
+It displays interactive web contents in a sandbox environment.
+The following lists the details of different types of the Page.</p>
+<ul>
+<li><dl class="simple">
+<dt>Customizable Pages</dt><dd><p>Customizable Pages are written by Package developers and stored in the Package folder.
+They are just html, css and javascript files that are displayed in a sandbox environment.
+We allow developers to use any front-end framework or any javascript library.
+This enables us to display all kinds inveractive contents for users, such as interactive documentations
+, data visualizations, guiding users to execute tasks, etc.
+We provide a Page client API for developers to directly communicate with the system with javascript functions.
+Developers can just call our javascript API functions to achieve many things, such as file downloads/uploads, list project files, etc.
+Basically, the goal of the client API functions is to allow developers to customize web user interfaces for all working stages.
+There are three entry ways to view customizable Pages.</p>
+<ol class="arabic simple">
+<li><p><strong>Project Page</strong>: Project Pages are the main entry points for Packages that are selected in the Project.
+Developers may design pages of documentations, pages to guide users to execute tasks, etc.</p></li>
+<li><p><strong>Result Page</strong>: A Result Page can be used to interactively display results of specific Tasks. Right after submitting a Task to execute, a corresponding Result record is created. Then, users can view the Result Page for that Result Record, if the Package developers provide the web pages and configure them correctly.</p></li>
+<li><p><strong>DataFile Page</strong>: A DataFile Page is like the Result Page except that it corresponds to a DataFile record.
+That is, a DataFile Page can be displayed when users have selected a DataFile record.
+Package developers can develope multiple interactive visualizations for each type of DataFile records.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Non-customizable Pages</dt><dd><p>There are two types of the non-customizable Pages, the Static File Page (or just Static Page) and the Proxy Page.
+The Static Page is a specialized DataFile Page which display an index page for the folder-typed DataFile records.
+For each folder, our system hosts a microservice to serve the corresponding file index page.
+Users can view file structures through the file index page just like FTP file lists.</p>
+<p>The Proxy Page mainly serves for well-developed tools, such as containerized web services.
+Our system provides the functionalities of the web proxy to serve web contents from the container.
+It is worth noting that the Big Data Processor can also serve Linux desktop environments inside Docker containers.
+Thanks to the noVNC package, containerized desktop environments can also be removely connected through http protocol.
+In this way, users can easily use desktop applications on Linux container through web pages. Sounds cool, right?</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="privilege.html" class="btn btn-neutral float-right" title="Privileges" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="concepts.html" class="btn btn-neutral float-left" title="Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
