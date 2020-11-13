@@ -554,7 +554,7 @@ class BdpPageAPI {
    * @param {string} fileID the DataFile ID to view the static Page. The DataFile must be a Folder.
    * @param {string} subPath The sub-path under the Folder to display. Must start with '/'
    */
-  async openStaticLink(fileID, option) {
+  async openStaticLink(fileID, subPath) {
     return await this._callBdpApi('openStaticLink', {fileID: fileID, subPath: subPath || '/'});
   }
 
