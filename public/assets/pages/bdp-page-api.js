@@ -991,6 +991,16 @@ class BdpPageAPI {
 
   /**
    * @async
+   * @function BdpPageAPI#isFullPage
+   * @return {boolean} a boolean value indicates if the page is in full-page mode.
+   * @description get the status whether the current page is in full-page mode or not.
+   */
+  async isFullPage() {
+    return await this._callBdpApi('isFullPage');
+  }
+
+  /**
+   * @async
    * @function BdpPageAPI#toggleFullPage
    * @param {boolean} isFullPage (Optional) If providing a truthy value, the Page will go full page. If the `false` is provided, the full page would be turned off.
    *  If undefined, this function just toggles the full page mode.
@@ -1002,6 +1012,16 @@ class BdpPageAPI {
 
   /**
    * @async
+   * @function BdpPageAPI#isShownRightSideMemu
+   * @return {boolean} a boolean value indicates if the right-side menu is shown.
+   * @description get the status of the right-side menu.
+   */
+  async isShownRightSideMemu() {
+    return await this._callBdpApi('isShownRightSideMemu');
+  }
+
+  /**
+   * @async
    * @function BdpPageAPI#toggleRightSideMenu
    * @param {boolean} isShown (Optional) If providing a truthy value, the right-side menu shows. If the `false` is provided, the right-side menu would be hidden.
    *  If undefined, this function just toggles the right-side menu.
@@ -1009,6 +1029,16 @@ class BdpPageAPI {
    */
   async toggleRightSideMenu(isShown) {
     return await this._callBdpApi('toggleRightSideMenu', {isShown: isShown});
+  }
+
+  /**
+   * @async
+   * @function BdpPageAPI#isShownPageList
+   * @return {boolean} a boolean value indicates if showing the page-list.
+   * @description get the status of the page list.
+   */
+  async isShownPageList() {
+    return await this._callBdpApi('isShownPageList');
   }
 
   /**
