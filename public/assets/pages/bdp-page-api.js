@@ -428,6 +428,20 @@ class BdpPageAPI {
 
   /**
    * @async
+   * @function BdpPageAPI#createProject
+   * @param {string} projectName 
+   * @param {string} projectDesc 
+   * @param {string[]} packageIDs 
+   * @param {boolean} isPublic 
+   * @return {Project} the newly created project object.
+   * @description This funciton is used to create a new project
+   */
+  async createProject(projectName, projectDesc, packageIDs, isPublic) {
+    return await this._callBdpApi('createProject', {projectName: projectName, projectDesc: projectDesc, packages: packageIDs, isPublic: isPublic})
+  }
+
+  /**
+   * @async
    * @function BdpPageAPI#getAuthToken
    * @return {string} the authentication token
    * @description This function is used to retrieve the auth token. This token lasts one day and then expired.
@@ -445,6 +459,19 @@ class BdpPageAPI {
 
   log(data) {
     this._callBdpApi('log', JSON.stringify(data));
+  }
+
+  /**
+   * @async
+   * @function BdpPageAPI#listProjects
+   * @param {number} pageSize
+   * @param {number} pageIndex
+   * @param {string} type shared | public | myProjects (default)
+   * @returns {Project[]} The list of projects. (Note: only the ids are returned for the properties of dataFiles and results)
+   * @description get a list of the projects with paginations.
+   */
+  async listProjects(pageSize, pageIndex, type) {
+    return await this._callBdpApi('listProjects', {pageIndex: pageIndex, pageSize: pageSize, type: type});
   }
 
   /**
@@ -525,6 +552,17 @@ class BdpPageAPI {
    */
   async getCurrentProjectInfo() {
     return this._callBdpApi('getCurrentProjectInfo');
+  }
+
+  /**
+   * @async
+   * @function BdpPageAPI#getProjectInfo
+   * @param {string} projectID
+   * @returns {Project} 
+   * @description get detailed object of a project.
+   */
+  async getProjectInfo(projectID) {
+    return await this._callBdpApi('getProjectInfo', {projectID: projectID});
   }
 
   /**
@@ -648,6 +686,19 @@ class BdpPageAPI {
       folderId, folderId,
       keepFileName: keepFileName
     });
+  }
+
+  /**
+   * @async
+   * @function BdpPageAPI#importFilesToProject
+   * @param {string} projectID
+   * @param {string[]} fileIDs
+   * @param {boolean} isCopied
+   * @returns {DataFile[]}
+   * @description This function imports datafile records to a project.
+   */
+  async importFilesToProject(projectID, fileIDs, isCopied) {
+    return await this._callBdpApi('importFilesToProject', {projectID:projectID, fileIDs: fileIDs, copy: isCopied ? true : false});
   }
 
   /**
