@@ -569,7 +569,7 @@ class BdpPageAPI {
    * @async
    * @function BdpPageAPI#openFileLink
    * @param {string} fileID the DataFile ID to display
-   * @description Open a new window to display the DataFile record.
+   * @description Popup a new window to display the DataFile record.
    */
   async openFileLink(fileID) {
     return await this._callBdpApi('openFileLink', {fileID: fileID});
@@ -580,10 +580,20 @@ class BdpPageAPI {
    * @async
    * @function BdpPageAPI#openResultLink
    * @param {string} resultID the Result ID to display
-   * @description Open a new window to display the Result record.
+   * @description Popup a new window to display the Result record.
    */
   async openResultLink(resultID) {
     return await this._callBdpApi('openResultLink', {resultID: resultID});
+  }
+
+  /**
+   * @async
+   * @function BdpPageAPI#openProjectLink
+   * @param {string} projectID
+   * @description Popup a new window to display the Project record.
+   */
+  async openProjectLink(projectID) {
+    return await this._callBdpApi('openProjectLink', {projectID: projectID});
   }
 
   /**
@@ -662,7 +672,11 @@ class BdpPageAPI {
   async navigateToBdpResult(resultID) {
     await this._callBdpApi('navigateToBdpResult', {resultID: resultID});
   }
-  
+
+  async navigateToBdpProject(projectID) {
+    await this._callBdpApi('navigateToBdpProject', {projectID: projectID});
+  }
+
   /**
    * @async
    * @function BdpPageAPI#createFolder
