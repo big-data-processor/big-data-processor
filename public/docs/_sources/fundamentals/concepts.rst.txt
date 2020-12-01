@@ -19,7 +19,8 @@ BDP provides basic user privileges for the above user roles. Please see the admi
 User Operation Scheme
 =======================
 
-.. image:: ../images/BDP_system_operation_scheme.png
+.. 
+   image:: ../images/BDP_system_operation_scheme.png
    :width: 600
 
 As shown in the above figure of operating scheme, a Project contains DataFiles and Results, 

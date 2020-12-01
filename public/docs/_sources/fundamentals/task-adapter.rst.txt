@@ -23,9 +23,9 @@ That is, depending on the used Adapter, jobs are deployed on various computing r
 Flowchart of an Adapter process
 ===============================
 
-The following figure depicts the flow chart of an Adapter.
-
-.. image:: ../images/Adapter-Flowchart.png
+.. 
+  The following figure depicts the flow chart of an Adapter.
+  image:: ../images/Adapter-Flowchart.png
    :width: 600
 
 After getting the task specifications which are parsed by the Task Reader from the Workflow Playbook,

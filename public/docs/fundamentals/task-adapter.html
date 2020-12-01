@@ -225,8 +225,6 @@ different Adapters can be implemented from this base class.
 That is, depending on the used Adapter, jobs are deployed on various computing resources locally or remotely.</p>
 <div class="section" id="flowchart-of-an-adapter-process">
 <h2>Flowchart of an Adapter process<a class="headerlink" href="#flowchart-of-an-adapter-process" title="Permalink to this headline">¶</a></h2>
-<p>The following figure depicts the flow chart of an Adapter.</p>
-<a class="reference internal image-reference" href="../_images/Adapter-Flowchart.png"><img alt="../_images/Adapter-Flowchart.png" src="../_images/Adapter-Flowchart.png" style="width: 600px;" /></a>
 <p>After getting the task specifications which are parsed by the Task Reader from the Workflow Playbook,
 the Adapter formulates these specifications into job objects by the <code class="docutils literal notranslate"><span class="pre">taskOverrides</span></code> functions.
 Adapter developers can write the command argument recipe in a YAML format, so that the <code class="docutils literal notranslate"><span class="pre">_parseRecipe</span></code> function can be used to parse the recipe to formulate job commands and the <code class="docutils literal notranslate"><span class="pre">taskOverrides</span></code> function organizes the task spec including job commands into job objects.</p>

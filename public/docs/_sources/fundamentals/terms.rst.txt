@@ -7,10 +7,9 @@ These terms include **Project**, **DataFile**, **Result**, **Package**, **Task**
 These terms are shown in the following figure which is also displayed in the system operation scheme of the previous section, :doc:`the concepts <./concepts>`.
 The details and the relationships of these terms are listed below.
 
-
 .. _system_operation_figure:
-
-.. image:: ../images/BDP_system_operation_scheme.png
+.. 
+   image:: ../images/BDP_system_operation_scheme.png
    :width: 600
 
 

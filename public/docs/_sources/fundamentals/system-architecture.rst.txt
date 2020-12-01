@@ -8,8 +8,8 @@ and the `Express <https://expressjs.com>`_ is used to construct the web server.
 The `MongoDB <https://www.mongodb.com>`_ database is used to store all metadata.
 The above three elements constitue the BDP architecture and the system relies on client-server and server-database communications to work.
 
-
-.. image:: ../images/SystemArchitecture.png
+.. 
+   image:: ../images/SystemArchitecture.png
    :width: 600
 
 
