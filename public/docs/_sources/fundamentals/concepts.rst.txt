@@ -22,8 +22,9 @@ User Operation Scheme
 .. 
    image:: ../images/BDP_system_operation_scheme.png
    :width: 600
+   As shown in the above figure of operating scheme,
 
-As shown in the above figure of operating scheme, a Project contains DataFiles and Results, 
+A Project contains DataFiles and Results, 
 while Task definitions and customized Pages are stored in a Package.
 Projects are created by plain users and Packages are created by developers. 
 
