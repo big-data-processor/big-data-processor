@@ -104,6 +104,7 @@ Because sometimes package authors may want to keep their source codes or workflo
 Setting a Package to be public means privileged users can view the Package contents and execute tasks in the package.
 Here, privileged users mean that users may require some user privilege levels. Please see the next sections.
 
+
 User privileges
 ===============
 

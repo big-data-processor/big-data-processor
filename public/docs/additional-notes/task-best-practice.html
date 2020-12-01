@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Guidelines to plan tasks into packages on Big Data Processor &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Building a Docker Image" href="build-docker-image.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/basic-ui-layout.html">Basic UI Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/project-management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/datafile-management.html">DataFile Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/result-management.html">Result Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/customized-pages.html">Customized Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/package-installation.html">Package Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/package-management.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/script-management.html">Management of Your Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/basic-task-settings.html">Basic Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/advanced-task-settings.html">Advanced Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/customized-web-pages.html">Customized web pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The Page System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/page-api.html">The Page API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/example.html">An example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mongodb-non-root-installation.html">Installation the mongoDB without root privileges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-docker-image.html">Building a Docker Image</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prepare portable scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#do-expose-all-output-paths-as-input-arguments">1. Do expose all output paths as input arguments.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-input-output-files-accepts-the-absolute-full-path-s-as-arguments">2. For input/output files, accepts the absolute full path(s) as arguments.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-sure-to-follow-symbolic-links">3. Make sure to follow symbolic links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#receive-sigterm-or-sigint-signal-for-gracefully-stop-processes">4. Receive SIGTERM or SIGINT signal for gracefully stop processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#construct-a-container-image-for-your-scripts-to-run">5. Construct a container image for your scripts to run.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#do-not-handle-batch-tasks-by-yourself">6. Do NOT handle batch tasks by yourself</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#be-careful-when-outputting-files-in-input-folders">7. Be careful when outputting files in input folders</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Guidelines to plan tasks into packages on Big Data Processor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/additional-notes/task-best-practice.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="guidelines-to-plan-tasks-into-packages-on-big-data-processor">
+<h1>Guidelines to plan tasks into packages on Big Data Processor<a class="headerlink" href="#guidelines-to-plan-tasks-into-packages-on-big-data-processor" title="Permalink to this headline">¶</a></h1>
+<p>We suggest the following tips to have your scripts become a protable form.</p>
+<div class="section" id="do-expose-all-output-paths-as-input-arguments">
+<h2>1. Do expose all output paths as input arguments.<a class="headerlink" href="#do-expose-all-output-paths-as-input-arguments" title="Permalink to this headline">¶</a></h2>
+<p>All output files/folders are specified through arguments when executing your script/program.
+Namely, Your scripts/programs should accepts arguments of all output file/folder paths.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A task may generate many output files. In this case, we can plan to generate a single output folder for this task, and all output files with any complex file structure can then be organized in this folder.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Intermediate outputs of a workflow are recommended to be generated inside an output folder.
+When this output folder is set as an argument, users can directly examine these intermediate outputs on Bio-Data Processor.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Bio-Data Processor does not tightly control the file outputs to maintain light weighted. Developers are suggested to know where the output files are (see <a class="reference internal" href="#dangeroutput"><span class="std std-ref">the third suggested point below</span></a>). If the outputs are created in the <code class="docutils literal notranslate"><span class="pre">current</span> <span class="pre">working</span> <span class="pre">directory</span></code>, we provided web interface for you to set the <code class="docutils literal notranslate"><span class="pre">cwd</span></code> property for that task. The default <code class="docutils literal notranslate"><span class="pre">cwd</span></code> is the <code class="docutils literal notranslate"><span class="pre">$ProjectFolder</span></code> that specifies the project folder path.</p>
+</div>
+</div>
+<div class="section" id="for-input-output-files-accepts-the-absolute-full-path-s-as-arguments">
+<h2>2. For input/output files, accepts the absolute full path(s) as arguments.<a class="headerlink" href="#for-input-output-files-accepts-the-absolute-full-path-s-as-arguments" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended for a task to accept absolute paths as input/output file arguments.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If a task <strong>only accepts the output file/folder that is relative to the current working directory</strong> (e.g. output prefix), you may consider setting the task current working directory as the <code class="docutils literal notranslate"><span class="pre">$ProjectFolder</span></code> on the Bio-Data Processor and setting the argument to use only the output file/folder name only instead of the full path.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If a (batch) task <strong>needs many input files</strong>, try to plan the task that takes a single input folder as an argument that contains all the input files.</p>
+</div>
+</div>
+<div class="section" id="make-sure-to-follow-symbolic-links">
+<h2>3. Make sure to follow symbolic links<a class="headerlink" href="#make-sure-to-follow-symbolic-links" title="Permalink to this headline">¶</a></h2>
+<p>If your scripts accepts symbolic links as an input argument, remember to follow the symbolic link (soft link) when this folder is a soft-link to see underlying files.</p>
+</div>
+<div class="section" id="receive-sigterm-or-sigint-signal-for-gracefully-stop-processes">
+<h2>4. Receive SIGTERM or SIGINT signal for gracefully stop processes<a class="headerlink" href="#receive-sigterm-or-sigint-signal-for-gracefully-stop-processes" title="Permalink to this headline">¶</a></h2>
+<p>This is usually the default behavior for a script/program to stop. If your scripts/programs intercept these two signals, please make sure your task will stop itself gracefully, e.g. removing all intermediate files or stop all child processes.</p>
+</div>
+<div class="section" id="construct-a-container-image-for-your-scripts-to-run">
+<h2>5. Construct a container image for your scripts to run.<a class="headerlink" href="#construct-a-container-image-for-your-scripts-to-run" title="Permalink to this headline">¶</a></h2>
+<p>We strongly encourage you to plan all your tasks running inside Docker or Signularity containers.
+In this way, these tasks are cross-platformed and users need not worry about the task running environments.
+In the BDP, the container images are suggested to contain only the dependent libraries or packages, so that you can edit and then directly test your scripts on the BDP.
+Also, you do not have to build a new image whenever you modify your scripts.
+Your scripts are mounted to the container at run time.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Many Task Adapters of BDP can be developed to deploy containerized tasks on different environments. (e.g. a server with a cluster architecture with SGE/PBS, cloud computing (Google Cloud/Microsoft Azure/Amazon web service, etc.), with CWL or WDL, or simply on a single workstation.)</p>
+</div>
+</div>
+<div class="section" id="do-not-handle-batch-tasks-by-yourself">
+<h2>6. Do NOT handle batch tasks by yourself<a class="headerlink" href="#do-not-handle-batch-tasks-by-yourself" title="Permalink to this headline">¶</a></h2>
+<p>Some tasks may process a bunch of files with same arguments. This is called a batch task. Most of the time, batch tasks are considered as independent tasks and can be executed parallel. If you hard-coded the <code class="docutils literal notranslate"><span class="pre">for-loop</span></code> inside your script, these tasks can only be executed one by one. The <code class="docutils literal notranslate"><span class="pre">Workflow</span> <span class="pre">Playbook</span></code> help you to configure this kind of batch tasks. You may loop over some kinds of lists, e.g. file globs, list from csv or excel files. Developers should focus on building each task unit and need NOT worry about the parallel task executions, since there may be different kinds of task parallelism or no parallel environments at run time.</p>
+<p>Different kinds of adapters can handle the task parallelisms for you. For each task, developers configure ONE single task definition and the task can then be deployed on different run-time environments, e.g. a local workstation, High-Performance computing (HPC) clusters, cloud computings.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Please click here to see how to define a batch task with <a class="reference internal" href="../workflow-playbook/introduction.html"><span class="doc">the introduction of Workflow Playbook</span></a>.</p>
+</div>
+</div>
+<div class="section" id="be-careful-when-outputting-files-in-input-folders">
+<span id="dangeroutput"></span><h2>7. Be careful when outputting files in input folders<a class="headerlink" href="#be-careful-when-outputting-files-in-input-folders" title="Permalink to this headline">¶</a></h2>
+<p>Usually, we do NOT recommended writing files in input folders, since the file writing conflicts may occur. That is, multiple process may write data into the same file. Usually, the OS will lock the file for the first process, and other process will not have permissions to write data. Hence, the task will fail.</p>
+<p>Bio-Data Processor allows writing files into input folders because the output details are not tightly controled. We preserve the most flexible circumstances to run a task. However, be sure to create unique files under the input folders.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Please write output or temp files in the output files. If the intermediate temp files are not so important, you may consider to write temp files into the <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code> folder. Each task is independent in a docker container. Namely, the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> is not shared among different processes. In this way, you can write the temp file using the same name.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="build-docker-image.html" class="btn btn-neutral float-left" title="Building a Docker Image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

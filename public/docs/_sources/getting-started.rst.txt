@@ -2,13 +2,13 @@
 Getting Started
 ===============
 
-After 
+(coming soon)
 
 Install a package
 =================
 
-Create a project
-================
+Create the First Project
+========================
 
 Import a file
 =============

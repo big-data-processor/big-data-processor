@@ -3,18 +3,62 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+==============================================
 Welcome to Big Data Processor's documentation!
 ==============================================
+
+
+Towards the next generation of the web workbench for data scientists
+====================================================================
+
+Big Data Processor (BDP) is a generic, light-weight, yet complete and scalable workflow platform.
+This web workbench mainly focuses on the workflow **portability**, **reproducibility** and **scalability**.
+We try to break the borderlines of workflow management systems and traditional web service applications.
+Each analysis package of BDP is portable and can be easily installed on every BDP host.
+Also, a package carries its own developer-customized web pages that allow users to set parameters, execute workflows, and visualize workflow results interactively.
+The user experience of each BDP package can be just like a traditional web service app, so that developers no longer need to create one web service for each workflow.
+
+Portable and customizable web interface for workflows
+=====================================================
+
+Most workflow management systems only help us to execute and monitor workflows.
+After that, users offten have to find their way to explore results.
+Here, with BDP, workflow builders are allowed to freely develop web pages for their workflows 
+both to provide guidances for workflow executions and to provide interactive data visualizations.
+With these customized web pages, 
+users can therefore visualize results interactively right after workflow executions.
+
+In addition, a workflow might not be fully automated.
+Some steps may require additional checks to decide parameters for the following analysis.
+For such semi-automatic workflows, a traditional solution may be to construct a web services for each workflow.
+Now, developers can have another choise.
+With BDP, developers need NOT build another web application.
+Instead, developers can freely develop web pages to communicate to BDP server without worrying about the backend server scripts or task scheduling.
+We provide a javascript library so that developers do not have to handle HTTP request and response events by themselves.
+
+Our goal is to make development and execution of data analysis workflow **all on web pages!**
+=============================================================================================
+
+This web workbench provides built-in web interfaces for users to manage projects, execute workflows, monitoring tasks, and install packages.
+As for developers, BDP also offers built-in web pages to write scripts, define tasks, piping tasks into workflows, design web interfaces, and export these componets into portable packages.
+Packages of BDP are in a portable format that can be installed on every BDP hosts by just mouse clicks.
+Then, these workflows in the packages are ready to run with near-zero configurations!
+
+The coolest part is that our Page system also provides the web proxy functionality.
+Our Page system can not only serve the above mentioned customized web pages, but can also serve containerized web services or even desktop applications, such as R/Shiny apps, RStudio, Jupyter Notebook or Matlab IDE and many more!
+
+========
+Contents
+========
 
 .. toctree::
     :maxdepth: 1
 
-    Introduction<introduction>
     Installation<installation>
     Getting Started<getting-started>
 
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 1
     :caption: Fundamentals
 
     Concepts<fundamentals/concepts>
@@ -24,25 +68,29 @@ Welcome to Big Data Processor's documentation!
     Task Adapter<fundamentals/task-adapter>
 
 .. toctree::
-    :maxdepth: 4
-    :caption: Basic usages
+    :maxdepth: 1
+    :caption: User Manual
 
-    Manage projects
-    Import files
-    Execute tasks
-    Collect results
+    Basic UI Layout<user-manual/basic-ui-layout>
+    Account Management<user-manual/account-management>
+    Project Management<user-manual/project-management>
+    DataFile Management<user-manual/datafile-management>
+    Result Management<user-manual/result-management>
+    Customized Pages<user-manual/customized-pages>
+    Package Installation<user-manual/package-installation>
 
 .. toctree::
-    :maxdepth: 4
-    :caption: Package management
+    :maxdepth: 1
+    :caption: Developer Manual
 
-    Install packages
-    Configure runtime configurations
-    Task definitions
-    Workflow Constructions
+    Package Management<developer-manual/package-management>
+    Management of Your Scripts<developer-manual/script-management>
+    Basic Task Settings<developer-manual/basic-task-settings>
+    Advanced Task Settings<developer-manual/advanced-task-settings>
+    Customized web pages<developer-manual/customized-web-pages>
     
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 1
     :caption: Workflow Playbook
 
     Introduction<workflow-playbook/introduction>
@@ -52,56 +100,49 @@ Welcome to Big Data Processor's documentation!
     An Example on BDP<workflow-playbook/example>
 
 .. toctree::
-    :maxdepth: 4
-    :caption: Customized Page
+    :maxdepth: 1
+    :caption: The Page System
 
+    Introduction<page-system/introduction>
+    The Page API<page-system/page-api>
+    An example on BDP<page-system/example>
 
 
 .. toctree::
-    :maxdepth: 4
-    :caption: Task Adapter
+    :maxdepth: 1
+    :caption: Additional Notes
 
-.. toctree::
-    :maxdepth: 4
-    :caption: Tutorial
-
-    Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
-    Task deployment on Google Cloud Platform<tutorials/tutorial-task-deploy-GCP>
-    Non-root MongoDB Installation<tutorials/mongodb-non-root-installation>
+    Installation the mongoDB without root privileges<additional-notes/mongodb-non-root-installation>
+    Building a Docker Image<additional-notes/build-docker-image>
+    Prepare portable scripts<additional-notes/task-best-practice>
 
 
-
-.. For users<web-interface/the-web-interface-user>
-    For administrators<web-interface/the-web-interface-admin>
-    For pipeline developers<web-interface/the-web-interface-pipeline-dev>
-
-
-
-.. Best practice to plan your tasks<pipieline-development/task-best-practice>
-    Manage Packages
-    Define Tasks<pipieline-development/task-definition>
-    Pipe your Tasks into workflows
-    Customized Pages for your workflows
-    Building package container<pipieline-development/bdp-package-container>
-    Create your package list<pipieline-development/create-package-registry>
-
-.. toctree::
-    :maxdepth: 4
-    :caption: System Administrations
-
-    User managment
-    Package Installations
-    Handling Adapters
-    Enable Google 3rd party sign-in<administration/allow-google-sign-in>
-    Enable Google reCAPTCHA
-    Enable Email Verifications
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+.. 
+    .. toctree::
+        :maxdepth: 2
+        :caption: Customized Page
+    .. toctree::
+        :maxdepth: 4
+        :caption: Task Adapter
+    .. toctree::
+        :maxdepth: 4
+        :caption: Tutorial
+        Full steps to construct a pipeline<tutorials/tutorial-full-step-pipelines>
+        Non-root MongoDB Installation<tutorials/mongodb-non-root-installation>
+    .. Best practice to plan your tasks<pipieline-development/task-best-practice>
+        Manage Packages
+        Define Tasks<pipieline-development/task-definition>
+        Pipe your Tasks into workflows
+        Customized Pages for your workflows
+        Building package container<pipieline-development/bdp-package-container>
+        Create your package list<pipieline-development/create-package-registry>
+    .. toctree::
+        :maxdepth: 4
+        :caption: System Administrations
+    .. 
+        User managment
+        Package Installations
+        Handling Adapters
+        Enable Google 3rd party sign-in<administration/allow-google-sign-in>
+        Enable Google reCAPTCHA
+        Enable Email Verifications

@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started" href="getting-started.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="prev" title="Welcome to Big Data Processor’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,10 +90,9 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">1. Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2. Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#get-the-released-files">2.1 Get the released files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-file-structure">2.2 The file structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-dependencies">2.3 Install dependencies</a></li>
@@ -120,6 +119,24 @@
 <li class="toctree-l1"><a class="reference internal" href="fundamentals/system-architecture.html">System Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentals/task-adapter.html">Task Adapter</a></li>
 </ul>
+<p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/basic-ui-layout.html">Basic UI Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/project-management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/datafile-management.html">DataFile Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/result-management.html">Result Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/customized-pages.html">Customized Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manual/package-installation.html">Package Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer-manual/package-management.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-manual/script-management.html">Management of Your Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-manual/basic-task-settings.html">Basic Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-manual/advanced-task-settings.html">Advanced Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-manual/customized-web-pages.html">Customized web pages</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Workflow Playbook</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="workflow-playbook/introduction.html">Introduction</a></li>
@@ -128,15 +145,17 @@
 <li class="toctree-l1"><a class="reference internal" href="workflow-playbook/filter-functions.html">Filter Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow-playbook/example.html">An Example on BDP</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">The Page System</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page-system/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page-system/page-api.html">The Page API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page-system/example.html">An example on BDP</a></li>
 </ul>
-<p class="caption"><span class="caption-text">System Administrations</span></p>
+<p class="caption"><span class="caption-text">Additional Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-notes/mongodb-non-root-installation.html">Installation the mongoDB without root privileges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-notes/build-docker-image.html">Building a Docker Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-notes/task-best-practice.html">Prepare portable scripts</a></li>
 </ul>
 
             
@@ -209,7 +228,7 @@
 <p class="admonition-title">Note</p>
 <p><strong>TL;DR</strong></p>
 <ol class="arabic">
-<li><p>Install <a class="reference external" href="https://nodejs.org">NodeJS</a> , <a class="reference external" href="https://git-scm.com/">Git</a> and <a class="reference external" href="https://www.docker.com/">Docker</a> .</p></li>
+<li><p>Install NodeJS, Git, and Docker.</p></li>
 <li><p>Use the following commands to start the server with default configurations.</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/big-data-processor/big-data-processor.git
@@ -240,7 +259,7 @@ npm install
 </div>
 <div class="section" id="prerequisites">
 <h2>1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Big Data Processor (BDP) requires <a class="reference external" href="https://nodejs.org/en/">NodeJS</a> and <a class="reference external" href="https://www.mongodb.com/">MongoDB</a> to work.</p>
+<p>Big Data Processor (BDP) requires <a class="reference external" href="https://nodejs.org/">NodeJS</a> and <a class="reference external" href="https://www.mongodb.com/">MongoDB</a> to work.</p>
 <p>We encourage you also install and setup the <a class="reference external" href="https://www.docker.com/get-docker">Docker</a>, since the server can help you to automatically create and set up a containerzied mongoDB instance.</p>
 <p>To further ease the installation and update processes, we recommended you to install the <a class="reference external" href="https://git-scm.com/">Git</a>, which is a version controling tool.</p>
 <p>Please make sure that you can directly use commands like <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">-v</span></code> to check the installed versions.
@@ -253,8 +272,8 @@ Due to <a class="reference external" href="https://docs.docker.com/engine/securi
 you might want to create an account without the sudo prvilege. Use this non-root account to start the BDP server.</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>2. Installation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>2. Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="get-the-released-files">
 <h3>2.1 Get the released files<a class="headerlink" href="#get-the-released-files" title="Permalink to this headline">¶</a></h3>
 <p>Use either of the followings.
@@ -438,7 +457,7 @@ Please see the Getting Started session.</p>
         <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Big Data Processor’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

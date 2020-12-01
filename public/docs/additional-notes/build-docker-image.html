@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building a Docker Image &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guidelines to plan tasks into packages on Big Data Processor" href="task-best-practice.html" />
+    <link rel="prev" title="MongoDB Non-Root Installation" href="mongodb-non-root-installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/basic-ui-layout.html">Basic UI Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/project-management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/datafile-management.html">DataFile Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/result-management.html">Result Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/customized-pages.html">Customized Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/package-installation.html">Package Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/package-management.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/script-management.html">Management of Your Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/basic-task-settings.html">Basic Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/advanced-task-settings.html">Advanced Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/customized-web-pages.html">Customized web pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The Page System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/page-api.html">The Page API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/example.html">An example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mongodb-non-root-installation.html">Installation the mongoDB without root privileges</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a Docker Image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-image">1. Base Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-required-packages-libraries-that-needs-root-privileges">2. Install required packages/libraries that needs root privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-required-packages-libraries-that-need-not-root-privileges">3. Install required packages/libraries that need NOT root privileges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#when-the-tools-are-already-in-conda">When the tools are already in <cite>conda</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-tools-need-to-be-downloaded-from-internet">When tools need to be downloaded from internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-from-the-source-code">Build from the source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copy-the-scripts-or-files-from-other-third-party-library">Copy the scripts or files from other third party library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-packages-via-package-manager-s-that-do-not-need-the-root-privilege">Install packages via package manager(s) that do not need the root privilege</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#building-from-dockerfile">4. Building from Dockerfile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#volume-mapping-from-host-folders-to-docker-containers">Volume mapping from host folders to docker containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="task-best-practice.html">Prepare portable scripts</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Building a Docker Image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/additional-notes/build-docker-image.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-a-docker-image">
+<h1>Building a Docker Image<a class="headerlink" href="#building-a-docker-image" title="Permalink to this headline">¶</a></h1>
+<p>This document explains how to quickly prepare a Docker image from <a class="reference external" href="https://hub.docker.com/r/biocontainers/biocontainers">the biocontainers base image</a>.
+The biocontainers base image have a pre-installed conda environments.
+The container is recommended to contain only the dependent libraries for your codes to run, so that you do not have to build a new image every time you modify your scripts.
+The BDP mounts your codes to the container on the fly.</p>
+<p>Let’s start by explaining how the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is written.</p>
+<div class="section" id="base-image">
+<h2>1. Base Image<a class="headerlink" href="#base-image" title="Permalink to this headline">¶</a></h2>
+<p>We use the <a class="reference external" href="https://biocontainers.pro/">biocontainers</a> as our base image. You may see <a class="reference external" href="https://hub.docker.com/r/biocontainers/biocontainers/~/dockerfile/">their Dockerfile</a>.
+The following instruction shows that our package image is based on the <code class="docutils literal notranslate"><span class="pre">bioconductors/bioconductions</span></code> image.</p>
+<div class="highlight-Docker notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">biocontainers/biocontainers:latest</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">biocontainers/biocontainers</span></code> image is built on top of <code class="docutils literal notranslate"><span class="pre">ubuntu:16.04</span></code>. All modifications can be traced back based on its <cite>dockerfile</cite>.
+It creates an account <cite>biodocker</cite> and installed several useful tools such as <cite>conda</cite> for developers to install their dependent packages/libraries.</p>
+</div>
+<div class="section" id="install-required-packages-libraries-that-needs-root-privileges">
+<h2>2. Install required packages/libraries that needs root privileges<a class="headerlink" href="#install-required-packages-libraries-that-needs-root-privileges" title="Permalink to this headline">¶</a></h2>
+<p>The following snippet in the <cite>dockerfile</cite> file instructs the Docker to build your image with the instructions.
+The <cite>RUN</cite> instruction shows you to install the latest NodeJS version for demonstration.</p>
+<p>You may also install other packages/scripts that require root privileges.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The dockerfile reference: <a class="reference external" href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></p>
+</div>
+<div class="highlight-Docker notranslate"><div class="highlight"><pre><span></span><span class="k">USER</span><span class="s"> root</span>
+<span class="k">ENV</span> <span class="nv">NODE_PATH</span><span class="o">=</span>/usr/lib/node_modules
+<span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    curl -sL https://deb.nodesource.com/setup_10.x <span class="p">|</span> bash - <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get install -y nodejs <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get purge --auto-remove -y curl
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can see the commands after the <cite>RUN</cite> instructions as if you are using the Linux operation system.
+Instead of using multiple RUN instructions, using <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span> <span class="pre">\</span></code> to organize multiple commands into multi-lines. This will reduce the layers of cached images.
+use <code class="docutils literal notranslate"><span class="pre">'\'</span></code> to split one long line of a command into multi-lines.</p>
+</div>
+</div>
+<div class="section" id="install-required-packages-libraries-that-need-not-root-privileges">
+<h2>3. Install required packages/libraries that need NOT root privileges<a class="headerlink" href="#install-required-packages-libraries-that-need-not-root-privileges" title="Permalink to this headline">¶</a></h2>
+<p>Because the <cite>biocontainers</cite> image has created a user account <code class="docutils literal notranslate"><span class="pre">biodocker</span></code>, you can switch to the biodocker account to install the required packages or libraries.
+The following snippet showing how to switch the user to <cite>biodocker</cite> (from <cite>root</cite>).</p>
+<div class="highlight-Docker notranslate"><div class="highlight"><pre><span></span><span class="k">USER</span><span class="s"> biodocker</span>
+</pre></div>
+</div>
+<p>The followings show four ways to install the required packages:</p>
+<div class="section" id="when-the-tools-are-already-in-conda">
+<h3>When the tools are already in <cite>conda</cite><a class="headerlink" href="#when-the-tools-are-already-in-conda" title="Permalink to this headline">¶</a></h3>
+<p>Default conda channels <code class="docutils literal notranslate"><span class="pre">r</span></code> and <code class="docutils literal notranslate"><span class="pre">bioconda</span></code> were already set in the biocontainers base image, you can directly use these channels.
+Or you may need the <code class="docutils literal notranslate"><span class="pre">-c</span></code> argument to specify the channel. (e.g. <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">nodejs</span></code>)</p>
+<p>You may also find other conda packages from the <a class="reference external" href="https://anaconda.org/">anaconda website</a>.</p>
+<div class="highlight-Docker notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> conda install r-base<span class="o">=</span><span class="m">3</span>.3.2 <span class="se">\</span>
+                  <span class="nv">samtools</span><span class="o">=</span><span class="m">1</span>.4 <span class="se">\</span>
+                  <span class="nv">bwa</span><span class="o">=</span><span class="m">0</span>.7.15 <span class="se">\</span>
+                  <span class="nv">fastqc</span><span class="o">=</span><span class="m">0</span>.11.5 <span class="se">\</span>
+                  cutadapt
+</pre></div>
+</div>
+<p>Although it is optional, but is best to specify the version of these required packages/libraries.</p>
+</div>
+<div class="section" id="when-tools-need-to-be-downloaded-from-internet">
+<h3>When tools need to be downloaded from internet<a class="headerlink" href="#when-tools-need-to-be-downloaded-from-internet" title="Permalink to this headline">¶</a></h3>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> to retrieve contents from internet.
+Remember to clean unneeded files that do not need after installation.</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> mkdir -p /tmp/trim_galore <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">cd</span> /tmp/trim_galore <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    wget http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/trim_galore_v0.4.3.zip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    unzip /tmp/trim_galore/trim_galore_v0.4.3.zip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    mv trim_galore /home/biodocker/bin/trim_galore <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    rm -rf /tmp/trim_galore
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-from-the-source-code">
+<h3>Build from the source code<a class="headerlink" href="#build-from-the-source-code" title="Permalink to this headline">¶</a></h3>
+<p>The following code block demonstrates an example to download the compressed source code. You need to decompress the file(s) and then build the executable from source codes. You may keep only the binary executable files. You might want to set the file to be executable by setting <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">755</span> <span class="pre">your-executable-file</span></code>. Remember to remove all unneeded files.</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="nb">cd</span> /tmp <span class="o">&amp;&amp;</span> wget http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.636.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    tar zxvf DBI-1.636.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">cd</span> /tmp/DBI-1.636 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    perl Makefile.PL <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make <span class="nb">test</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make install <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    rm -rf /tmp/DBI-1.636 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    rm -f /tmp/DBI-1.636.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="copy-the-scripts-or-files-from-other-third-party-library">
+<h3>Copy the scripts or files from other third party library<a class="headerlink" href="#copy-the-scripts-or-files-from-other-third-party-library" title="Permalink to this headline">¶</a></h3>
+<p>You may arrange files into your own file structures. It is possible to directly copy files to the package container. Putting your files inside <cite>/home/biodocker/</cite> directory since this is the default home directory.</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">COPY</span> --chown<span class="o">=</span>biodocker:biodocker <span class="o">[</span><span class="s2">&quot;./scripts-inside-container&quot;</span>, <span class="s2">&quot;/home/biodocker/scripts/&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>More information about the <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#copy">COPY instructions can be found</a>.</p>
+</div>
+<div class="section" id="install-packages-via-package-manager-s-that-do-not-need-the-root-privilege">
+<h3>Install packages via package manager(s) that do not need the root privilege<a class="headerlink" href="#install-packages-via-package-manager-s-that-do-not-need-the-root-privilege" title="Permalink to this headline">¶</a></h3>
+<p>If your scripts require <code class="docutils literal notranslate"><span class="pre">npm</span></code> packages and a <cite>package.json</cite> is provided in the folder <cite>/home/biodocker/scripts</cite>, you may need to run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code> inside that folder.
+In fact, you may install required packages/libraries as if you are using a linux system. For example, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> to install python packages may be suitable for your needs.</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="nb">cd</span> /home/biodocker/scripts <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    npm install <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    npm cache clean
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-from-dockerfile">
+<h2>4. Building from Dockerfile<a class="headerlink" href="#building-from-dockerfile" title="Permalink to this headline">¶</a></h2>
+<p>In the directory where the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> locates, call <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">'your-docker-image-name'</span> <span class="pre">.</span></code>.
+(Don’t forget the last <code class="docutils literal notranslate"><span class="pre">.</span></code> in your command, that specifies the Dockerfile locations, which is the current working directory <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is recommended to use <a class="reference external" href="https://gitlab.com/">gitlab</a> to save your scripts as well as the container registry. It is free for personal use.</p>
+</div>
+<div class="section" id="volume-mapping-from-host-folders-to-docker-containers">
+<h3>Volume mapping from host folders to docker containers<a class="headerlink" href="#volume-mapping-from-host-folders-to-docker-containers" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://docs.docker.com/engine/reference/run/#volume-shared-filesystems">VOLUME mapping</a> is <strong>automatically processed</strong> in Big Data Processor.
+The Docker Adapter mounts the project folder and the package folder to the container with the paths <code class="docutils literal notranslate"><span class="pre">/project</span></code> and <code class="docutils literal notranslate"><span class="pre">/pacakge</span></code> folders, respectively.
+This means your scripts that editing on the BDP can be accessed in the <code class="docutils literal notranslate"><span class="pre">/package/scripts</span></code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>To fully understand how to map volumes between hosts and containers, please read the <a class="reference external" href="https://docs.docker.com/engine/reference/run/">docker run reference</a> (the <code class="docutils literal notranslate"><span class="pre">-v</span></code> part).</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="task-best-practice.html" class="btn btn-neutral float-right" title="Guidelines to plan tasks into packages on Big Data Processor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mongodb-non-root-installation.html" class="btn btn-neutral float-left" title="MongoDB Non-Root Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Task Adapter &mdash; Big Data Processor  documentation</title>
+  <title>Task Adapters &mdash; Big Data Processor  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction of Workflow Playbook" href="../workflow-playbook/introduction.html" />
+    <link rel="next" title="Basic Layout of the User Interface" href="../user-manual/basic-ui-layout.html" />
     <link rel="prev" title="System Architecture" href="system-architecture.html" /> 
 </head>
 
@@ -90,7 +90,6 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
 </ul>
@@ -108,6 +107,24 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/basic-ui-layout.html">Basic UI Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/project-management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/datafile-management.html">DataFile Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/result-management.html">Result Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/customized-pages.html">Customized Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-manual/package-installation.html">Package Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/package-management.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/script-management.html">Management of Your Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/basic-task-settings.html">Basic Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/advanced-task-settings.html">Advanced Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/customized-web-pages.html">Customized web pages</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Workflow Playbook</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
@@ -116,15 +133,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">The Page System</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-full-step-pipelines.html">Full steps to construct a pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorial-task-deploy-GCP.html">Task deployment on Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/mongodb-non-root-installation.html">Non-root MongoDB Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/page-api.html">The Page API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/example.html">An example on BDP</a></li>
 </ul>
-<p class="caption"><span class="caption-text">System Administrations</span></p>
+<p class="caption"><span class="caption-text">Additional Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../administration/allow-google-sign-in.html">Enable Google 3rd party sign-in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional-notes/mongodb-non-root-installation.html">Installation the mongoDB without root privileges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional-notes/build-docker-image.html">Building a Docker Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional-notes/task-best-practice.html">Prepare portable scripts</a></li>
 </ul>
 
             
@@ -171,7 +190,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Task Adapter</li>
+      <li>Task Adapters</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,9 +209,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="task-adapter">
-<h1>Task Adapter<a class="headerlink" href="#task-adapter" title="Permalink to this headline">¶</a></h1>
-<p>Task Adapter helps to deploy, execute, and monitor tasks on various computing environments.</p>
+  <div class="section" id="task-adapters">
+<h1>Task Adapters<a class="headerlink" href="#task-adapters" title="Permalink to this headline">¶</a></h1>
+<p>Task Adapters help to deploy, execute, and monitor tasks on various computing environments.</p>
 <p>To execute a Task, the BDP system spawns an Adapter process that handles the user-specified arguments,
 reads the runtime configurations and parse the <a class="reference external" href="./terms.html#workflow-playbook">Workflow Playbook</a>.
 Both runtime configuration and Workflow Playbook can be directly defined on the web pages provided by BDP,
@@ -238,7 +257,7 @@ The above <code class="docutils literal notranslate"><span class="pre">taskOverr
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../workflow-playbook/introduction.html" class="btn btn-neutral float-right" title="Introduction of Workflow Playbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../user-manual/basic-ui-layout.html" class="btn btn-neutral float-right" title="Basic Layout of the User Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="system-architecture.html" class="btn btn-neutral float-left" title="System Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

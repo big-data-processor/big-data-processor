@@ -7,7 +7,7 @@ Big Data Processor is a cross-platform, web-based workbench. You can host the se
 .. note::
     **TL;DR**
 
-    1. Install `NodeJS <https://nodejs.org>`_ , `Git <https://git-scm.com/>`_ and `Docker <https://www.docker.com/>`_ .
+    1. Install NodeJS, Git, and Docker.
     2. Use the following commands to start the server with default configurations.
 
         .. code-block:: shell
@@ -34,7 +34,7 @@ Big Data Processor is a cross-platform, web-based workbench. You can host the se
 1. Prerequisites
 ----------------
 
-Big Data Processor (BDP) requires `NodeJS <https://nodejs.org/en/>`_ and `MongoDB <https://www.mongodb.com/>`_ to work.
+Big Data Processor (BDP) requires `NodeJS <https://nodejs.org/>`_ and `MongoDB <https://www.mongodb.com/>`_ to work.
 
 We encourage you also install and setup the `Docker <https://www.docker.com/get-docker>`_, since the server can help you to automatically create and set up a containerzied mongoDB instance.
 

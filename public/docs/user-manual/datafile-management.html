@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DataFile Management &mdash; Big Data Processor  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Result Management" href="result-management.html" />
+    <link rel="prev" title="Project Management" href="project-management.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Big Data Processor
+          
+
+          
+            
+            <img src="../_static/bdp-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Fundamentals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/terms.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/privilege.html">Privilege</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/system-architecture.html">System Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentals/task-adapter.html">Task Adapter</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basic-ui-layout.html">Basic UI Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management.html">Project Management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DataFile Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#view-datafile-list-in-a-project">View DataFile List in a Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#batch-editing-datafile-records">Batch Editing DataFile Records</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#edit-a-datafile-record">Edit a DataFile record</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-files-to-create-datafile-records">Import Files to create DataFile records</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-fields">Specifying Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-tag-helper">The Tag Helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-sources">File Sources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#local-computer">Local Computer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-an-empty-folder">Creating an Empty Folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-a-file-folder-on-the-server">Import a file/folder on the server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#google-drive">Google Drive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="result-management.html">Result Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customized-pages.html">Customized Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package-installation.html">Package Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/package-management.html">Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/script-management.html">Management of Your Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/basic-task-settings.html">Basic Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/advanced-task-settings.html">Advanced Task Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-manual/customized-web-pages.html">Customized web pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Workflow Playbook</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/filter-functions.html">Filter Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-playbook/example.html">An Example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The Page System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/page-api.html">The Page API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page-system/example.html">An example on BDP</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional-notes/mongodb-non-root-installation.html">Installation the mongoDB without root privileges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional-notes/build-docker-image.html">Building a Docker Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional-notes/task-best-practice.html">Prepare portable scripts</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Big Data Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DataFile Management</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user-manual/datafile-management.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datafile-management">
+<h1>DataFile Management<a class="headerlink" href="#datafile-management" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="view-datafile-list-in-a-project">
+<h2>View DataFile List in a Project<a class="headerlink" href="#view-datafile-list-in-a-project" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/datafile-list.gif"><img alt="../_images/datafile-list.gif" src="../_images/datafile-list.gif" style="width: 600px;" /></a>
+<div class="section" id="batch-editing-datafile-records">
+<h3>Batch Editing DataFile Records<a class="headerlink" href="#batch-editing-datafile-records" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/datafile-list-batch-editing.gif"><img alt="../_images/datafile-list-batch-editing.gif" src="../_images/datafile-list-batch-editing.gif" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="edit-a-datafile-record">
+<h2>Edit a DataFile record<a class="headerlink" href="#edit-a-datafile-record" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/datafile-edit-metadata.gif"><img alt="../_images/datafile-edit-metadata.gif" src="../_images/datafile-edit-metadata.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="import-files-to-create-datafile-records">
+<h2>Import Files to create DataFile records<a class="headerlink" href="#import-files-to-create-datafile-records" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="specifying-fields">
+<h3>Specifying Fields<a class="headerlink" href="#specifying-fields" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/datafile-import-specify-fields.gif"><img alt="../_images/datafile-import-specify-fields.gif" src="../_images/datafile-import-specify-fields.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="the-tag-helper">
+<h3>The Tag Helper<a class="headerlink" href="#the-tag-helper" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/datafile-import-tag-helper.gif"><img alt="../_images/datafile-import-tag-helper.gif" src="../_images/datafile-import-tag-helper.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="file-sources">
+<h3>File Sources<a class="headerlink" href="#file-sources" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="local-computer">
+<h4>Local Computer<a class="headerlink" href="#local-computer" title="Permalink to this headline">¶</a></h4>
+<a class="reference internal image-reference" href="../_images/datafile-import-source-local.gif"><img alt="../_images/datafile-import-source-local.gif" src="../_images/datafile-import-source-local.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="creating-an-empty-folder">
+<h4>Creating an Empty Folder<a class="headerlink" href="#creating-an-empty-folder" title="Permalink to this headline">¶</a></h4>
+<a class="reference internal image-reference" href="../_images/datafile-import-source-new-folder.gif"><img alt="../_images/datafile-import-source-new-folder.gif" src="../_images/datafile-import-source-new-folder.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="import-a-file-folder-on-the-server">
+<h4>Import a file/folder on the server<a class="headerlink" href="#import-a-file-folder-on-the-server" title="Permalink to this headline">¶</a></h4>
+<a class="reference internal image-reference" href="../_images/datafile-import-source-server.gif"><img alt="../_images/datafile-import-source-server.gif" src="../_images/datafile-import-source-server.gif" style="width: 600px;" /></a>
+</div>
+<div class="section" id="google-drive">
+<h4>Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h4>
+<p>The server needs to configure to enable this feaure.
+The server administrator has to apply the Google Picker API from Google.
+Then, specify the Google Picker API key to the field <code class="docutils literal notranslate"><span class="pre">GooglePicker.apiKey</span></code> in the <code class="docutils literal notranslate"><span class="pre">server-config.yaml</span></code> file.
+You might need to restart the server to apply the new settings.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="result-management.html" class="btn btn-neutral float-right" title="Result Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="project-management.html" class="btn btn-neutral float-left" title="Project Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Chi Yang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

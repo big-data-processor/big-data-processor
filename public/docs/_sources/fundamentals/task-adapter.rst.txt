@@ -1,8 +1,8 @@
-============
-Task Adapter
-============
+=============
+Task Adapters
+=============
 
-Task Adapter helps to deploy, execute, and monitor tasks on various computing environments.
+Task Adapters help to deploy, execute, and monitor tasks on various computing environments.
 
 
 To execute a Task, the BDP system spawns an Adapter process that handles the user-specified arguments, 

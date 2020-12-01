@@ -147,7 +147,7 @@ Task Adapter
 The BDP system deploy tasks on various computing resources through Task Adapters. For each of different computing environments, a corresponding Task Adapter can be implemented and extended from a base class.
 An adapter provides a queue to schedule job executions, monitor job status, and record job messeages such as standard outputs and errors. An adpater may need to synchronize files if jobs are executed remotely. 
 
-For more information, please see the :ref:`Task Adapter section <../fundamentals/task-adapter>`.
+For more information, please see the :doc:`Task Adapter section<../fundamentals/task-adapter>`.
 
 
 Page
