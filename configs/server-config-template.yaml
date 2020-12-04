@@ -86,3 +86,5 @@ system:
 #  clientID: your-google-client-id
 #  clientSecret: your-google-client-secrete
 
+#GooglePicker:
+#  apiKey: your-google-api-key
