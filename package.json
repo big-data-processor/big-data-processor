@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@big-data-processor/example-filters": "^0.8.1",
-    "@big-data-processor/task-adapter-docker": "^0.8.9",
+    "@big-data-processor/task-adapter-docker": "^0.8.10",
     "@big-data-processor/task-reader": "^0.8.8",
     "@big-data-processor/utilities": "^0.8.6",
     "@hapi/iron": "^6.0.0",
