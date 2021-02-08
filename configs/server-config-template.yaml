@@ -17,6 +17,7 @@ mongoDB:
   mongoHost: localhost
   mongoPort: 27017
   containerName: bdp-mongo # If the above db connection failed, the server tries to initiate a mongoDB instance through docker
+  containerType: linux # linux or windows
   dockerVolumeName: bdp-mongo-data # the docker volume name for the MongoDB container instance storages
 home:  # The information is displayed on the home page. (In a future updates, we will enable customized home page.)
   maintainer: your@email.com
