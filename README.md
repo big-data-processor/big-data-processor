@@ -1,6 +1,8 @@
 # The Big Data Processor workbench
 
-This is a production repo of Big Data Processor.
+## This repo is going to be deprecated since this workbench is renamed to [BD-Processor](https://github.com/big-data-processor/bd-processor).
+
+## Please change the repository to [BD-Processor](https://github.com/big-data-processor/bd-processor). Sorry for the inconvenience.
 
 The Big Data Processor (BDP) is a generic web-based workflow management system with the capability of serving fully-customized web pages.
 ### Our goal is to provide a lightweight, yet full-featured data workbench.
